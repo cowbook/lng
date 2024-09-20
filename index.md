@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "LNG"
-  text: "LNG Cookbook"
-  tagline: My great project tagline
+  text: "LNG烹饪手册"
+  tagline: LNG贸易入门手册
   actions:
     - theme: brand
       text: Markdown Examples
