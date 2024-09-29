@@ -28,12 +28,12 @@ export default defineConfig({
     }
   },
   head: [
-      ['link', { rel: 'icon', href: '/lng/lng.ico'}],
+      ['link', { rel: 'icon', href: '/lng.ico'}],
   ], // 加上 /vite-press-demo 前缀
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     i18nRouting:true,
-    logo:"/lng.png",
+    logo:"/images/lng.png",
     nav: [
       { text: '主页', link: '/' },
       { text: '基础', link: '/basis/lng' }
