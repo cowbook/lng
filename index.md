@@ -8,7 +8,7 @@ hero:
   tagline: 贸易、行情、报告与研究工具
 
   image:
-    src: /lng.png
+    src: /images/lng.png
     alt: LNG LOGO
 
 
