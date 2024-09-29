@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Lng Cool",
-  base: '/lng/',
+  //base: '/lng/',
   description: "LNG Cookbook",
   markdown: {
     math: true
@@ -35,7 +35,7 @@ export default defineConfig({
     i18nRouting:true,
     logo:"/lng.png",
     nav: [
-      { text: 'Home', link: '/' },
+      { text: '主页', link: '/' },
       { text: '基础', link: '/basis/lng' }
     ],
 
