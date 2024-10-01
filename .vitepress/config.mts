@@ -16,7 +16,7 @@ export default defineConfig({
     en: {
       label: 'English',
       lang: 'en', // 可选，将作为 `lang` 属性添加到 `html` 标签中
-      link: '/en/index', // 默认 /fr/ -- 显示在导航栏翻译菜单上，可以是外部的,
+      link: '/en/', // 默认 /fr/ -- 显示在导航栏翻译菜单上，可以是外部的,
       themeConfig:{
         nav: [
           { text: 'Home', link: '/' },
@@ -38,7 +38,7 @@ export default defineConfig({
       { text: '主页', link: '/' },
       { text: '基础', link: '/basis/lng' }
     ],
-
+    //aside:"left",
     sidebar: {
 
       "/test/":[
