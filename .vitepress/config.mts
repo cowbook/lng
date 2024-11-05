@@ -57,6 +57,11 @@ export default defineConfig({
           items:[
             { text: 'LNG', link: '/basis/lng' },
             { text: 'LNG贸易', link: '/basis/trade' },
+            { text: '主要玩家', items:[
+              { text: '卡塔尔', link: '/player/qatar' }
+
+
+            ]}
 
           ]
 
