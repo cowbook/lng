@@ -3,6 +3,16 @@
    
 }
 
+.cover{
+    width:190px;
+    display: block;
+    margin:100px 30px 30px 30px;
+    /*position: absolute;*/
+    
+    
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+}
+
 .VPLink.VPFeature .title{
     font-size:30px;
 }
