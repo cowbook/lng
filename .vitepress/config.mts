@@ -80,9 +80,9 @@ export default defineConfig({
 
             ]},
 
-            { text: '中国接收站', items:[
-              { text: '大鹏', link: '/basis/termiaal/dapeng' },
-              { text: '盐城滨海', link: '/basis/termiaal/binghai' }
+            { text: '中国接收站', link:'/basis/terminal/',items:[
+              { text: '大鹏', link: '/basis/terminal/dapeng' },
+              { text: '盐城滨海', link: '/basis/terminal/yanchengbinghai' }
               
 
 
