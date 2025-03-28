@@ -36,7 +36,7 @@ export default defineConfig({
     logo:"/images/lng.png",
     nav: [
       { text: '主页', link: '/' },
-      { text: '基础', link: '/basis/lng' }
+      { text: '基础手册', link: '/basis/lng' }
     ],
     //aside:"left",
     sidebar: {
@@ -53,12 +53,29 @@ export default defineConfig({
 
       "/basis/":[
         {
-          text:"基本概念",
+          text:"基础手册",
+
           items:[
-            { text: 'LNG', link: '/basis/lng' },
-            { text: 'LNG贸易', link: '/basis/trade' },
+            { text: '1 LNG', link: '/basis/lng' ,
+                items:[
+                  {text:'1.1 质量标准', link:'/basis/lng-2'},
+                  {text:'1.2 单位换算' ,link:'/basis/lng-1'}
+                ]
+
+             },
+
+            { text: '2 国际贸易', link: '/basis/trade',items:[
+
+              { text: '2.1 发展趋势', link: '/basis/trade2024' },
+              { text: '2.2 发展历史', link: '/basis/history' },
+              { text: '2.3 贸易类型' , link:'/basis/types'}
+            ] },
+
+            { text: 'LNG产业链', link: '/basis/lng-industry' },
+         
             { text: '主要玩家', items:[
-              { text: '卡塔尔', link: '/player/qatar' }
+              { text: '卡塔尔', link: '/basis/player/qatar' },
+              { text: 'ADNOC', link: '/basis/player/adnoc' }
 
 
             ]}
@@ -71,7 +88,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/cowbook/lng' }
     ]
   }
 })
