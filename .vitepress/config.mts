@@ -78,6 +78,14 @@ export default defineConfig({
               { text: 'ADNOC', link: '/basis/player/adnoc' }
 
 
+            ]},
+
+            { text: '中国接收站', items:[
+              { text: '大鹏', link: '/basis/termiaal/dapeng' },
+              { text: '盐城滨海', link: '/basis/termiaal/binghai' }
+              
+
+
             ]}
 
           ]
