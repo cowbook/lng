@@ -23,21 +23,27 @@ hero:
 features:
 
   - icon: 🥥
-    title: 4.01亿吨
-    details: 2023年全球LNG贸易
+    title: 4.81亿吨18
+    details: 2024年全球LNG贸易
   
   - icon: 🍇
-    title: $13.86/mmBtu
+    title: $10.5/mmBtu
     details: 2023年JKM平均价格
   
   - icon: 🍌
-    title: 4.83亿吨/年
-    details: 至2024年1月液化能力（年）
+    title: 4.95亿吨/年
+    details: 至2024年底液化能力（年）
+   
   
   - icon: 🥝
-    title: 10.46 亿吨/年
-    details: 至2024年1月正在报建的液化能力
-
+    title: 10.6 亿吨/年
+    details: 至2024年底正在报建的液化能力
 
 ---
+
+## 2025 World LNG Report
+
+[2025 World LNG Report](https://www.igu.org/igu-reports/2025-world-lng-report/)
+
+[Download](https://www.datocms-assets.com/146580/1751026179-igu-world-lng-report-2025-hr_dp_c.pdf)
 
