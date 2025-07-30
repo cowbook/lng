@@ -16,3 +16,9 @@
 .VPLink.VPFeature .title{
     font-size:30px;
 }
+
+.lng-home .vp-doc.container p{
+    font-size:12px;
+    color:#666;
+    line-height: 1.4;
+}
