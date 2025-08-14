@@ -60,7 +60,7 @@ features:
 ## 研究报告
 
 <div style="display: flex; align-items: center;">
-  <img src="./images/image_202507301502.png" alt="2025 LNG Report" width="180" style="border-radius:10px"/>
+  <img src="/images/image_202507301502.png" alt="2025 LNG Report" width="180" style="border-radius:10px"/>
   <div style="margin-left: 24px;width:300px">
     <a target="_blank" style="text-decoration:none"
     href="https://www.igu.org/igu-reports/2025-world-lng-report/"> 📑 2025 World LNG Report</a><br>
