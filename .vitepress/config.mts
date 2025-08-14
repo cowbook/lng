@@ -36,7 +36,8 @@ export default defineConfig({
     logo:"/images/lng.png",
     nav: [
       { text: '主页', link: '/' },
-      { text: '基础手册', link: '/basis/lng' }
+      { text: '基础手册', link: '/basis/lng' },
+      { text: '接收站', link: '/basis/terminal' }
     ],
     //aside:"left",
     sidebar: {

@@ -8,7 +8,9 @@
 
 `
 npm install
-`
+
+## 架构
+vitepress
 
 
 # lng Cool
