@@ -74,7 +74,7 @@ features:
   </div>
   <div style="margin-left:auto;margin-top:-70px;flex-basis:510px">
   
-   <img src="./images/image_202507301509.png" style="width:500px">
+   <img src="/images/image_202507301509.png" style="width:500px">
   
   </div>
 </div>
