@@ -229,12 +229,3 @@
 
 
 
-
-
-
-## 接卸规模（2020-2040）
-![alt text](../images/terminal_2508141538.png)
-
-## 储罐容量（2020-2040）
-
-![alt text](../images/terminal_250814.png)
