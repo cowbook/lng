@@ -37,7 +37,7 @@ export default defineConfig({
     nav: [
       { text: '主页', link: '/' },
       { text: '基础手册', link: '/basis/lng' },
-      { text: '接收站', link: '/basis/terminal' }
+      { text: '接收站', link: '/terminal' }
     ],
     //aside:"left",
     sidebar: {
@@ -50,6 +50,31 @@ export default defineConfig({
             { text: 'Runtime API Examples', link: '/api-examples' }
           ]
         }
+      ],
+
+      "/terminal/":[
+
+            { text: '中国接收站', link:'/terminal/',items:[
+
+              { text: '大连LNG接收站', link: '/terminal/rt001' },
+              { text: '北海LNG接收站', link: '/terminal/rt002' },
+              { text: '迭福LNG接收站', link: '/terminal/rt003' },
+              { text: '天津LNG接收站', link: '/terminal/rt004' },
+              { text: '海南LNG接收站', link: '/terminal/rt005' },
+              { text: '粤东LNG接收站', link: '/terminal/rt006' },
+              { text: '漳州LNG接收站', link: '/terminal/rt007' },
+              { text: '防城港LNG接收站', link: '/terminal/rt008' },
+              { text: '大鹏LNG接收站', link: '/terminal/rt009' },
+              { text: '莆田LNG接收站', link: '/terminal/rt010' },
+              { text: '宁波LNG接收站', link: '/terminal/rt011' },
+              { text: '珠海LNG接收站', link: '/terminal/rt012' },
+              { text: '滨海LNG接收站', link: '/terminal/rt013' },
+              { text: '如东LNG接收站', link: '/terminal/rt014' },
+              
+
+
+            ]}
+
       ],
 
       "/basis/":[
@@ -79,15 +104,9 @@ export default defineConfig({
               { text: 'ADNOC', link: '/basis/player/adnoc' }
 
 
-            ]},
-
-            { text: '中国接收站', link:'/basis/terminal/',items:[
-              { text: '大鹏', link: '/basis/terminal/dapeng' },
-              { text: '盐城滨海', link: '/basis/terminal/yanchengbinghai' }
-              
-
-
             ]}
+
+        
 
           ]
 

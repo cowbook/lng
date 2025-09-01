@@ -48,11 +48,11 @@ features:
     details: 海上气化能力
 
   - icon: 🛥️
-    title:  742
+    title:  742条
     details: LNG运输船
 
   - icon: 🚤
-    title:  56
+    title:  56条
     details: LNG动力船
 
 ---
@@ -75,6 +75,25 @@ features:
   <div style="margin-left:auto;margin-top:-70px;flex-basis:510px">
   
    <img src="/images/image_202507301509.png" style="width:500px">
+  
+  </div>
+</div>
+
+<div style="display: flex; align-items: center;margin-top:22px">
+  <img src="/images/home_2509011642.png" alt="2025 LNG Report" width="180" style="border-radius:10px;border:1px #EEE solid;"/>
+  <div style="margin-left: 24px;width:400px">
+    <a target="_blank" style="text-decoration:none"
+    href="./report/China2025"> 📑 中国天然气发展报告 2025</a><br>
+
+2024年，世界天然气消费量4.13万亿立方米，同比增速由上年的  $0.1\%$  提升至  $2.5\%$  ，主要受国际气价下跌、全球经济温和复苏、北半球夏季极端高温等因素影响。
+
+欧洲实现近三年以来的首次正增长，全年消费量4687亿立方米，同比增长  $1.4\%$  ，主要是由于气价下跌刺激工业用气回升，但经济疲弱、风光核电出力增加抑制气电需求。北美地区全年天然气消费量1.1万亿立方米，同比增长  $1.3\%$  。其中，美国消费量9022亿立方米，同比增长  $1.3\%$  ，主要是发电用气增长带动。
+
+<a  target="_blank" href="https://www.nea.gov.cn/20250829/a4e2deb9b6444df1a191b9d60c111ffd/20250829a4e2deb9b6444df1a191b9d60c111ffd_43ab87a785d1b64d49b9210dbc15d3781e.pdf" sytle="margin-left:auto">⬇️ Download PDF</a>
+  </div>
+  <div style="margin-left:auto;margin-top:30px;flex-basis:510px">
+  
+   <img src="/images/home_2509011646.png" style="width:300px;margin-left:auto;margin-top:30px;">
   
   </div>
 </div>
