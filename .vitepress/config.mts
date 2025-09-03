@@ -70,9 +70,23 @@ export default defineConfig({
               { text: '珠海LNG接收站', link: '/terminal/rt012' },
               { text: '滨海LNG接收站', link: '/terminal/rt013' },
               { text: '如东LNG接收站', link: '/terminal/rt014' },
-              
-
-
+              { text: '河北唐山曹妃甸LNG接收站', link: '/terminal/rt015' },
+              { text: '海南深南LNG接收站', link: '/terminal/rt016' },
+              { text: '青岛LNG接收站', link: '/terminal/rt017' },
+              { text: '天津LNG接收站 - 中石化', link: '/terminal/rt018' },
+              { text: '申能洋山LNG接收站 - 申能集团', link: '/terminal/rt019' },
+              { text: '申能五号沟LNG接收站 - 申能集团', link: '/terminal/rt020' },
+              { text: '新奥舟山LNG接收站', link: '/terminal/rt021' },
+              { text: '广汇启东LNG接收站', link: '/terminal/rt022' },
+              { text: '新天曹妃甸LNG接收站', link: '/terminal/rt023' },
+              { text: '北燃天津LNG接收站', link: '/terminal/rt024' },
+              { text: '浙能温州LNG接收站', link: '/terminal/rt025' },
+              { text: '广东能源惠州LNG接收站', link: '/terminal/rt026' },
+              { text: '华瀛潮州LNG接收站', link: '/terminal/rt027' },
+              { text: '深燃华安LNG接收站', link: '/terminal/rt028' },
+              { text: '东莞九丰LNG接收站', link: '/terminal/rt029' },
+              { text: '杭嘉鑫平湖LNG接收站', link: '/terminal/rt030' },
+              { text: '广燃南沙LNG接收站', link: '/terminal/rt031' }
             ]}
 
       ],
