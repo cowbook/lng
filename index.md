@@ -9,7 +9,7 @@ hero:
   tagline: 贸易、行情、报告与研究工具
 
   image:
-    src: ./images/lng.png
+    src: ./images/lng_global.png
     alt: LNG LOGO
 
 
@@ -25,7 +25,7 @@ features:
 
   - icon: 🌊
     title: 4.1亿吨
-    details: 2024年全球LNG贸易
+    details: <div class="wave"><div class="wave1"></div><div class="wave2"></div><div class="wave3"></div></div><text>2024年全球LNG贸易 </text>
   
   - icon: 📈
     title: $11.9/mmBtu
@@ -58,6 +58,8 @@ features:
 ---
 
 ## 研究报告
+
+
 
 <div style="display: flex; align-items: center;">
   <img src="/images/image_202507301502.png" alt="2025 LNG Report" width="180" style="border-radius:10px"/>

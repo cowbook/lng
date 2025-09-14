@@ -8,13 +8,22 @@
     display: block;
     margin:100px 30px 30px 30px;
     /*position: absolute;*/
-    
-    
     box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
 }
 
+.VPImage.image-src{
+    width:200px;
+    filter: drop-shadow(0 0 10px rgba(0, 150, 255, 0.5)) 
+        drop-shadow(0 0 20px rgba(0, 110, 255, 0.3))
+        drop-shadow(0 0 30px rgba(0, 70, 255, 0.2));
+    /*filter:drop-shadow(-50px 40px 20px rgba(2, 35, 144, 0.2)) drop-shadow(50px 40px 20px rgba(2, 22, 43, 0.2)) drop-shadow(0px 40px 20px rgba(80, 3, 182, 0.2));
+        */
+}
+
+
 .VPLink.VPFeature .title{
     font-size:30px;
+
 }
 
 .lng-home .vp-doc.container p{
@@ -22,3 +31,84 @@
     color:#666;
     line-height: 1.4;
 }
+
+.VPLink.no-icon.VPFeature{
+
+    overflow: hidden;
+    animation: water-wave linear infinite;
+}
+
+.VPLink.no-icon.VPFeature .title,.VPLink.no-icon.VPFeature .icon {
+    z-index: 1;
+}
+
+.VPLink.no-icon.VPFeature .title,.VPLink.no-icon.VPFeature .details text{
+    position: relative;
+    z-index: 1;
+}
+
+
+.wave{
+            position: relative;
+            width: 100%;
+            height: 0px;
+            line-height: 50px;
+            margin: 0 auto;
+            font-size: 14px;
+            text-align: center;
+            overflow: visible;
+            animation: water-wave linear infinite;
+            z-index: 0;
+           
+        }
+        .wave1{
+            z-index: 0;
+            position: absolute;
+            top: -50px;
+            left: -95px;
+            background: #33cfff;
+            opacity: .7;
+            width: 725px;
+            height: 750px;
+            border-radius: 100%;
+            animation: inherit;
+            animation-duration: 5s;
+        }
+        .wave2{
+
+            z-index: 0;
+            position: absolute;
+            top: -50px;
+            left: -195px;
+            background: #27b0f5;
+            opacity: .4;
+            width: 625px;
+            height: 650px;
+            border-radius: 100%;
+            animation: inherit;
+            animation-duration: 7s;
+
+
+        }
+        .wave3{
+
+            z-index: 0;
+            position: absolute;
+            top: -50px;
+            left: -195px;
+            background: #69d8fd;
+            border:2px solid #69d8fd;
+            opacity: .6;
+            width: 525px;
+            height: 650px;
+            border-radius: 100%;
+            animation: inherit;
+            animation-duration: 11s;
+
+
+           
+        }
+        @keyframes  water-wave{
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
+        }
