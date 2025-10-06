@@ -4,9 +4,9 @@ layout: home
 pageClass: lng-home
 
 hero:
-  name: "LNG烹饪手册"
-  text:
-  tagline: 贸易、行情、报告与研究工具
+  name: "Lng Cool"
+  text: "LNG国际贸易烹饪手册"
+  tagline: 开源LNG贸易、行情、报告与研究工具
 
   image:
     src: ./images/lng_global.png
@@ -22,35 +22,35 @@ hero:
 
 features:
   - icon: 🌊
-    title: 4.1亿吨
+    title: 4.1 <b>亿吨</b>
     details: <div class="wave"><div class="wave1"></div><div class="wave2"></div><div class="wave3"></div></div><text>2024年全球LNG贸易 </text>
 
   - icon: 📈
-    title: $11.9/mmBtu
+    title: 11.9 <b>$/mmBtu</b>
     details: 2024年JKM平均价格
 
   - icon: ⚓
-    title: 4.94亿吨/年
+    title: 4.94 <b>亿吨/年</b>
     details: 液化能力（年）
 
   - icon: 💭
-    title: 10.6亿吨/年
+    title: 10.6 <b>亿吨/年</b>
     details: 气化能力（年）
 
   - icon: ⚗️
-    title: 11.2 亿吨/年
+    title: 11.2 <b>亿吨/年</b>
     details: 报建液化能力
 
   - icon: 💭
-    title: 2.1 亿吨/年
+    title: 2.1 <b>亿吨/年</b>
     details: 海上气化能力
 
   - icon: 🛥️
-    title: 742条
+    title: 742 <b>条</b>
     details: LNG运输船
 
   - icon: 🚤
-    title: 56条
+    title: 56 <b>条</b>
     details: LNG动力船
 ---
 

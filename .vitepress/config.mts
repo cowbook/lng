@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Lng Cool",
+  title: "Lng.Cool",
   //base: '/lng/',
   description: "LNG Cookbook",
   markdown: {
@@ -18,6 +18,26 @@ export default defineConfig({
       lang: 'en', // 可选，将作为 `lang` 属性添加到 `html` 标签中
       link: '/en/', // 默认 /fr/ -- 显示在导航栏翻译菜单上，可以是外部的,
       themeConfig:{
+          outline: [2, 4], // 新增这一行，表示显示 h2~h6 级标题
+         search: {
+          provider: "local",
+          options: {
+            translations: {
+              button: {
+                buttonText: "Search",
+                buttonAriaLabel: "Search",
+              },
+              modal: {
+                noResultsText: "No results found",
+                resetButtonTitle: "Clear query",
+                footer: {
+                  selectText: "Select",
+                  navigateText: "Navigate",
+                },
+              },
+            },
+          },
+        },
         nav: [
           { text: 'Home', link: '/' },
           { text: 'Basis', link: '/basis/lng' }
@@ -31,13 +51,34 @@ export default defineConfig({
       ['link', { rel: 'icon', href: '/lng.ico'}],
   ], // 加上 /vite-press-demo 前缀
   themeConfig: {
+      outline: [2, 4], // 新增这一行，表示显示 h2~h6 级标题
+    search: {
+      provider: "local",
+      options: {
+        translations: {
+          button: {
+            buttonText: "搜索文档",
+            buttonAriaLabel: "搜索文档",
+          },
+          modal: {
+            noResultsText: "无法找到相关结果",
+            resetButtonTitle: "清除查询条件",
+            footer: {
+              selectText: "选择",
+              navigateText: "切换",
+            },
+          },
+        },
+      },
+    },
     // https://vitepress.dev/reference/default-theme-config
     i18nRouting:true,
     logo:"/images/lng.png",
     nav: [
       { text: '主页', link: '/' },
+      { text: 'LNG贸易形势', link: '/trade/' },
       { text: '基础手册', link: '/basis/lng' },
-      { text: '接收站', link: '/terminal' }
+      { text: 'LNG接收站', link: '/terminal' }
     ],
     //aside:"left",
     sidebar: {
@@ -111,9 +152,13 @@ export default defineConfig({
               { text: '2.3 贸易类型' , link:'/basis/types'}
             ] },
 
-            { text: 'LNG产业链', link: '/basis/lng-industry' },
+            { text: '3 LNG产业链', link: '/basis/lng-industry' ,items:[
+              { text: '3.1 上游', link: '/basis/upstream' },
+              { text: '3.2 中游', link: '/basis/midstream' },
+              { text: '3.3 下游' , link:'/basis/downstream'}
+            ]},
          
-            { text: '主要玩家', items:[
+            { text: '4 主要玩家', items:[
               { text: '卡塔尔', link: '/basis/player/qatar' },
               { text: 'ADNOC', link: '/basis/player/adnoc' }
 
