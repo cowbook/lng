@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import markdownItSup from 'markdown-it-sup'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -6,7 +7,10 @@ export default defineConfig({
   //base: '/lng/',
   description: "LNG Cookbook",
   markdown: {
-    math: true
+    math: true,
+    config: (md) => {
+      md.use(markdownItSup)
+    }
   },
   locales: {
     root: {
@@ -76,6 +80,7 @@ export default defineConfig({
     logo:"/images/lng.png",
     nav: [
       { text: '主页', link: '/' },
+      { text:'论文集',link:'/essay/'},
       { text: 'LNG贸易形势', link: '/trade/' },
       { text: '基础手册', link: '/basis/lng' },
       { text: 'LNG接收站', link: '/terminal' }
@@ -160,7 +165,8 @@ export default defineConfig({
          
             { text: '4 主要玩家', items:[
               { text: '卡塔尔', link: '/basis/player/qatar' },
-              { text: 'ADNOC', link: '/basis/player/adnoc' }
+              { text: 'ADNOC', link: '/basis/player/adnoc' },
+              { text: '美国', link: '/basis/player/us' }
 
 
             ]}
