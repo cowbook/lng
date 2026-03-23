@@ -98,6 +98,13 @@ git push origin main  # 自动触发GitHub Actions部署
 - 发布动作：将当前工作区改动（排除 `.DS_Store`）提交到 `main` 并推送到 GitHub。
 - 部署说明：推送 `main` 后由 GitHub Actions 自动触发站点发布流程。
 
+### 2026-03-24 07:24
+
+按用户要求补充提交策略并执行：
+- 将 `.gitignore` 纳入本次提交并推送到 GitHub。
+- 新约定：以后每次提交前，先在 `aiwork/memory.md` 记录本次变更摘要，再执行 `git commit`。
+- 背景说明：此前线上 TTF 数据出现回退，已通过脚本防回退逻辑修复，并完成发布流程。
+
 
 
 
