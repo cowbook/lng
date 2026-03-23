@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-23T14:46:10.387Z",
+  "updatedAt": "2026-03-23T23:22:12.014Z",
   "source": "FRED API + Barchart + NASDAQ Data Link",
   "items": [
     {
@@ -17,15 +17,15 @@
       "seriesId": "JKM_NDL",
       "unit": "USD/MMBtu",
       "note": "Barchart 公共页面抓取的 NYMEX JKM 活跃近月合约 JKMK26",
-      "value": 21.705,
-      "date": "2026-03-20"
+      "value": 21,
+      "date": "2026-03-23"
     },
     {
       "symbol": "TTF",
       "displayName": "TTF 欧洲气价基准",
       "seriesId": "TTF_BARCHART",
       "unit": "USD/MMBtu",
-      "note": "Barchart 公共页面抓取的 ENDEX Dutch TTF Gas 活跃近月合约 TGJ26",
+      "note": "Barchart 公共页面抓取的 ENDEX Dutch TTF Gas 活跃近月合约 TGJ26; 本次抓取日期较旧，保留现有较新值",
       "value": 54.85,
       "date": "2026-03-23"
     },

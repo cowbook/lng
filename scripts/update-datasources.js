@@ -59,6 +59,20 @@ function toNumber(value) {
   return Number.isFinite(n) ? n : null;
 }
 
+function isIsoDate(value) {
+  return typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value);
+}
+
+function shouldKeepExistingData(existingItem, latestItem) {
+  if (!existingItem || existingItem.value === null || existingItem.value === undefined) {
+    return false;
+  }
+  if (!isIsoDate(existingItem.date) || !isIsoDate(latestItem.date)) {
+    return false;
+  }
+  return existingItem.date > latestItem.date;
+}
+
 async function fetchJson(url) {
   const response = await fetch(url, {
     headers: {
@@ -406,6 +420,18 @@ async function updateMarketPrices() {
         : series.seriesId === 'TTF_BARCHART'
           ? await fetchTtfPrice()
         : await fetchFredSeries(series.seriesId);
+
+      const fallback = existingBySeries.get(series.seriesId);
+
+      if (shouldKeepExistingData(fallback, latest)) {
+        items.push({
+          ...series,
+          value: fallback.value,
+          date: fallback.date,
+          note: `${fallback.note || series.note}; 本次抓取日期较旧，保留现有较新值`
+        });
+        continue;
+      }
 
       const note = series.seriesId === 'JKM_NDL' && latest.source === 'FRED_PROXY'
         ? 'JKM 公开期货源暂不可用，临时回退日本 LNG 进口价代理'
