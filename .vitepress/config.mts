@@ -44,6 +44,8 @@ export default defineConfig({
         },
         nav: [
           { text: 'Home', link: '/' },
+          { text: 'Market', link: '/market/' },
+          { text: 'Articles', link: '/article/' },
           { text: 'Basis', link: '/basis/lng' }
         ]
       }
@@ -80,6 +82,8 @@ export default defineConfig({
     logo:"/images/lng.png",
     nav: [
       { text: '主页', link: '/' },
+      { text: '市场信息', link: '/market/' },
+      { text: '文章资讯', link: '/article/' },
       { text:'论文集',link:'/essay/'},
       { text: 'LNG贸易形势', link: '/trade/' },
       { text: '基础手册', link: '/basis/lng' },
@@ -87,6 +91,24 @@ export default defineConfig({
     ],
     //aside:"left",
     sidebar: {
+
+      "/market/":[
+        {
+          text: '市场信息',
+          items: [
+            { text: '关键价格', link: '/market/' }
+          ]
+        }
+      ],
+
+      "/article/":[
+        {
+          text: '文章资讯',
+          items: [
+            { text: '资讯总览', link: '/article/' }
+          ]
+        }
+      ],
 
       "/test/":[
         {
@@ -101,7 +123,6 @@ export default defineConfig({
       "/terminal/":[
 
             { text: '中国LNG接收站', link:'/terminal/',items:[
-
               { text: '1. 国网大连LNG', link: '/terminal/rt001' },
               { text: '2. 国网北海LNG', link: '/terminal/rt002' },
               { text: '3. 国网迭福LNG', link: '/terminal/rt003' },

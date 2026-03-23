@@ -1,0 +1,42 @@
+{
+  "updatedAt": "2026-03-23T14:46:10.387Z",
+  "source": "FRED API + Barchart + NASDAQ Data Link",
+  "items": [
+    {
+      "symbol": "Brent",
+      "displayName": "Brent 原油",
+      "seriesId": "DCOILBRENTEU",
+      "unit": "USD/Barrel",
+      "note": "FRED 官方序列",
+      "value": 101.04,
+      "date": "2026-03-16"
+    },
+    {
+      "symbol": "JKM",
+      "displayName": "JKM 东北亚基准价",
+      "seriesId": "JKM_NDL",
+      "unit": "USD/MMBtu",
+      "note": "Barchart 公共页面抓取的 NYMEX JKM 活跃近月合约 JKMK26",
+      "value": 21.705,
+      "date": "2026-03-20"
+    },
+    {
+      "symbol": "TTF",
+      "displayName": "TTF 欧洲气价基准",
+      "seriesId": "TTF_BARCHART",
+      "unit": "USD/MMBtu",
+      "note": "Barchart 公共页面抓取的 ENDEX Dutch TTF Gas 活跃近月合约 TGJ26",
+      "value": 54.85,
+      "date": "2026-03-23"
+    },
+    {
+      "symbol": "Henry Hub",
+      "displayName": "Henry Hub",
+      "seriesId": "DHHNGSP",
+      "unit": "USD/MMBtu",
+      "note": "FRED 官方序列",
+      "value": 3.03,
+      "date": "2026-03-16"
+    }
+  ]
+}

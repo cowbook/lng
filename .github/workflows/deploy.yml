@@ -8,6 +8,10 @@ on:
   push:
     branches: [main]
 
+  # 每日自动更新并部署（UTC 00:30 = 北京时间 08:30）
+  schedule:
+    - cron: '30 0 * * *'
+
   # 允许你从 Actions 选项卡手动运行此工作流程
   workflow_dispatch:
 
@@ -45,6 +49,11 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Install dependencies
         run: pnpm install # 或 pnpm install / yarn install / bun install
+      - name: Update market/news data
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          NASDAQ_DATA_LINK_API_KEY: ${{ secrets.NASDAQ_DATA_LINK_API_KEY }}
+        run: pnpm run update:data
       - name: Build with VitePress
         run: pnpm run docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
       - name: Upload artifact

@@ -8,6 +8,8 @@
   },
   "scripts": {
     "docs:dev": "vitepress dev",
+    "update:data": "node scripts/update-datasources.js",
+    "wechat:add": "node scripts/add-wechat-item.js",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
   },

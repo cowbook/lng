@@ -2,6 +2,7 @@
 import DefaultTheme from 'vitepress/theme'
 import './custom.css'
 import myLayout from './Layout.vue'
+import WechatDigestPanel from './components/WechatDigestPanel.vue'
 
 //export default DefaultTheme
 
@@ -11,5 +12,6 @@ export default {
     enhanceApp({ app }) {
         // 注册自定义全局组件
         app.component('doc2',myLayout)
+        app.component('WechatDigestPanel', WechatDigestPanel)
       }
   }
