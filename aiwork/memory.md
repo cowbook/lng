@@ -105,6 +105,55 @@ git push origin main  # 自动触发GitHub Actions部署
 - 新约定：以后每次提交前，先在 `aiwork/memory.md` 记录本次变更摘要，再执行 `git commit`。
 - 背景说明：此前线上 TTF 数据出现回退，已通过脚本防回退逻辑修复，并完成发布流程。
 
+### 2026-03-24 09:40
+
+按优化清单推进并已完成 P0-1、P0-2：
+- 新增 `aiwork/optimization-plan.md`，形成可执行的分级优化任务（P0/P1/P2、工时与验收标准）。
+- 修复学术数据抓取质量：
+   - 在 `scripts/update-datasources.js` 增加 LNG 学术关键词过滤、日期合法性校验、结果去重。
+   - Crossref 失败或结果不达标时，回退链路改为 OpenAlex 定向检索，再回退 arXiv LNG 关键词查询。
+   - 避免学术列表出现明显无关内容和异常未来年份。
+- 统一本地与 CI 构建入口：
+   - `package.json` 中 `docs:build` 改为先执行 `update:data` 再构建。
+   - `.github/workflows/deploy.yml` 删除重复的数据更新步骤，改为在 build 步骤统一注入数据源密钥并执行 `docs:build`。
+- README 已同步更新命令说明，明确构建时会自动刷新数据。
+- 本地验证：`npm run docs:build` 已执行通过，流程为“更新数据 -> VitePress 构建”。
+
+### 2026-03-24 09:55
+
+继续完成 P0-3（数据健康摘要）：
+- 在 `scripts/update-datasources.js` 增加健康指标汇总并输出 `.vitepress/data/data-health.json`。
+- 健康状态规则：当出现数据回退、陈旧保留、空值或新闻抓取失败时，状态标记为 `degraded`。
+- `market/index.md` 已接入健康状态展示与告警列表，页面可直接查看“正常/降级”及原因。
+- 顺带修复备注重复累加问题：同一条“抓取日期较旧”提示不再无限叠加。
+- 构建验证：`npm run docs:build` 通过，健康文件生成成功。
+
+### 2026-03-24 10:10
+
+继续修复新闻源空列表问题并验证：
+- `scripts/update-datasources.js` 的 `fetchIndustryNews` 改为多源抓取：
+   - Google News（可选）
+   - Natural Gas Intelligence RSS（主源）
+   - Offshore Energy RSS
+   - OilPrice RSS
+- 新增新闻关键词过滤、日期规范化、去重逻辑，确保保留 LNG/天然气相关条目。
+- 在当前网络下 Google News 仍可能失败，但不会影响总结果；其余源可稳定提供内容。
+- 验证结果：`news-digest.json` 中 `newsCount` 已恢复到 10，`data-health.json` 不再出现 `news` 缓存回退告警。
+- 回归验证：`npm run docs:build` 通过。
+
+### 2026-03-24 14:30
+
+按用户要求继续优化市场页并升级 Brent/Henry Hub 数据源：
+- `scripts/update-datasources.js` 新增通用 Barchart 活跃合约抓取方法 `fetchBarchartActiveFutures`。
+- Brent 数据链路改为：Barchart（ICE Brent, `CB` 合约族）优先，失败时回退 FRED。
+- Henry Hub 数据链路改为：Barchart（NYMEX NG 合约族）优先，失败时回退 FRED。
+- 修复数值解析：Barchart 返回值可能带后缀（如 `72.48s`），`toNumber` 已增强为可解析带后缀与千分位的数字。
+- `market/index.md` 指标说明已同步为“Barchart 主源 + FRED 回退”策略。
+- 验证结果：
+   - Brent 更新到 `CBK26` 合约、Henry Hub 更新到 `NGJ26` 合约，日期均为当日或最新交易日。
+   - `data-health.json` 状态恢复为 `ok`。
+   - `npm run docs:build` 通过。
+
 
 
 

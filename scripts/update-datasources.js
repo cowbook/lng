@@ -8,6 +8,37 @@ const FRED_BASE = 'https://api.stlouisfed.org/fred/series/observations';
 const FRED_KEY = process.env.FRED_API_KEY || '';
 const NDL_KEY = process.env.NASDAQ_DATA_LINK_API_KEY || '';
 const FUTURES_MONTH_CODES = ['F', 'G', 'H', 'J', 'K', 'M', 'N', 'Q', 'U', 'V', 'X', 'Z'];
+const STALE_NOTE_SUFFIX = '本次抓取日期较旧，保留现有较新值';
+const LNG_NEWS_KEYWORDS = [
+  'lng',
+  'liquefied natural gas',
+  'natural gas',
+  'henry hub',
+  'ttf',
+  'jkm',
+  'regasification',
+  'gas market',
+  'gas price',
+  'gas supply',
+  'gas storage',
+  'pipeline gas',
+  'european gas',
+  'energy crisis'
+];
+const LNG_ACADEMIC_KEYWORDS = [
+  'lng',
+  'liquefied natural gas',
+  'natural gas',
+  'jkm',
+  'ttf',
+  'henry hub',
+  'regasification',
+  'gas market',
+  'gas trade',
+  'gas pricing',
+  'gas storage',
+  'pipeline gas'
+];
 
 const PRICE_SERIES = [
   {
@@ -15,7 +46,7 @@ const PRICE_SERIES = [
     displayName: 'Brent 原油',
     seriesId: 'DCOILBRENTEU',
     unit: 'USD/Barrel',
-    note: 'FRED 官方序列'
+    note: 'Barchart 公共页面抓取的 ICE Brent 活跃近月合约价格'
   },
   {
     symbol: 'JKM',
@@ -28,7 +59,7 @@ const PRICE_SERIES = [
     symbol: 'TTF',
     displayName: 'TTF 欧洲气价基准',
     seriesId: 'TTF_BARCHART',
-    unit: 'USD/MMBtu',
+    unit: 'EUR/MWh',
     note: 'Barchart 公共页面抓取的 ENDEX Dutch TTF Gas 活跃近月合约价格'
   },
   {
@@ -36,7 +67,7 @@ const PRICE_SERIES = [
     displayName: 'Henry Hub',
     seriesId: 'DHHNGSP',
     unit: 'USD/MMBtu',
-    note: 'FRED 官方序列'
+    note: 'Barchart 公共页面抓取的 NYMEX Henry Hub Gas 活跃近月合约价格'
   }
 ];
 
@@ -52,10 +83,21 @@ const WECHAT_ACCOUNTS = [
 ];
 
 function toNumber(value) {
+  if (typeof value === 'number') {
+    return Number.isFinite(value) ? value : null;
+  }
+
   if (typeof value !== 'string' || value.trim() === '.' || value.trim() === '') {
     return null;
   }
-  const n = Number(value);
+
+  const normalized = value.trim().replace(/,/g, '');
+  const matched = normalized.match(/-?\d+(?:\.\d+)?/);
+  if (!matched) {
+    return null;
+  }
+
+  const n = Number(matched[0]);
   return Number.isFinite(n) ? n : null;
 }
 
@@ -71,6 +113,131 @@ function shouldKeepExistingData(existingItem, latestItem) {
     return false;
   }
   return existingItem.date > latestItem.date;
+}
+
+function stripHtml(text) {
+  if (typeof text !== 'string') return '';
+  return text
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function normalizeCrossrefDate(item) {
+  const now = new Date();
+  const maxYear = now.getUTCFullYear() + 1;
+  const minYear = 2000;
+  const candidates = [
+    item?.published?.['date-parts']?.[0],
+    item?.['published-print']?.['date-parts']?.[0],
+    item?.['published-online']?.['date-parts']?.[0],
+    item?.issued?.['date-parts']?.[0],
+    item?.created?.['date-parts']?.[0]
+  ];
+
+  for (const parts of candidates) {
+    if (!Array.isArray(parts) || parts.length === 0) continue;
+
+    const year = Number(parts[0]);
+    const month = Math.min(12, Math.max(1, Number(parts[1] || 1)));
+    const day = Math.min(28, Math.max(1, Number(parts[2] || 1)));
+
+    if (!Number.isInteger(year) || year < minYear || year > maxYear) {
+      continue;
+    }
+
+    const mm = String(month).padStart(2, '0');
+    const dd = String(day).padStart(2, '0');
+    return `${year}-${mm}-${dd}`;
+  }
+
+  return '';
+}
+
+function isLngAcademicRecord({ title, containerTitle, subject }) {
+  const haystack = [title, containerTitle, ...(Array.isArray(subject) ? subject : [])]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+
+  return LNG_ACADEMIC_KEYWORDS.some((kw) => haystack.includes(kw));
+}
+
+function dedupeAcademicRows(rows) {
+  const seen = new Set();
+  const out = [];
+
+  for (const row of rows) {
+    const key = `${(row.title || '').toLowerCase()}::${row.link || ''}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(row);
+  }
+
+  return out;
+}
+
+function normalizeDateFromString(raw) {
+  if (typeof raw !== 'string' || !raw.trim()) return '';
+  const d = new Date(raw);
+  if (Number.isNaN(d.getTime())) return '';
+  const year = d.getUTCFullYear();
+  const now = new Date().getUTCFullYear();
+  if (year < 2000 || year > now + 1) return '';
+  return d.toISOString().slice(0, 10);
+}
+
+function normalizeNewsDate(raw) {
+  const normalized = normalizeDateFromString(raw);
+  return normalized || (typeof raw === 'string' ? raw.trim() : '');
+}
+
+function isLngNewsRecord({ title = '', link = '' }) {
+  const haystack = `${title} ${link}`.toLowerCase();
+  return LNG_NEWS_KEYWORDS.some((kw) => haystack.includes(kw));
+}
+
+function dedupeNewsRows(rows) {
+  const seen = new Set();
+  const out = [];
+
+  for (const row of rows) {
+    const title = (row.title || '').toLowerCase().trim();
+    const link = (row.link || '').trim();
+    const key = `${title}::${link}`;
+    if (!title || !link || seen.has(key)) continue;
+    seen.add(key);
+    out.push(row);
+  }
+
+  return out;
+}
+
+function appendNoteOnce(baseNote, suffix) {
+  const left = (baseNote || '').trim();
+  const right = (suffix || '').trim();
+  if (!right) return left;
+  if (!left) return right;
+
+  const parts = left
+    .split(';')
+    .map((x) => x.trim())
+    .filter(Boolean);
+
+  const dedupedParts = [];
+  for (const part of parts) {
+    if (!dedupedParts.includes(part)) {
+      dedupedParts.push(part);
+    }
+  }
+
+  if (!dedupedParts.includes(right)) {
+    dedupedParts.push(right);
+  }
+
+  return dedupedParts.join('; ');
 }
 
 async function fetchJson(url) {
@@ -313,6 +480,98 @@ async function fetchTtfPrice() {
   };
 }
 
+async function fetchBarchartActiveFutures(baseSymbol, offsetStart = 1, offsetEnd = 8) {
+  const candidates = [];
+  const now = new Date();
+
+  for (let offset = offsetStart; offset <= offsetEnd; offset += 1) {
+    const contractDate = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + offset, 1));
+    const monthCode = FUTURES_MONTH_CODES[contractDate.getUTCMonth()];
+    const yearCode = String(contractDate.getUTCFullYear()).slice(-2);
+    const symbol = `${baseSymbol}${monthCode}${yearCode}`;
+    const url = `https://www.barchart.com/futures/quotes/${symbol}/futures-prices`;
+    const html = await fetchText(url);
+    const initMatch = html.match(/data-ng-init='init\((\{[\s\S]*?\})\)'/);
+
+    if (!initMatch) {
+      continue;
+    }
+
+    const payload = JSON.parse(initMatch[1]);
+    const value = toNumber(String(payload.lastPrice ?? ''));
+    const tradeTimeRaw = typeof payload.tradeTime === 'string' ? payload.tradeTime : '';
+    const tradeDateMatch = tradeTimeRaw.match(/(\d{2})\/(\d{2})\/(\d{2})/);
+    const sessionDateRaw = typeof payload.sessionDateDisplayLong === 'string'
+      ? payload.sessionDateDisplayLong.replace(/^[A-Za-z]{3},\s*/, '').replace(/(st|nd|rd|th)/g, '')
+      : '';
+    const sessionDate = sessionDateRaw ? new Date(`${sessionDateRaw} UTC`) : null;
+    const tradeDate = tradeDateMatch
+      ? `20${tradeDateMatch[3]}-${tradeDateMatch[1]}-${tradeDateMatch[2]}`
+      : sessionDate && !Number.isNaN(sessionDate.getTime())
+        ? sessionDate.toISOString().slice(0, 10)
+        : '';
+
+    if (value !== null) {
+      candidates.push({
+        symbol,
+        value,
+        date: tradeDate,
+        tradeDate,
+        contractDate: contractDate.toISOString().slice(0, 10)
+      });
+    }
+  }
+
+  if (!candidates.length) {
+    throw new Error(`No valid Barchart contracts found for ${baseSymbol}`);
+  }
+
+  const latestTradeDate = candidates.reduce((latest, item) => {
+    return item.tradeDate > latest ? item.tradeDate : latest;
+  }, '');
+
+  const selected = candidates
+    .filter((item) => item.tradeDate === latestTradeDate)
+    .sort((a, b) => a.contractDate.localeCompare(b.contractDate))[0];
+
+  if (!selected) {
+    throw new Error(`Unable to choose active Barchart contract for ${baseSymbol}`);
+  }
+
+  return {
+    value: selected.value,
+    date: selected.date,
+    symbol: selected.symbol,
+    source: 'BARCHART'
+  };
+}
+
+async function fetchBrentPrice() {
+  try {
+    return await fetchBarchartActiveFutures('CB');
+  } catch (error) {
+    console.warn(`[WARN] Brent Barchart failed, fallback FRED: ${error.message}`);
+    const fallback = await fetchFredSeries('DCOILBRENTEU');
+    return {
+      ...fallback,
+      source: 'FRED_FALLBACK'
+    };
+  }
+}
+
+async function fetchHenryHubPrice() {
+  try {
+    return await fetchBarchartActiveFutures('NG');
+  } catch (error) {
+    console.warn(`[WARN] Henry Hub Barchart failed, fallback FRED: ${error.message}`);
+    const fallback = await fetchFredSeries('DHHNGSP');
+    return {
+      ...fallback,
+      source: 'FRED_FALLBACK'
+    };
+  }
+}
+
 function extractItemsFromRss(xml, maxItems = 8) {
   const items = [];
   const matches = xml.match(/<item>[\s\S]*?<\/item>/g) || [];
@@ -348,47 +607,205 @@ async function fetchText(url) {
 }
 
 async function fetchIndustryNews() {
-  const rssUrl = 'https://news.google.com/rss/search?q=LNG%20OR%20%22natural%20gas%22%20OR%20Henry%20Hub%20OR%20TTF%20when%3A1d&hl=en-US&gl=US&ceid=US%3Aen';
-  const xml = await fetchText(rssUrl);
-  return extractItemsFromRss(xml, 10);
+  const sources = [
+    {
+      name: 'Google News',
+      url: 'https://news.google.com/rss/search?q=LNG%20OR%20%22natural%20gas%22%20OR%20Henry%20Hub%20OR%20TTF%20OR%20JKM%20when%3A1d&hl=en-US&gl=US&ceid=US%3Aen'
+    },
+    {
+      name: 'Natural Gas Intelligence',
+      url: 'https://www.naturalgasintel.com/feed/'
+    },
+    {
+      name: 'Offshore Energy',
+      url: 'https://www.offshore-energy.biz/feed/'
+    },
+    {
+      name: 'OilPrice',
+      url: 'https://oilprice.com/rss/main'
+    }
+  ];
+
+  const all = [];
+
+  for (const source of sources) {
+    try {
+      const xml = await fetchText(source.url);
+      const rows = extractItemsFromRss(xml, 20)
+        .map((item) => ({
+          ...item,
+          title: stripHtml(item.title),
+          publishedAt: normalizeNewsDate(item.publishedAt),
+          source: source.name
+        }))
+        .filter((item) => item.title && item.link)
+        .filter((item) => isLngNewsRecord({ title: item.title, link: item.link }));
+
+      all.push(...rows);
+    } catch (error) {
+      console.warn(`[WARN] news source ${source.name} failed: ${error.message}`);
+    }
+  }
+
+  const rows = dedupeNewsRows(all)
+    .sort((a, b) => String(b.publishedAt || '').localeCompare(String(a.publishedAt || '')))
+    .slice(0, 10);
+
+  if (!rows.length) {
+    throw new Error('No LNG-relevant news records from all providers');
+  }
+
+  return rows;
 }
 
 async function fetchAcademicArticles() {
   const fetchFromCrossref = async () => {
-    const queryUrl = 'https://api.crossref.org/works?query=liquefied%20natural%20gas%20market&filter=from-pub-date:2025-01-01&sort=published&order=desc&rows=10';
+    const oneYearAgo = new Date();
+    oneYearAgo.setUTCFullYear(oneYearAgo.getUTCFullYear() - 1);
+    const fromDate = oneYearAgo.toISOString().slice(0, 10);
+    const params = new URLSearchParams({
+      query: 'liquefied natural gas natural gas market jkm ttf henry hub',
+      filter: `from-pub-date:${fromDate},type:journal-article`,
+      sort: 'published',
+      order: 'desc',
+      rows: '60',
+      select: 'title,DOI,published,published-print,published-online,issued,created,container-title,subject'
+    });
+
+    const queryUrl = `https://api.crossref.org/works?${params.toString()}`;
     const payload = await fetchJson(queryUrl);
     const items = payload?.message?.items || [];
 
-    return items.map((item) => {
-      const title = Array.isArray(item.title) && item.title.length > 0 ? item.title[0] : 'Untitled';
+    const mapped = items.map((item) => {
+      const titleRaw = Array.isArray(item.title) && item.title.length > 0 ? item.title[0] : '';
+      const title = stripHtml(titleRaw);
+      const containerTitle = stripHtml(Array.isArray(item['container-title']) ? item['container-title'][0] : '');
+      const subject = Array.isArray(item.subject) ? item.subject.map((x) => stripHtml(String(x))) : [];
       const doi = item.DOI ? `https://doi.org/${item.DOI}` : '';
-      const dateParts = item?.published?.['date-parts']?.[0] || item?.issued?.['date-parts']?.[0] || [];
-      const publishedAt = dateParts.length ? dateParts.join('-') : '';
+      const publishedAt = normalizeCrossrefDate(item);
 
       return {
         title,
         link: doi,
         publishedAt,
-        source: 'Crossref'
+        source: 'Crossref',
+        _containerTitle: containerTitle,
+        _subject: subject
       };
-    }).filter((x) => x.link);
+    }).filter((x) => x.link && x.title && x.publishedAt);
+
+    const filtered = mapped.filter((x) => isLngAcademicRecord({
+      title: x.title,
+      containerTitle: x._containerTitle,
+      subject: x._subject
+    }));
+
+    const deduped = dedupeAcademicRows(filtered)
+      .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
+      .slice(0, 10)
+      .map(({ _containerTitle, _subject, ...row }) => row);
+
+    if (!deduped.length) {
+      throw new Error('Crossref returned no LNG-relevant academic records after filtering');
+    }
+
+    return deduped;
   };
 
   const fetchFromArxivRss = async () => {
-    const xml = await fetchText('https://export.arxiv.org/rss/econ');
-    const items = extractItemsFromRss(xml, 10);
-    return items.map((x) => ({
-      ...x,
-      source: 'arXiv'
+    const query = encodeURIComponent('all:"liquefied natural gas" OR all:"natural gas market" OR all:regasification');
+    const xml = await fetchText(`https://export.arxiv.org/api/query?search_query=${query}&start=0&max_results=20&sortBy=submittedDate&sortOrder=descending`);
+    const entries = xml.match(/<entry>[\s\S]*?<\/entry>/g) || [];
+
+    const mapped = entries.map((raw) => {
+      const title = stripHtml((raw.match(/<title>([\s\S]*?)<\/title>/)?.[1] || '').replace(/\n/g, ' '));
+      const link = (raw.match(/<id>([\s\S]*?)<\/id>/)?.[1] || '').trim();
+      const publishedRaw = (raw.match(/<published>([\s\S]*?)<\/published>/)?.[1] || '').trim();
+      const publishedAt = normalizeDateFromString(publishedRaw);
+
+      return { title, link, publishedAt, source: 'arXiv' };
+    }).filter((x) => x.title && x.link && x.publishedAt);
+
+    const filtered = mapped.filter((x) => isLngAcademicRecord({ title: x.title }));
+    return dedupeAcademicRows(filtered)
+      .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
+      .slice(0, 10);
+  };
+
+  const fetchFromOpenAlex = async () => {
+    const oneYearAgo = new Date();
+    oneYearAgo.setUTCFullYear(oneYearAgo.getUTCFullYear() - 1);
+    const fromDate = oneYearAgo.toISOString().slice(0, 10);
+
+    const params = new URLSearchParams({
+      search: 'liquefied natural gas natural gas market jkm ttf henry hub',
+      filter: `from_publication_date:${fromDate},type:article,has_doi:true`,
+      sort: 'publication_date:desc',
+      'per-page': '50'
+    });
+
+    const payload = await fetchJson(`https://api.openalex.org/works?${params.toString()}`);
+    const items = Array.isArray(payload?.results) ? payload.results : [];
+
+    const mapped = items.map((item) => {
+      const title = stripHtml(item?.display_name || '');
+      const doiUrl = typeof item?.doi === 'string' && item.doi.startsWith('http')
+        ? item.doi
+        : typeof item?.doi === 'string' && item.doi
+          ? `https://doi.org/${item.doi.replace(/^https?:\/\/doi\.org\//, '')}`
+          : '';
+      const publishedAt = normalizeDateFromString(item?.publication_date || '');
+      const venue = stripHtml(item?.primary_location?.source?.display_name || '');
+      const concepts = Array.isArray(item?.concepts)
+        ? item.concepts.map((x) => stripHtml(x?.display_name || '')).filter(Boolean)
+        : [];
+
+      return {
+        title,
+        link: doiUrl,
+        publishedAt,
+        source: 'OpenAlex',
+        _containerTitle: venue,
+        _subject: concepts
+      };
+    }).filter((x) => x.title && x.link && x.publishedAt);
+
+    const filtered = mapped.filter((x) => isLngAcademicRecord({
+      title: x.title,
+      containerTitle: x._containerTitle,
+      subject: x._subject
     }));
+
+    const deduped = dedupeAcademicRows(filtered)
+      .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
+      .slice(0, 10)
+      .map(({ _containerTitle, _subject, ...row }) => row);
+
+    if (!deduped.length) {
+      throw new Error('OpenAlex returned no LNG-relevant academic records after filtering');
+    }
+
+    return deduped;
   };
 
   try {
     return await fetchFromCrossref();
   } catch (error) {
-    console.warn(`[WARN] crossref failed, fallback arXiv RSS: ${error.message}`);
-    return fetchFromArxivRss();
+    console.warn(`[WARN] crossref failed, fallback OpenAlex: ${error.message}`);
   }
+
+  try {
+    return await fetchFromOpenAlex();
+  } catch (error) {
+    console.warn(`[WARN] OpenAlex failed, fallback arXiv query: ${error.message}`);
+  }
+
+  const arxivRows = await fetchFromArxivRss();
+  if (!arxivRows.length) {
+    throw new Error('No LNG-relevant academic records from all providers');
+  }
+
+  return arxivRows;
 }
 
 async function readJsonSafe(filePath, fallback) {
@@ -412,6 +829,13 @@ async function updateMarketPrices() {
   const existingBySeries = new Map((existing.items || []).map((item) => [item.seriesId, item]));
 
   const items = [];
+  const health = {
+    staleCount: 0,
+    fallbackCount: 0,
+    errorCount: 0,
+    nullValueCount: 0,
+    warnings: []
+  };
 
   for (const series of PRICE_SERIES) {
     try {
@@ -419,16 +843,22 @@ async function updateMarketPrices() {
         ? await fetchJkmPrice()
         : series.seriesId === 'TTF_BARCHART'
           ? await fetchTtfPrice()
-        : await fetchFredSeries(series.seriesId);
+        : series.seriesId === 'DCOILBRENTEU'
+          ? await fetchBrentPrice()
+          : series.seriesId === 'DHHNGSP'
+            ? await fetchHenryHubPrice()
+            : await fetchFredSeries(series.seriesId);
 
       const fallback = existingBySeries.get(series.seriesId);
 
       if (shouldKeepExistingData(fallback, latest)) {
+        health.staleCount += 1;
+        health.warnings.push(`${series.symbol}: 使用较新缓存值（抓取值日期较旧）`);
         items.push({
           ...series,
           value: fallback.value,
           date: fallback.date,
-          note: `${fallback.note || series.note}; 本次抓取日期较旧，保留现有较新值`
+          note: appendNoteOnce(fallback.note || series.note, STALE_NOTE_SUFFIX)
         });
         continue;
       }
@@ -443,16 +873,38 @@ async function updateMarketPrices() {
           ? 'TTF 公开期货源暂不可用，临时回退欧洲天然气价格代理'
           : series.seriesId === 'TTF_BARCHART' && latest.source === 'BARCHART'
             ? `Barchart 公共页面抓取的 ENDEX Dutch TTF Gas 活跃近月合约 ${latest.symbol}`
+        : series.seriesId === 'DCOILBRENTEU' && latest.source === 'FRED_FALLBACK'
+          ? 'Brent 公共期货源暂不可用，临时回退 FRED 序列'
+        : series.seriesId === 'DCOILBRENTEU' && latest.source === 'BARCHART'
+          ? `Barchart 公共页面抓取的 ICE Brent 活跃近月合约 ${latest.symbol}`
+        : series.seriesId === 'DHHNGSP' && latest.source === 'FRED_FALLBACK'
+          ? 'Henry Hub 公共期货源暂不可用，临时回退 FRED 序列'
+        : series.seriesId === 'DHHNGSP' && latest.source === 'BARCHART'
+          ? `Barchart 公共页面抓取的 NYMEX Henry Hub Gas 活跃近月合约 ${latest.symbol}`
         : series.note;
+
+      if (latest.source === 'FRED_PROXY' || latest.source === 'NASDAQ_DATA_LINK' || latest.source === 'FRED_FALLBACK') {
+        health.fallbackCount += 1;
+        health.warnings.push(`${series.symbol}: 使用回退数据源 ${latest.source}`);
+      }
 
       items.push({
         ...series,
         note,
+        unit: series.seriesId === 'TTF_BARCHART' && latest.source === 'FRED_PROXY'
+          ? 'USD/MMBtu'
+          : series.unit,
         value: latest.value,
         date: latest.date
       });
+
+      if (latest.value === null || latest.value === undefined) {
+        health.nullValueCount += 1;
+      }
     } catch (error) {
       const fallback = existingBySeries.get(series.seriesId);
+      health.errorCount += 1;
+      health.warnings.push(`${series.symbol}: 抓取失败，回退缓存`);
       items.push({
         ...series,
         value: fallback?.value ?? null,
@@ -465,14 +917,27 @@ async function updateMarketPrices() {
 
   await writeJson('market-prices.json', {
     updatedAt: new Date().toISOString(),
-    source: 'FRED API + Barchart + NASDAQ Data Link',
+    source: 'Barchart futures + FRED/NASDAQ fallback',
     items
   });
+
+  return {
+    itemCount: items.length,
+    ...health
+  };
 }
 
 async function updateNewsDigest() {
+  const existingPath = path.join(DATA_DIR, 'news-digest.json');
+  const existing = await readJsonSafe(existingPath, { news: [], academic: [] });
+
   let news = [];
   let academic = [];
+  const health = {
+    usedNewsCache: false,
+    usedAcademicCache: false,
+    warnings: []
+  };
 
   try {
     news = await fetchIndustryNews();
@@ -486,11 +951,29 @@ async function updateNewsDigest() {
     console.warn(`[WARN] academic feed: ${error.message}`);
   }
 
+  if (!news.length) {
+    news = Array.isArray(existing.news) ? existing.news : [];
+    health.usedNewsCache = true;
+    health.warnings.push('news: 本轮抓取为空，使用缓存');
+  }
+
+  if (!academic.length) {
+    academic = Array.isArray(existing.academic) ? existing.academic : [];
+    health.usedAcademicCache = true;
+    health.warnings.push('academic: 本轮抓取为空，使用缓存');
+  }
+
   await writeJson('news-digest.json', {
     updatedAt: new Date().toISOString(),
     news,
     academic
   });
+
+  return {
+    newsCount: news.length,
+    academicCount: academic.length,
+    ...health
+  };
 }
 
 async function updateWechatWatchlist() {
@@ -502,13 +985,43 @@ async function updateWechatWatchlist() {
     accounts: WECHAT_ACCOUNTS,
     manualDigest: Array.isArray(existing.manualDigest) ? existing.manualDigest : []
   });
+
+  return {
+    accountCount: WECHAT_ACCOUNTS.length,
+    manualDigestCount: Array.isArray(existing.manualDigest) ? existing.manualDigest.length : 0
+  };
 }
 
 async function main() {
   console.log('[data] update started');
-  await updateMarketPrices();
-  await updateNewsDigest();
-  await updateWechatWatchlist();
+  const marketHealth = await updateMarketPrices();
+  const newsHealth = await updateNewsDigest();
+  const wechatHealth = await updateWechatWatchlist();
+
+  const warnings = [
+    ...(marketHealth.warnings || []),
+    ...(newsHealth.warnings || [])
+  ];
+
+  const degraded =
+    marketHealth.errorCount > 0
+    || marketHealth.nullValueCount > 0
+    || marketHealth.fallbackCount > 0
+    || marketHealth.staleCount > 0
+    || newsHealth.usedNewsCache
+    || newsHealth.usedAcademicCache;
+
+  await writeJson('data-health.json', {
+    updatedAt: new Date().toISOString(),
+    status: degraded ? 'degraded' : 'ok',
+    summary: {
+      market: marketHealth,
+      news: newsHealth,
+      wechat: wechatHealth
+    },
+    warnings
+  });
+
   console.log('[data] update completed');
 }
 

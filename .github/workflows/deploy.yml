@@ -49,12 +49,10 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Install dependencies
         run: pnpm install # 或 pnpm install / yarn install / bun install
-      - name: Update market/news data
+      - name: Build with VitePress
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           NASDAQ_DATA_LINK_API_KEY: ${{ secrets.NASDAQ_DATA_LINK_API_KEY }}
-        run: pnpm run update:data
-      - name: Build with VitePress
         run: pnpm run docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
