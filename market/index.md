@@ -2,7 +2,9 @@
 
 <script setup>
 import marketPrices from '../.vitepress/data/market-prices.json'
+import marketHistory from '../.vitepress/data/market-history.json'
 import dataHealth from '../.vitepress/data/data-health.json'
+import MarketHistoryChart from '../.vitepress/theme/components/MarketHistoryChart.vue'
 
 const fmt = (value) => {
 	if (value === null || value === undefined || Number.isNaN(Number(value))) return '-'
@@ -48,6 +50,10 @@ const healthLabel = dataHealth.status === 'ok' ? '正常' : '降级'
 		</tr>
 	</tbody>
 </table>
+
+## 过去一年价格折线图
+
+<MarketHistoryChart :history="marketHistory" />
 
 ## 指标说明
 

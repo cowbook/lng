@@ -141,6 +141,15 @@ git push origin main  # 自动触发GitHub Actions部署
 - 验证结果：`news-digest.json` 中 `newsCount` 已恢复到 10，`data-health.json` 不再出现 `news` 缓存回退告警。
 - 回归验证：`npm run docs:build` 通过。
 
+### 2026-03-24 15:10
+
+- TTF EUR/MWh → USD/MMBtu 单位换算，原始值保存到 `originvalue` 字段；`fetchUsdPerEurRate()` 从 FRED DEXUSEU 实时获取汇率。
+- 新增 `updateMarketHistory()`，生成 `market-history.json`（4 个品种过去 365 天日频数据：Brent/DCOILBRENTEU、JKM/PNGASJPUSDM、TTF/PNGASEUUSDM、HH/DHHNGSP）。
+- 新增 `MarketHistoryChart.vue`，纯 SVG 折线图，无新依赖，支持品种切换下拉，兼容 VitePress 明暗主题。
+- `market/index.md` 接入折线图组件，添加"过去一年价格折线图"节。
+- 各历史序列 meta 字段补充 `source`（FRED 系列页 URL），便于溯源。
+- 本地构建验证通过（`npm run docs:build`）。
+
 ### 2026-03-24 14:30
 
 按用户要求继续优化市场页并升级 Brent/Henry Hub 数据源：

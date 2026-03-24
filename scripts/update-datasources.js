@@ -8,6 +8,9 @@ const FRED_BASE = 'https://api.stlouisfed.org/fred/series/observations';
 const FRED_KEY = process.env.FRED_API_KEY || '';
 const NDL_KEY = process.env.NASDAQ_DATA_LINK_API_KEY || '';
 const FUTURES_MONTH_CODES = ['F', 'G', 'H', 'J', 'K', 'M', 'N', 'Q', 'U', 'V', 'X', 'Z'];
+const MMBTU_PER_MWH = 3.412141633;
+const DEFAULT_USD_PER_EUR = 1.1;
+const HISTORY_DAYS = 365;
 const STALE_NOTE_SUFFIX = '本次抓取日期较旧，保留现有较新值';
 const LNG_NEWS_KEYWORDS = [
   'lng',
@@ -238,6 +241,27 @@ function appendNoteOnce(baseNote, suffix) {
   }
 
   return dedupedParts.join('; ');
+}
+
+async function fetchUsdPerEurRate() {
+  try {
+    const latest = await fetchFredSeries('DEXUSEU');
+    if (latest?.value && Number.isFinite(latest.value)) {
+      return latest.value;
+    }
+  } catch (error) {
+    console.warn(`[WARN] DEXUSEU failed, use default USD/EUR: ${error.message}`);
+  }
+
+  return DEFAULT_USD_PER_EUR;
+}
+
+function convertEurMwhToUsdMmbtu(valueEurPerMwh, usdPerEur) {
+  if (!Number.isFinite(valueEurPerMwh) || !Number.isFinite(usdPerEur) || usdPerEur <= 0) {
+    return null;
+  }
+
+  return Number(((valueEurPerMwh * usdPerEur) / MMBTU_PER_MWH).toFixed(3));
 }
 
 async function fetchJson(url) {
@@ -606,6 +630,113 @@ async function fetchText(url) {
   return response.text();
 }
 
+function formatDate(date) {
+  return date.toISOString().slice(0, 10);
+}
+
+function getHistoryWindow(days = HISTORY_DAYS) {
+  const end = new Date();
+  const start = new Date(end);
+  start.setUTCDate(start.getUTCDate() - days);
+  return {
+    start: formatDate(start),
+    end: formatDate(end)
+  };
+}
+
+async function fetchFredSeriesHistory(seriesId, startDate, endDate) {
+  const url = `https://fred.stlouisfed.org/graph/fredgraph.csv?id=${encodeURIComponent(seriesId)}&cosd=${startDate}&coed=${endDate}`;
+  const csv = await fetchText(url);
+  const lines = csv.trim().split('\n');
+  const points = [];
+
+  for (let i = 1; i < lines.length; i += 1) {
+    const [date, valueRaw] = lines[i].split(',');
+    const value = toNumber(valueRaw);
+    if (!date || value === null) {
+      continue;
+    }
+    points.push({
+      date,
+      value
+    });
+  }
+
+  return points;
+}
+
+async function updateMarketHistory() {
+  const window = getHistoryWindow(HISTORY_DAYS);
+  const historySeries = [
+    {
+      symbol: 'Brent',
+      displayName: 'Brent 原油',
+      unit: 'USD/Barrel',
+      sourceSeriesId: 'DCOILBRENTEU',
+      source: 'https://fred.stlouisfed.org/series/DCOILBRENTEU',
+      note: 'FRED 日频历史序列'
+    },
+    {
+      symbol: 'JKM',
+      displayName: 'JKM 东北亚基准价',
+      unit: 'USD/MMBtu',
+      sourceSeriesId: 'PNGASJPUSDM',
+      source: 'https://fred.stlouisfed.org/series/PNGASJPUSDM',
+      note: 'FRED 日频代理序列'
+    },
+    {
+      symbol: 'TTF',
+      displayName: 'TTF 欧洲气价基准',
+      unit: 'USD/MMBtu',
+      sourceSeriesId: 'PNGASEUUSDM',
+      source: 'https://fred.stlouisfed.org/series/PNGASEUUSDM',
+      note: 'FRED 日频代理序列'
+    },
+    {
+      symbol: 'Henry Hub',
+      displayName: 'Henry Hub',
+      unit: 'USD/MMBtu',
+      sourceSeriesId: 'DHHNGSP',
+      source: 'https://fred.stlouisfed.org/series/DHHNGSP',
+      note: 'FRED 日频历史序列'
+    }
+  ];
+
+  const series = [];
+  const warnings = [];
+
+  for (const item of historySeries) {
+    try {
+      const points = await fetchFredSeriesHistory(item.sourceSeriesId, window.start, window.end);
+      series.push({
+        ...item,
+        points
+      });
+      if (!points.length) {
+        warnings.push(`${item.symbol}: 历史数据为空`);
+      }
+    } catch (error) {
+      warnings.push(`${item.symbol}: 历史抓取失败`);
+      series.push({
+        ...item,
+        points: []
+      });
+      console.warn(`[WARN] ${item.symbol} history failed: ${error.message}`);
+    }
+  }
+
+  await writeJson('market-history.json', {
+    updatedAt: new Date().toISOString(),
+    window,
+    series
+  });
+
+  return {
+    seriesCount: series.length,
+    warnings
+  };
+}
+
 async function fetchIndustryNews() {
   const sources = [
     {
@@ -827,6 +958,7 @@ async function updateMarketPrices() {
   const existingPath = path.join(DATA_DIR, 'market-prices.json');
   const existing = await readJsonSafe(existingPath, { items: [] });
   const existingBySeries = new Map((existing.items || []).map((item) => [item.seriesId, item]));
+  const usdPerEur = await fetchUsdPerEurRate();
 
   const items = [];
   const health = {
@@ -858,6 +990,8 @@ async function updateMarketPrices() {
           ...series,
           value: fallback.value,
           date: fallback.date,
+          unit: fallback.unit || series.unit,
+          originvalue: fallback.originvalue,
           note: appendNoteOnce(fallback.note || series.note, STALE_NOTE_SUFFIX)
         });
         continue;
@@ -888,17 +1022,27 @@ async function updateMarketPrices() {
         health.warnings.push(`${series.symbol}: 使用回退数据源 ${latest.source}`);
       }
 
+      const isTtfBarchart = series.seriesId === 'TTF_BARCHART' && latest.source === 'BARCHART';
+      const convertedTtfValue = isTtfBarchart
+        ? convertEurMwhToUsdMmbtu(latest.value, usdPerEur)
+        : latest.value;
+      const convertedNote = isTtfBarchart
+        ? appendNoteOnce(note, `按 DEXUSEU=${usdPerEur} 将 EUR/MWh 换算为 USD/MMBtu`) : note;
+
       items.push({
         ...series,
-        note,
+        note: convertedNote,
         unit: series.seriesId === 'TTF_BARCHART' && latest.source === 'FRED_PROXY'
           ? 'USD/MMBtu'
-          : series.unit,
-        value: latest.value,
+          : series.seriesId === 'TTF_BARCHART'
+            ? 'USD/MMBtu'
+            : series.unit,
+        value: convertedTtfValue,
+        originvalue: isTtfBarchart ? latest.value : undefined,
         date: latest.date
       });
 
-      if (latest.value === null || latest.value === undefined) {
+      if (convertedTtfValue === null || convertedTtfValue === undefined) {
         health.nullValueCount += 1;
       }
     } catch (error) {
@@ -909,6 +1053,8 @@ async function updateMarketPrices() {
         ...series,
         value: fallback?.value ?? null,
         date: fallback?.date ?? '',
+        unit: fallback?.unit || series.unit,
+        originvalue: fallback?.originvalue,
         note: `${series.note}; 更新失败已回退缓存`
       });
       console.warn(`[WARN] ${series.seriesId}: ${error.message}`);
@@ -995,11 +1141,13 @@ async function updateWechatWatchlist() {
 async function main() {
   console.log('[data] update started');
   const marketHealth = await updateMarketPrices();
+  const historyHealth = await updateMarketHistory();
   const newsHealth = await updateNewsDigest();
   const wechatHealth = await updateWechatWatchlist();
 
   const warnings = [
     ...(marketHealth.warnings || []),
+    ...(historyHealth.warnings || []),
     ...(newsHealth.warnings || [])
   ];
 
@@ -1016,6 +1164,7 @@ async function main() {
     status: degraded ? 'degraded' : 'ok',
     summary: {
       market: marketHealth,
+      history: historyHealth,
       news: newsHealth,
       wechat: wechatHealth
     },
