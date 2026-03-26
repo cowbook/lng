@@ -43,10 +43,11 @@ export default defineConfig({
           },
         },
         nav: [
-          { text: 'Home', link: '/' },
-          { text: 'Market', link: '/market/' },
-          { text: 'Articles', link: '/article/' },
-          { text: 'Basis', link: '/basis/lng' }
+          { text: 'Home', link: '/en/' },
+          { text: 'Market', link: '/en/market/' },
+          /* to do:
+          { text: 'Articles', link: '/article/' },*/
+          { text: 'Basis', link: '/en/basis/lng' }
         ]
       }
 
@@ -83,7 +84,8 @@ export default defineConfig({
     nav: [
       { text: '主页', link: '/' },
       { text: '市场信息', link: '/market/' },
-      { text: '文章资讯', link: '/article/' },
+      /* to do:
+      { text: '文章资讯', link: '/article/' },*/
       { text:'论文集',link:'/essay/'},
       { text: 'LNG贸易形势', link: '/trade/' },
       { text: '基础手册', link: '/basis/lng' },

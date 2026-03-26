@@ -163,6 +163,38 @@ git push origin main  # 自动触发GitHub Actions部署
    - `data-health.json` 状态恢复为 `ok`。
    - `npm run docs:build` 通过。
 
+### 2026-03-25 09:20
+
+按用户反馈修正 TTF 单位口径：
+- 已确认 TTF 主源取值来自 Barchart `TG*`（Dutch TTF Gas），原始口径应为 `EUR/MWh`。
+- 修复逻辑：
+   - Barchart 主源时，TTF 单位展示为 `EUR/MWh`；
+   - 回退到 FRED 代理时，TTF 单位展示为 `USD/MMBtu`。
+- `market/index.md` 的指标说明已同步，明确主源与回退单位差异。
+- 验证结果：`market-prices.json` 中 TTF 已显示 `EUR/MWh`，构建通过。
+
+### 2026-03-25 11:05
+
+按用户要求将 TTF 历史改为日频展示方案：
+- 原因确认：`market-history` 原始 TTF 来源是 FRED `PNGASEUUSDM`，属于月频序列，导致历史图每月一个点。
+- 实施方案：在 `update-datasources.js` 中新增“月频点按自然日展开”逻辑，仅对 TTF 历史序列生效。
+- 结果：TTF 历史点位由 11 个扩展为 366 个，日期连续（按天）。
+- 说明：该方案为“月频转日频展示”（同月内值相同），并在 `note` 标注，避免被误认为交易所真实逐日结算价。
+- 验证：`npm run update:data` 与 `npm run docs:build` 均通过。
+
+### 2026-03-26 16:40
+
+按用户要求完成市场页 War Room 重构、主题联动与英文化补齐：
+- 市场页改为 Home Layout 全页展示，去除左右边栏语义，并新增自定义全页样式。
+- 新增 `MarketWarBoard.vue`，将行情页改为“战情看板”结构（4 指标 + 合并折线 + 指标开关）。
+- 页面视觉由“面板卡片”调整为“深色底直出内容”，并实现明暗主题切换（暗色文本自动提亮）。
+- 修复暗色主题可读性：`metric-date`、`axis-label`、`legend-item` 在 dark 下强制白色显示。
+- 组件文案支持中英文自动切换（标题、状态、更新时间、空态提示、图表 aria 标签）。
+- 修复图表中残留中文：基于 `symbol` 做中英文名称映射，并结合路由 `/en/` + `lang` 双判定确保英文页稳定显示英文指标名与图例。
+- 新增英文市场页 `en/market/index.md`，并将英文导航 `Market` 重链到 `/en/market/`。
+- 检查英文导航缺失项后，新增 `en/basis/lng.md`（由中文页翻译生成），并将英文导航 `Basis` 重链到 `/en/basis/lng`。
+- 验证结果：多次执行 `npm run docs:build` 均通过（外部数据源告警不影响构建产出）。
+
 
 
 

@@ -1,59 +1,16 @@
-# 市场信息
+---
+layout: home
+pageClass: market-war-home
+---
 
 <script setup>
 import marketPrices from '../.vitepress/data/market-prices.json'
 import marketHistory from '../.vitepress/data/market-history.json'
 import dataHealth from '../.vitepress/data/data-health.json'
-import MarketHistoryChart from '../.vitepress/theme/components/MarketHistoryChart.vue'
-
-const fmt = (value) => {
-	if (value === null || value === undefined || Number.isNaN(Number(value))) return '-'
-	return Number(value).toFixed(3)
-}
-
-const healthLabel = dataHealth.status === 'ok' ? '正常' : '降级'
+import MarketWarBoard from '../.vitepress/theme/components/MarketWarBoard.vue'
 </script>
 
-这里集中展示 LNG 相关市场指标，作为接收站栏目之外的独立市场页。
-
-## LNG 关键价格（自动更新）
-
-数据更新时间: {{ marketPrices.updatedAt }}
-
-数据健康状态: **{{ healthLabel }}**
-
-<ul v-if="(dataHealth.warnings || []).length">
-	<li v-for="(msg, idx) in dataHealth.warnings" :key="idx">{{ msg }}</li>
-</ul>
-
-<table>
-	<thead>
-		<tr>
-			<th>品种</th>
-			<th>最新价格</th>
-			<th>单位</th>
-			<th>日期</th>
-			<!--
-			<th>备注</th>
-			-->
-		</tr>
-	</thead>
-	<tbody>
-		<tr v-for="item in marketPrices.items" :key="item.seriesId">
-			<td :title="item.note">{{ item.displayName }}</td>
-			<td>{{ fmt(item.value) }}</td>
-			<td>{{ item.unit }}</td>
-			<td>{{ item.date || '-' }}</td>
-			<!--
-			<td>{{ item.note }}</td>
-			-->
-		</tr>
-	</tbody>
-</table>
-
-## 过去一年价格折线图
-
-<MarketHistoryChart :history="marketHistory" />
+<MarketWarBoard :prices="marketPrices" :history="marketHistory" :health="dataHealth" />
 
 ## 指标说明
 

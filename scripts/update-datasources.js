@@ -634,6 +634,48 @@ function formatDate(date) {
   return date.toISOString().slice(0, 10);
 }
 
+function parseIsoDate(dateStr) {
+  return new Date(`${dateStr}T00:00:00Z`);
+}
+
+function expandMonthlyPointsToDaily(points, startDate, endDate) {
+  if (!Array.isArray(points) || !points.length) {
+    return [];
+  }
+
+  const sorted = [...points]
+    .filter((x) => x && typeof x.date === 'string' && Number.isFinite(x.value))
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  if (!sorted.length) {
+    return [];
+  }
+
+  const out = [];
+  const end = parseIsoDate(endDate);
+  const cursor = parseIsoDate(startDate);
+  let idx = 0;
+
+  while (cursor <= end) {
+    const day = formatDate(cursor);
+
+    while (idx + 1 < sorted.length && sorted[idx + 1].date <= day) {
+      idx += 1;
+    }
+
+    if (sorted[idx] && sorted[idx].date <= day) {
+      out.push({
+        date: day,
+        value: sorted[idx].value
+      });
+    }
+
+    cursor.setUTCDate(cursor.getUTCDate() + 1);
+  }
+
+  return out;
+}
+
 function getHistoryWindow(days = HISTORY_DAYS) {
   const end = new Date();
   const start = new Date(end);
@@ -707,9 +749,18 @@ async function updateMarketHistory() {
 
   for (const item of historySeries) {
     try {
-      const points = await fetchFredSeriesHistory(item.sourceSeriesId, window.start, window.end);
+      const rawPoints = await fetchFredSeriesHistory(item.sourceSeriesId, window.start, window.end);
+      const points = item.symbol === 'TTF'
+        ? expandMonthlyPointsToDaily(rawPoints, window.start, window.end)
+        : rawPoints;
+
+      const note = item.symbol === 'TTF'
+        ? `${item.note}; 已按自然日展开（月频序列转日频展示）`
+        : item.note;
+
       series.push({
         ...item,
+        note,
         points
       });
       if (!points.length) {
