@@ -1,52 +1,67 @@
 # LNG液化天然气
 
 
-## 0 LNG
-LNG（Liquefied Natural Gas）液化天然气：将气田生产的天然气（主要成份是甲烷）经净化处理，去除了一些有价值的成分如氦，和一些高分子碳氢化合物，以及一些对下游产业不利的成分如硫、氮、水等，并经一连串超低温液化后获得的常压下是液体的天然气。一般液化天然气在1大气压(1atm)下，通过降温到约-162°C 进行液化。<sup>[[1]](#ref1)</sup>
+## 0 定义
+
+LNG（Liquefied Natural Gas，液化天然气）是指将天然气（主要组分为甲烷，CH₄）经过系统性净化处理后，在标准大气压（1 atm）条件下冷却至约 −162°C 所获得的低温液态烃类混合物。净化工序涵盖对高价值组分（如氦气）的回收分离、重质烃组分的脱除，以及对下游工业有害杂质（硫化物、氮气、水分等）的精制去除。液化处理可将天然气体积压缩至气态的约 1/600，从而大幅提升储运效率。<sup>[[1]](#ref1)</sup>
 
 ## 1 物化特性
-LNG主要成分为甲烷CH4（90%以上）、乙烷C2H6、氮气N<sub>2</sub>（0.5-1%）及少量C<sub>3</sub>～C<sub>5</sub>烷烃。无色无味无毒且无腐蚀性。具有热值大、性能高、安全环保及不易爆炸等特点，其体积约为同量气态天然气体积的1/600<sup>[[1]](#ref1)</sup>，LNG密度为水的45%左右，约430-470kg/m³（因组分不同而略有差异），燃点约为650℃ ，热值为52MMBtu/t（1MMBtu=2.52×10^8cal），气体密度约1.5 kg/m3.爆炸极限为5%-15%（体积%）。
 
-LNG是天然气的液态形式，某些情况下，液化天然气相比其他形态具有更多优点：
+LNG 的主要化学组分为甲烷（CH₄，含量通常超过 90%），并含有少量乙烷（C₂H₆）、氮气（N₂，约 0.5–1%）以及微量丙烷（C₃H₈）至戊烷（C₅H₁₂）等高碳烷烃。其主要物化参数如下<sup>[[1]](#ref1)</sup>：
 
-- 储存效率高。占地少、投资省，10m<sup>3</sup>LNG储存量就可供1万户居民1天的生活用气；
-- 安全性高。 由于LNG汽化后密度很低，只有空气的一半左右，稍有泄露立即飞散开来，不致引起爆炸；
-- 方便运输。LNG液/气密度比大，比同质量天然气体积缩小624倍，即1体积LNG大致能转化为624体积的气体；
-- 保护环境，减少污染。由于LNG组分较纯，燃料完全，燃烧后燃烧后产生的二氧化碳和氮氧化合物仅为煤的50%和20%，污染为液化石油气的1/4，煤的1/800。是很好的清洁燃料，有利于保护环境，减少城市污染；
-- 环境效益及社会效益高。作为可持续发展清洁能源，在发电中，天然气的热能利用率可达55%，高于燃油和煤，尤其是对调峰电厂而言，天然气取代燃油的优势非常明显｡以LNG取代燃油后可将汽油汽车尾气中的HC减72%，NOx减少39%，CO<sub>2</sub>减少90%，SOx降为零，是汽车的优质代用燃料｡
+| 性质 | 数值 |
+|------|------|
+| 外观 | 无色、无味、无毒、无腐蚀性液体 |
+| 液态密度 | 约 430–470 kg/m³（因组分差异略有变化，约为水密度的 45%）|
+| 常压沸点 | 约 −162°C |
+| 自燃点 | 约 650°C |
+| 质量热值 | 约 52 MMBtu/t（1 MMBtu ≈ 2.52×10⁸ cal）|
+| 气态密度（常温常压）| 约 1.5 kg/m³ |
+| 爆炸极限（体积分数）| 5%–15% |
+| 液气体积比 | 约 1∶624 |
+
+与其他储运形态的天然气相比，LNG 具有以下显著优势：
+
+**储存效率**：受益于较高的液气密度比，LNG 的储存占地面积小、单位投资效益高。据估算，10 m³ 的 LNG 储量即可满足约 1 万户居民一日的生活用气需求。
+
+**本质安全性**：LNG 汽化后密度约为空气的 1/2，轻微泄漏后气体将迅速向上扩散，不易在低洼处积聚形成爆炸性混合气体，本质安全性较高。
+
+**运输便利性**：LNG 液态体积约为同质量气态天然气的 1/624，在相同运输能量密度下，单位体积 LNG 的运输载能远优于压缩天然气。
+
+**环境效益**：LNG 作为组分纯净的清洁燃料，在完全燃烧条件下，产生的 CO₂ 和 NO<sub>x</sub> 分别仅为燃煤的 50% 和 20%，含硫污染物排放量约为液化石油气的 1/4、煤炭的 1/800。在交通运输领域，以 LNG 替代汽油后，尾气中 HC、NO<sub>x</sub>、CO₂ 及 SO<sub>x</sub> 的排放量可分别降低约 72%、39%、90% 及接近 100%。
+
+**能源利用效率**：在电力生产领域，天然气的热能综合利用率可达约 55%，显著高于燃油（约 35–40%）和燃煤（约 30–35%），在需快速启停的调峰电厂中具有尤为突出的竞争优势。
 
 
 ## 2 应用
 
-LNG被认为是地球上最干净的化石能源，硫含量极低，天然气发电NO<sub>x</sub>和CO<sub>2</sub>排放量仅为燃煤电厂的20%和50%。
+LNG 被广泛认为是现阶段最为洁净的化石燃料之一，其硫含量极低。在燃烧排放方面，天然气发电产生的 NO<sub>x</sub> 和 CO₂ 分别仅相当于燃煤电厂的 20% 和 50%，具有显著的减污降碳效益。
 
-液化天然气主要将天然气转化为液态在海上或陆上运输，服务于技术和经济上不允许架设管道的情况<sup>[[2]](#ref2)</sup>，与压缩天然气（CNG）相比，LNG的体积减少更多，因此等体积LNG的能量密度是CNG（250 bar）的2.4倍或60%柴油燃料<sup>[[3]](#ref3)</sup> ，LNG使用配套的低温LNG船舶和LNG槽车。LNG可以运输至市场再气化为天然气使用，
-
-LNG在陆上终端的主要用途有：
-
-(1)用作城市管网供气的高峰负荷和事故调峰
-
-(2)用作大中城市管道供气的主要气源
-
-(3)用作LNG小区和工厂的气化的气源
-
-(4)用作车船、飞机等交通工具燃料
-
-(5)LNG的冷能利用
-
-(6)分布式能源系统
+LNG 的核心应用场景在于实现天然气的远距离海上或陆上运输，尤其适用于因地理条件或建设成本限制而无法铺设输气管道的地区<sup>[[2]](#ref2)</sup>。与压缩天然气（CNG）相比，LNG 在单位体积能量密度方面具有明显优势——等体积 LNG 的能量密度约为 CNG（250 bar 条件下）的 2.4 倍，约相当于柴油的 60%<sup>[[3]](#ref3)</sup>。LNG 运输体系依托专用低温 LNG 运输船和 LNG 槽车，货物抵达目的地后经再气化终端转化为天然气，输入管网或直接用于终端消费。
 
 ![LNG运输船](https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Methanier_aspher_LNGRIVERS.jpg/600px-Methanier_aspher_LNGRIVERS.jpg)
 
+LNG 在陆上终端的主要应用领域包括：
+
+1. **城市管网调峰**：作为城市燃气管网高峰负荷与事故应急状态下的调峰气源；
+2. **城镇燃气主气源**：作为大中城市管道燃气系统的主要供气来源；
+3. **分布式气化供气**：作为LNG小区、工业园区及化工园区的气化气源；
+4. **清洁交通燃料**：作为车辆、船舶及航空器的低排放替代燃料；
+5. **冷能综合利用**：回收和利用 LNG 气化过程中释放的大量冷量资源（约 830 kJ/kg），用于冷链物流、低温粉碎、发电等；
+6. **分布式能源系统**：作为冷热电三联供（CCHP）分布式能源系统的燃料输入。
 
 
 ## 3 标准与质量要求
-天然气国家标准《天然气》GB17820-2018，液化气天然气只是天然气状态的不同，没有再专门制定标准，其密度为0.42～0.46 g／cm3<sup>[[4]](#ref4)</sup>，规范中对质量有如下的要求。
 
-![天然气质量要求](images/image.png)
+中国国家标准[液化天然气GB/T 38753-2020](https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=76AF0C5F6023E28F971AEB3969474428&refer=outter)<sup>[[5]](#ref5)</sup> 对液化天然气的产品质量指标作出了详细规定，主要涵盖组分要求、杂质限值及关键物性参数等方面。
+
+![alt text](./images/image-2.png)
+![alt text](./images/image-3.png)
+
 
 ## 参考文献
-1. [wq液化天然气.wikipedia.](https://zh.wikipedia.org/wiki/%E6%B6%B2%E5%8C%96%E5%A4%A9%E7%84%B6%E6%B0%94){#ref1}
-2. [Ulvestad, Marte; Overland, Indra. Natural gas and CO2 price variation: Impact on the relative cost-efficiency of LNG and pipelines. "International Journal of Environmental Studies". 2012, 69 (3): 407–426.2019-04-14.（原始内容存档于2021-02-08）](https://www.researchgate.net/publication/261221877_Natural_gas_and_CO2_price_variation_Impact_on_the_relative_cost-efficiency_of_LNG_and_pipelines){#ref2}
-3. [Liquefied Petroleum Gas (LPG), Liquefied Natural Gas (LNG) and Compressed Natural Gas (CNG). Envocare Ltd. 2007-03-21.2008-09-03. （原始内容存档于2008-08-13）](https://web.archive.org/web/20080813093121/http://www.envocare.co.uk/lpg_lng_cng.htm){#ref3}
-4. [天然气.GB17820-2018](https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=C7F5861DFDE1788307F7B8E64C9B039C){#ref4}
+1. [液化天然气. 维基百科.](https://zh.wikipedia.org/wiki/%E6%B6%B2%E5%8C%96%E5%A4%A9%E7%84%B6%E6%B0%94){#ref1}
+2. [Ulvestad, Marte; Overland, Indra. Natural gas and CO2 price variation: Impact on the relative cost-efficiency of LNG and pipelines. *International Journal of Environmental Studies*. 2012, 69 (3): 407–426.](https://www.researchgate.net/publication/261221877_Natural_gas_and_CO2_price_variation_Impact_on_the_relative_cost-efficiency_of_LNG_and_pipelines){#ref2}
+3. [Liquefied Petroleum Gas (LPG), Liquefied Natural Gas (LNG) and Compressed Natural Gas (CNG). Envocare Ltd. 2007-03-21.（原始内容存档于2008-08-13）](https://web.archive.org/web/20080813093121/http://www.envocare.co.uk/lpg_lng_cng.htm){#ref3}
+4. [天然气. GB 17820-2018](https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=C7F5861DFDE1788307F7B8E64C9B039C){#ref4}
+5. [液化天然气. GB/T 38753-2020](https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=76AF0C5F6023E28F971AEB3969474428&refer=outter){#ref5}
