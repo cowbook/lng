@@ -1,6 +1,11 @@
 ---
 layout: doc
 aside: left
+description: 中国天然气发展报告（2024）：2024年国内外天然气供给、需求、价格与政策趋势深度解析。
+head:
+  - - script
+    - type: application/ld+json
+    - '{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"中国天然气发展报告（2024）","description":"2024年国内外天然气供给、需求、价格与政策趋势深度解析","inLanguage":"zh-CN","url":"https://lng.cool/report/China2024","publisher":{"@type":"Organization","name":"Lng.Cool","url":"https://lng.cool"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://lng.cool/"},{"@type":"ListItem","position":2,"name":"研究报告","item":"https://lng.cool/report/"},{"@type":"ListItem","position":3,"name":"中国天然气发展报告（2024）","item":"https://lng.cool/report/China2024"}]}]}'
 ---
 
 # 中国天然气发展报告（2024）

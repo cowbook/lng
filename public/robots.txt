@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /aiwork/
+Disallow: /api-examples
+Disallow: /markdown-examples
+
+Sitemap: https://lng.cool/sitemap.xml

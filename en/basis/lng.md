@@ -1,3 +1,7 @@
+---
+description: "LNG (Liquefied Natural Gas) fundamentals: definition, physicochemical properties, quality standards, unit conversions, storage & transport, and downstream applications."
+---
+
 # LNG (Liquefied Natural Gas)
 
 ## 0 Definition

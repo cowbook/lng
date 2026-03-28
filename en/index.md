@@ -2,6 +2,7 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 pageClass: lng-home-en
+description: Open-source LNG international trade knowledge base with real-time market data, trade guides, research reports, and bilingual content.
 
 hero:
   name: "Lng Cool"

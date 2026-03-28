@@ -2,6 +2,7 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 pageClass: lng-home
+description: LNG国际贸易知识库，提供实时行情、贸易基础手册、产业链深度报告与中英双语内容。
 
 hero:
   name: "Lng Cool"

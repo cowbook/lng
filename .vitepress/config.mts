@@ -1,11 +1,75 @@
 import { defineConfig } from 'vitepress'
 import markdownItSup from 'markdown-it-sup'
 
+const SITE = 'https://lng.cool'
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Lng.Cool",
   base: '/',
   description: "LNG Cookbook",
+  cleanUrls: true,
+  sitemap: {
+    hostname: SITE,
+    transformItems(items) {
+      const EXCLUDE = /^(aiwork\/|README|api-examples|markdown-examples)/
+      return items.filter(item => !EXCLUDE.test(item.url))
+    }
+  },
+
+  transformPageData(pageData, { siteConfig }) {
+    const slug = pageData.relativePath
+      .replace(/index\.md$/, '')
+      .replace(/\.md$/, '')
+    const url = SITE + '/' + slug
+
+    pageData.frontmatter.head ??= []
+
+    // Canonical
+    pageData.frontmatter.head.push(['link', { rel: 'canonical', href: url }])
+
+    // hreflang (only when counterpart exists)
+    const isEn = pageData.relativePath.startsWith('en/')
+    const pagesSet = new Set(siteConfig.pages)
+    const enRelPath = isEn ? pageData.relativePath : 'en/' + pageData.relativePath
+    const zhRelPath = isEn ? pageData.relativePath.replace(/^en\//, '') : pageData.relativePath
+    const zhSlug = zhRelPath.replace(/index\.md$/, '').replace(/\.md$/, '')
+    const enSlug = enRelPath.replace(/index\.md$/, '').replace(/\.md$/, '')
+    const zhUrl = SITE + '/' + zhSlug
+    const enUrl = SITE + '/' + enSlug
+
+    if (isEn && pagesSet.has(zhRelPath)) {
+      pageData.frontmatter.head.push(['link', { rel: 'alternate', hreflang: 'zh-CN', href: zhUrl }])
+      pageData.frontmatter.head.push(['link', { rel: 'alternate', hreflang: 'en', href: url }])
+      pageData.frontmatter.head.push(['link', { rel: 'alternate', hreflang: 'x-default', href: zhUrl }])
+    } else if (!isEn && pagesSet.has(enRelPath)) {
+      pageData.frontmatter.head.push(['link', { rel: 'alternate', hreflang: 'zh-CN', href: url }])
+      pageData.frontmatter.head.push(['link', { rel: 'alternate', hreflang: 'en', href: enUrl }])
+      pageData.frontmatter.head.push(['link', { rel: 'alternate', hreflang: 'x-default', href: url }])
+    }
+
+    // OG + Twitter Card
+    const title = pageData.title || 'Lng.Cool — LNG知识与行情平台'
+    const desc = pageData.frontmatter.description || (
+      isEn
+        ? 'Open-source LNG trade knowledge, real-time market data, reports and research.'
+        : 'LNG国际贸易知识、行情与研究平台，提供双语内容与实时数据。'
+    )
+    const ogType = (pageData.relativePath.startsWith('report/') || pageData.relativePath.startsWith('essay/'))
+      ? 'article' : 'website'
+
+    pageData.frontmatter.head.push(
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: desc }],
+      ['meta', { property: 'og:url', content: url }],
+      ['meta', { property: 'og:type', content: ogType }],
+      ['meta', { property: 'og:image', content: SITE + '/images/lng.png' }],
+      ['meta', { property: 'og:site_name', content: 'Lng.Cool' }],
+      ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: desc }],
+    )
+  },
   markdown: {
     math: true,
     config: (md) => {

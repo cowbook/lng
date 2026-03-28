@@ -203,6 +203,33 @@ git push origin main  # 自动触发GitHub Actions部署
 - 提交前执行构建验证，确认当前变更可正常构建后再推送到远端。
 - 提醒：`aiwork/optimization-plan.md` 中 P1 SEO 基线、双语一致性检查、aiwork 文档治理，以及 P2 内容生产流水线、终端行情页产品化仍未完成，后续提交前建议继续按清单推进。
 
+### 2026-03-28 11:40
+
+完成 P1-1 SEO 基线建设，核心变更如下：
+
+**config.mts**
+- 新增 `cleanUrls: true`，与已有导航链接格式保持一致。
+- 新增 `sitemap: { hostname: 'https://lng.cool' }`，构建时自动生成 `sitemap.xml`（含中英文 hreflang 互链）；通过 `transformItems` 排除 `aiwork/`、`api-examples`、`markdown-examples` 等内部内容。
+- 新增 `transformPageData` 钩子，对所有页面自动注入：
+  - `<link rel="canonical">` 规范链接
+  - `<link rel="alternate" hreflang="zh-CN|en|x-default">` 中英互链（仅在对应语言页实际存在时生效，通过 `siteConfig.pages` 校验）
+  - `og:title / og:description / og:url / og:type / og:image / og:site_name`
+  - `twitter:card / twitter:title / twitter:description`
+  - 报告/论文页 `og:type` 自动设为 `article`，其余为 `website`
+
+**核心页面 `description` frontmatter**
+- 首页 `index.md` / `en/index.md`
+- 市场页 `market/index.md` / `en/market/index.md`
+- 基础知识 `basis/lng.md` / `en/basis/lng.md` / `basis/lng-industry.md`
+
+**报告页 JSON-LD 结构化数据**
+- `report/China2024.md` / `report/China2025.md`：新增 `Article` + `BreadcrumbList` JSON-LD
+
+**robots.txt**
+- 新增 `public/robots.txt`，禁止爬虫索引 `/aiwork/`、`/api-examples`、`/markdown-examples`，并声明 Sitemap 地址。
+
+验证：`npm run docs:build` 通过，`sitemap.xml` 正确生成，建议接下来推进 P1-2 双语一致性检查。
+
 
 
 

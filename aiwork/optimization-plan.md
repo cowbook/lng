@@ -20,6 +20,10 @@
 - [x] 英文市场页补齐并重链（`/en/market/`）
 - [x] 英文导航缺失项补齐：`Basis` 已指向 `/en/basis/lng`，对应英文页已生成
 
+## 进度快照（2026-03-28）
+
+- [x] P1-1 SEO 基线建设（canonical + hreflang + OG + Twitter Card + JSON-LD + sitemap + robots.txt）
+
 ## 一、现状摘要（已确认）
 
 - 已具备市场数据自动更新脚本（FRED + Barchart + 回退链路）。
