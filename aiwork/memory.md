@@ -277,6 +277,20 @@ git push origin main  # 自动触发GitHub Actions部署
 
 验证：`npm run docs:build` 通过，sitemap 正常生成；Google News/Crossref 外部源告警不影响构建。
 
+### 2026-03-28 14:09
+
+继续优化 P2-2 行情页对比能力（相对强弱模式）：
+
+- `MarketWarBoard.vue` 新增第三种对比模式：`相对强弱 / Relative strength`。
+- 新增“基准品种”切换：Brent / JKM / TTF / Henry Hub。
+- 计算逻辑：
+   - 选中 `relative` 后，基准品种按 100 显示；
+   - 其余品种按 `当前值 / 基准同日值 * 100` 绘制；
+   - 若基准同日数据缺失则跳过该点，避免错误折线。
+- 轴标签规则同步：非绝对值模式统一使用 1 位小数。
+
+验证：`npm run docs:build` 通过，页面构建正常。
+
 
 
 
