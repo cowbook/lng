@@ -195,6 +195,14 @@ git push origin main  # 自动触发GitHub Actions部署
 - 检查英文导航缺失项后，新增 `en/basis/lng.md`（由中文页翻译生成），并将英文导航 `Basis` 重链到 `/en/basis/lng`。
 - 验证结果：多次执行 `npm run docs:build` 均通过（外部数据源告警不影响构建产出）。
 
+### 2026-03-28 11:12
+
+按用户要求准备提交并推送当前仓库改动：
+- 已检查当前未提交文件，仅包含 `.vitepress/config.mts`、`basis/lng.md`，并按约定先在 `aiwork/memory.md` 记录本次会话。
+- 本次提交内容以当前工作区现状为准：VitePress 站点 `base` 从 `/lng/` 调整为 `/`，并同步保留 `basis/lng.md` 的现有内容改动。
+- 提交前执行构建验证，确认当前变更可正常构建后再推送到远端。
+- 提醒：`aiwork/optimization-plan.md` 中 P1 SEO 基线、双语一致性检查、aiwork 文档治理，以及 P2 内容生产流水线、终端行情页产品化仍未完成，后续提交前建议继续按清单推进。
+
 
 
 

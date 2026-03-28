@@ -4,7 +4,7 @@ import markdownItSup from 'markdown-it-sup'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Lng.Cool",
-  base: '/lng/',
+  base: '/',
   description: "LNG Cookbook",
   markdown: {
     math: true,

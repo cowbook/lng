@@ -55,6 +55,8 @@ LNG 在陆上终端的主要应用领域包括：
 
 中国国家标准[液化天然气GB/T 38753-2020](https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=76AF0C5F6023E28F971AEB3969474428&refer=outter)<sup>[[5]](#ref5)</sup> 对液化天然气的产品质量指标作出了详细规定，主要涵盖组分要求、杂质限值及关键物性参数等方面。
 
+
+
 ![alt text](./images/image-2.png)
 ![alt text](./images/image-3.png)
 
