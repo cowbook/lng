@@ -45,6 +45,3 @@ GitHub Actions 每日 08:30（北京时间）自动触发完整构建+部署。
 | P2 | OilPrice RSS 稳定性 | 当前 HTTP 500，可替换为 S&P Global Commodity Insights RSS |
 | P2 | NASDAQ Data Link 回退 | 当前网络下存在 403 风险，备用回退已有 FRED |
 | P3 | 更多学术源 | 可接入 ScienceDirect / Springer LNG 专题 |
-
-
-```

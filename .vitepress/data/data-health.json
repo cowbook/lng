@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-28T03:59:13.278Z",
+  "updatedAt": "2026-03-28T05:49:54.987Z",
   "status": "ok",
   "summary": {
     "market": {
@@ -16,7 +16,7 @@
     },
     "news": {
       "newsCount": 10,
-      "academicCount": 8,
+      "academicCount": 10,
       "usedNewsCache": false,
       "usedAcademicCache": false,
       "warnings": []

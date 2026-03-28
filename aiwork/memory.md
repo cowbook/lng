@@ -246,6 +246,23 @@ git push origin main  # 自动触发GitHub Actions部署
 
 验证：`npm run docs:build` 通过，`sitemap.xml` 正确生成，建议接下来推进 P1-2 双语一致性检查。
 
+### 2026-03-28 13:46
+
+继续推进 P2-1 内容生产流水线（先落地基础能力）：
+
+- 新增 `scripts/new-content.js`，提供统一内容脚手架（`essay`/`report`）：
+   - 自动生成 frontmatter：`title`、`description`、`keywords`、`date`、`author`、`source`、`enSyncStatus`
+   - 自动生成正文结构：摘要/关键观点/数据与图表/正文分析/结论
+   - `essay` 类型默认自动追加到 `essay/index.md`（可用 `--no-index` 关闭）
+- `package.json` 新增命令：`npm run content:new`
+- `README.md` 新增“内容生产流水线”与“建议发布节奏”：
+   - 每日快讯 1 篇（200-400 字）
+   - 每周深度 1 篇（1200-2500 字）
+   - 给出周一选题、周三成稿、周五发布的执行节拍
+- 修正 `aiwork/datasource-plan.md` 末尾残留代码块符号，保持文档整洁。
+
+验证：已实际运行 `npm run content:new` 完成脚本可用性校验，并清理测试稿；后续可继续推进 P2-2 终端行情页产品化。
+
 
 
 
