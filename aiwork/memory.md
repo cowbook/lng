@@ -203,6 +203,22 @@ git push origin main  # 自动触发GitHub Actions部署
 - 提交前执行构建验证，确认当前变更可正常构建后再推送到远端。
 - 提醒：`aiwork/optimization-plan.md` 中 P1 SEO 基线、双语一致性检查、aiwork 文档治理，以及 P2 内容生产流水线、终端行情页产品化仍未完成，后续提交前建议继续按清单推进。
 
+### 2026-03-28 12:10
+
+继续完成 P1-2 双语内容一致性检查和 P1-3 aiwork 文档治理：
+
+**P1-2 双语内容一致性检查**
+- 新增 `scripts/check-bilingual.js`（CommonJS），扫描 `basis/report/essay/trade` 目录，与 `en/` 对应路径比对，输出缺口报告。
+- 新增 `npm run check:bilingual` 脚本（`package.json`）。
+- 当前缺口：20 个中文页面中，3 个已有英文版，17 个缺少英文版。
+  - P1 高优先缺失：`report/China2024.md`（`report/China2025.md` en 版已存在但完成度 50%）
+  - P2 中优先缺失：`basis/trade.md / trade2024.md / types.md`
+  - P3/P4：`basis/history.md` 等附属内容
+
+**P1-3 aiwork 文档治理**
+- `aiwork/project.md`：重写为当前事实配置文档（技术栈表格、常用命令、数据源现状表），删除所有"待确认"和过时内容，修正生产 URL（`https://lng.cool`）。
+- `aiwork/datasource-plan.md`：保留当前数据源实现方案与待完善路线图，删除初期选型方案讨论和已实现的实施步骤。
+
 ### 2026-03-28 11:40
 
 完成 P1-1 SEO 基线建设，核心变更如下：

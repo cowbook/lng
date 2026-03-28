@@ -10,6 +10,7 @@
     "docs:dev": "vitepress dev",
     "update:data": "node scripts/update-datasources.js",
     "wechat:add": "node scripts/add-wechat-item.js",
+    "check:bilingual": "node scripts/check-bilingual.js",
     "docs:build": "npm run update:data && vitepress build",
     "docs:preview": "vitepress preview"
   },
