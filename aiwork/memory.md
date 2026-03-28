@@ -263,6 +263,20 @@ git push origin main  # 自动触发GitHub Actions部署
 
 验证：已实际运行 `npm run content:new` 完成脚本可用性校验，并清理测试稿；后续可继续推进 P2-2 终端行情页产品化。
 
+### 2026-03-28 14:00
+
+继续推进并完成 P2-2 终端行情页产品化（`MarketWarBoard.vue`）：
+
+- 新增**时间维度切换**：`7D / 30D / 1Y`，图表可快速切换观察窗口。
+- 新增**对比模式**：
+   - 绝对值（Absolute）
+   - 指数化（Indexed，起点=100），便于跨品种走势比较。
+- 新增**来源与回退说明区块**：逐项展示实时来源说明（来自 `market-prices.note`）和历史来源链接（`market-history.series[].source`）。
+- 新增**异常/回退提示区块**：合并 `health.warnings` 与指标 note 中包含 fallback/回退/代理/缓存关键词的提示信息。
+- 兼容中英文：新增控制区和说明区文案均支持语言切换。
+
+验证：`npm run docs:build` 通过，sitemap 正常生成；Google News/Crossref 外部源告警不影响构建。
+
 
 
 

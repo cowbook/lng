@@ -26,6 +26,7 @@
 - [x] P1-2 双语内容一致性检查（新增 `scripts/check-bilingual.js`，`npm run check:bilingual` 输出缺口报告）
 - [x] P1-3 aiwork 文档治理（`project.md` 重写为当前事实，`datasource-plan.md` 清理为现行方案）
 - [x] P2-1 基础能力落地（新增 `npm run content:new` 统一内容模板脚手架 + README 发布节奏）
+- [x] P2-2 终端行情页产品化（时间范围切换 + 指数化对比 + 来源/回退/异常提示）
 
 ## 一、现状摘要（已确认）
 

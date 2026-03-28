@@ -25,6 +25,8 @@ type HistorySeries = {
   symbol: string
   displayName: string
   unit: string
+  source?: string
+  note?: string
   points: HistoryPoint[]
 }
 
@@ -78,6 +80,8 @@ const colorMap: Record<string, string> = {
 }
 
 const visibleSymbols = ref<string[]>([...cardOrder])
+const rangeMode = ref<'7d' | '30d' | '1y'>('30d')
+const compareMode = ref<'absolute' | 'indexed'>('absolute')
 
 const fmt = (value: number | null | undefined) => {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return '-'
@@ -120,6 +124,14 @@ const allDates = computed(() => {
   return [...set].sort((a, b) => a.localeCompare(b))
 })
 
+const plotDates = computed(() => {
+  const dates = allDates.value
+  if (!dates.length) return []
+  if (rangeMode.value === '7d') return dates.slice(-7)
+  if (rangeMode.value === '30d') return dates.slice(-30)
+  return dates
+})
+
 const dimensions = {
   width: 1080,
   height: 410,
@@ -136,9 +148,24 @@ const plot = computed(() => ({
 
 const valueStats = computed(() => {
   const values: number[] = []
+  const dates = new Set(plotDates.value)
+
   for (const s of activeSeries.value) {
+    const byDate = new Map<string, number>()
     for (const p of s.points || []) {
-      if (Number.isFinite(p.value)) values.push(p.value)
+      if (dates.has(p.date) && Number.isFinite(p.value)) byDate.set(p.date, p.value)
+    }
+
+    const rowValues = plotDates.value
+      .map((d) => byDate.get(d))
+      .filter((v): v is number => Number.isFinite(v))
+
+    if (compareMode.value === 'indexed') {
+      const base = rowValues[0]
+      if (!Number.isFinite(base) || !base) continue
+      for (const v of rowValues) values.push((v / base) * 100)
+    } else {
+      for (const v of rowValues) values.push(v)
     }
   }
 
@@ -166,13 +193,13 @@ const yTicks = computed(() => {
     const t = i / (n - 1)
     const y = dimensions.top + t * plot.value.h
     const v = max - t * (max - min)
-    out.push({ y, value: v.toFixed(2) })
+    out.push({ y, value: compareMode.value === 'indexed' ? `${v.toFixed(1)}` : v.toFixed(2) })
   }
   return out
 })
 
 const xLabels = computed(() => {
-  const dates = allDates.value
+  const dates = plotDates.value
   if (!dates.length) return []
   const idxList = [0, Math.floor(dates.length / 2), dates.length - 1]
   return idxList.map((idx) => ({
@@ -182,7 +209,7 @@ const xLabels = computed(() => {
 })
 
 const polylines = computed(() => {
-  const dates = allDates.value
+  const dates = plotDates.value
   if (!dates.length) return []
 
   const min = valueStats.value.min
@@ -196,11 +223,19 @@ const polylines = computed(() => {
     }
 
     const pts: string[] = []
+    const values = dates.map((d) => byDate.get(d))
+    let base = 0
+    if (compareMode.value === 'indexed') {
+      const first = values.find((v): v is number => Number.isFinite(v as number))
+      base = Number(first || 0)
+    }
+
     dates.forEach((d, idx) => {
-      const v = byDate.get(d)
-      if (!Number.isFinite(v)) return
+      const raw = byDate.get(d)
+      if (!Number.isFinite(raw)) return
+      const v = compareMode.value === 'indexed' ? ((raw as number) / (base || 1)) * 100 : (raw as number)
       const x = dimensions.left + (idx / Math.max(1, dates.length - 1)) * plot.value.w
-      const y = dimensions.top + (1 - ((v as number) - min) / range) * plot.value.h
+      const y = dimensions.top + (1 - (v - min) / range) * plot.value.h
       pts.push(`${x.toFixed(2)},${y.toFixed(2)}`)
     })
 
@@ -226,6 +261,35 @@ function isActive(symbol: string) {
   return visibleSymbols.value.includes(symbol)
 }
 
+const sourceRows = computed(() => {
+  const history = historyMap.value
+  const rows = cards.value.map((c) => {
+    const h = history.get(c.symbol)
+    return {
+      symbol: c.symbol,
+      name: c.displayName,
+      liveNote: c.note || '-',
+      historySource: h?.source || '-',
+      historyNote: h?.note || '-'
+    }
+  })
+  return rows
+})
+
+const fallbackHints = computed(() => {
+  const out: string[] = []
+  for (const c of cards.value) {
+    const note = (c.note || '').toLowerCase()
+    if (note.includes('fallback') || note.includes('回退') || note.includes('缓存') || note.includes('代理')) {
+      out.push(`${c.displayName}: ${c.note}`)
+    }
+  }
+  for (const w of props.health?.warnings || []) {
+    out.push(w)
+  }
+  return out
+})
+
 const statusText = computed(() => {
   if (props.health?.status === 'ok') {
     return isEnglish.value ? 'Stable' : '系统稳定'
@@ -235,6 +299,14 @@ const statusText = computed(() => {
 
 const boardTitle = computed(() => (isEnglish.value ? 'LNG Market War Room' : 'LNG 市场战情看板'))
 const updatedLabel = computed(() => (isEnglish.value ? 'Updated' : '更新'))
+const rangeLabel = computed(() => (isEnglish.value ? 'Range' : '时间范围'))
+const compareLabel = computed(() => (isEnglish.value ? 'Compare' : '对比模式'))
+const compareAbsText = computed(() => (isEnglish.value ? 'Absolute' : '绝对值'))
+const compareIdxText = computed(() => (isEnglish.value ? 'Indexed (start=100)' : '指数化(起点=100)'))
+const sourceTitle = computed(() => (isEnglish.value ? 'Source and Fallback Notes' : '来源与回退说明'))
+const liveSourceLabel = computed(() => (isEnglish.value ? 'Realtime note' : '实时来源'))
+const histSourceLabel = computed(() => (isEnglish.value ? 'History source' : '历史来源'))
+const fallbackTitle = computed(() => (isEnglish.value ? 'Warnings / fallback' : '异常与回退'))
 const emptyHintText = computed(() => {
   return isEnglish.value
     ? 'No metric selected. Click the items above to show corresponding lines.'
@@ -254,6 +326,20 @@ const chartAriaLabel = computed(() => (isEnglish.value ? 'Combined multi-metric 
         <span :class="['status-pill', health?.status === 'ok' ? 'ok' : 'degraded']">{{ statusText }}</span>
       </div>
     </header>
+
+    <div class="control-row">
+      <div class="control-group">
+        <span class="control-label">{{ rangeLabel }}</span>
+        <button :class="['ctl-btn', rangeMode === '7d' ? 'active' : '']" type="button" @click="rangeMode = '7d'">7D</button>
+        <button :class="['ctl-btn', rangeMode === '30d' ? 'active' : '']" type="button" @click="rangeMode = '30d'">30D</button>
+        <button :class="['ctl-btn', rangeMode === '1y' ? 'active' : '']" type="button" @click="rangeMode = '1y'">1Y</button>
+      </div>
+      <div class="control-group">
+        <span class="control-label">{{ compareLabel }}</span>
+        <button :class="['ctl-btn', compareMode === 'absolute' ? 'active' : '']" type="button" @click="compareMode = 'absolute'">{{ compareAbsText }}</button>
+        <button :class="['ctl-btn', compareMode === 'indexed' ? 'active' : '']" type="button" @click="compareMode = 'indexed'">{{ compareIdxText }}</button>
+      </div>
+    </div>
 
     <div class="cards-grid">
       <button
@@ -331,8 +417,26 @@ const chartAriaLabel = computed(() => (isEnglish.value ? 'Combined multi-metric 
       </span>
     </div>
 
-    <ul v-if="(health?.warnings || []).length" class="warn-list">
-      <li v-for="(msg, idx) in health?.warnings" :key="`w-${idx}`">{{ msg }}</li>
+    <section class="source-block">
+      <h3>{{ sourceTitle }}</h3>
+      <div class="source-grid">
+        <div v-for="row in sourceRows" :key="`src-${row.symbol}`" class="source-item">
+          <strong>{{ row.name }}</strong>
+          <div>{{ liveSourceLabel }}: {{ row.liveNote }}</div>
+          <div>{{ histSourceLabel }}: {{ row.historySource }}</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="warn-block" v-if="fallbackHints.length">
+      <h3>{{ fallbackTitle }}</h3>
+      <ul class="warn-list">
+        <li v-for="(msg, idx) in fallbackHints" :key="`w-${idx}`">{{ msg }}</li>
+      </ul>
+    </section>
+
+    <ul v-else-if="(health?.warnings || []).length" class="warn-list">
+      <li v-for="(msg, idx) in health?.warnings" :key="`w-legacy-${idx}`">{{ msg }}</li>
     </ul>
   </section>
 </template>
@@ -384,6 +488,40 @@ const chartAriaLabel = computed(() => (isEnglish.value ? 'Combined multi-metric 
   margin-bottom: 12px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--wb-divider);
+}
+
+.control-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 0 0 12px;
+}
+
+.control-group {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.control-label {
+  font-size: 12px;
+  color: var(--wb-subtle);
+}
+
+.ctl-btn {
+  border: 1px solid var(--wb-divider);
+  background: transparent;
+  color: var(--wb-text);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ctl-btn.active {
+  border-color: #00b8d9;
+  color: #00e5ff;
 }
 
 .war-kicker {
@@ -559,6 +697,37 @@ const chartAriaLabel = computed(() => (isEnglish.value ? 'Combined multi-metric 
   font-size: 12px;
 }
 
+.source-block,
+.warn-block {
+  margin-top: 12px;
+}
+
+.source-block h3,
+.warn-block h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--wb-metric-name);
+}
+
+.source-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 12px;
+}
+
+.source-item {
+  border-left: 2px solid var(--wb-divider);
+  padding-left: 8px;
+  font-size: 12px;
+  color: var(--wb-subtle);
+  display: grid;
+  gap: 3px;
+}
+
+.source-item strong {
+  color: var(--wb-metric-name);
+}
+
 @media (max-width: 900px) {
   .cards-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -570,6 +739,10 @@ const chartAriaLabel = computed(() => (isEnglish.value ? 'Combined multi-metric 
 
   .war-head h2 {
     font-size: 20px;
+  }
+
+  .source-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>

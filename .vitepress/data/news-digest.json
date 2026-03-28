@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-28T05:49:54.980Z",
+  "updatedAt": "2026-03-28T06:00:17.444Z",
   "news": [
     {
       "title": "Spot Prices Wrap: Spring Weather Reset Sends Cash Natural Gas Lower",
@@ -64,64 +64,52 @@
   ],
   "academic": [
     {
-      "title": "Multistart Large Neighborhood Search for the liquefied natural gas transportation and trading over long-term time horizons",
-      "link": "http://arxiv.org/abs/2511.08404v1",
-      "publishedAt": "2025-11-11",
-      "source": "arXiv"
+      "title": "Global Transition of Energy Vectors in the Maritime Sector: Role of Liquefied Natural Gas, Green Hydrogen, and Ammonia in Achieving Net Zero by 2050",
+      "link": "https://doi.org/10.3390/en19020568",
+      "publishedAt": "2026-01-22",
+      "source": "OpenAlex"
     },
     {
-      "title": "Natural-gas storage modelling by deep reinforcement learning",
-      "link": "http://arxiv.org/abs/2511.02646v1",
-      "publishedAt": "2025-11-04",
-      "source": "arXiv"
+      "title": "The Economics of Natural Gas",
+      "link": "https://doi.org/10.1111/joes.70031",
+      "publishedAt": "2025-11-09",
+      "source": "OpenAlex"
     },
     {
-      "title": "Evaluation of Reference Equations of State for Density Prediction in Regasified LNG Mixtures Using High-Precision Experimental Data",
-      "link": "http://arxiv.org/abs/2510.27502v1",
-      "publishedAt": "2025-10-31",
-      "source": "arXiv"
+      "title": "Energy Market Dynamics and Emerging Equity Markets: Insights from A Wavelet-Based Time–Frequency Analysis",
+      "link": "https://doi.org/10.14419/4cdt1t05",
+      "publishedAt": "2025-11-07",
+      "source": "OpenAlex"
     },
     {
-      "title": "Detecting Structural breakpoints in natural gas and electricity wholesale prices via Bayesian ensemble approach, in the era of energy prices turmoil of 2022 period: the cases of ten European markets",
-      "link": "http://arxiv.org/abs/2410.07224v1",
-      "publishedAt": "2024-09-30",
-      "source": "arXiv"
+      "title": "Assessing the Integration of Natural Gas Markets in Europe and East Asia: An ARDL Approach",
+      "link": "https://doi.org/10.25204/iktisad.1615447",
+      "publishedAt": "2025-10-17",
+      "source": "OpenAlex"
     },
     {
-      "title": "Deep Causal Learning to Explain and Quantify The Geo-Tension's Impact on Natural Gas Market",
-      "link": "http://arxiv.org/abs/2407.10878v1",
-      "publishedAt": "2024-07-15",
-      "source": "arXiv"
+      "title": "Are global natural gas markets integrated?",
+      "link": "https://doi.org/10.58559/ijes.1719936",
+      "publishedAt": "2025-09-25",
+      "source": "OpenAlex"
     },
     {
-      "title": "Stochastic Path-Dependent Volatility Models for Price-Storage Dynamics in Natural Gas Markets and Discrete-Time Swing Option Pricing",
-      "link": "http://arxiv.org/abs/2406.16400v2",
-      "publishedAt": "2024-06-24",
-      "source": "arXiv"
+      "title": "Review of domestic and foreign research on natural gas production, supply, storage and marketing",
+      "link": "https://doi.org/10.63313/ebm.2017",
+      "publishedAt": "2025-06-24",
+      "source": "OpenAlex"
     },
     {
-      "title": "Thermal Stress Analysis of the LNG Corrugated Cryogenic Hose During Gas Pre-Cooling Process",
-      "link": "http://arxiv.org/abs/2402.11978v1",
-      "publishedAt": "2024-02-19",
-      "source": "arXiv"
+      "title": "The effect of economic policy uncertainty and geopolitics on LNG freight rates across different market conditions",
+      "link": "https://doi.org/10.31217/p.39.1.3",
+      "publishedAt": "2025-05-19",
+      "source": "OpenAlex"
     },
     {
-      "title": "Identifying Operation Equilibrium in Integrated Electricity, Natural Gas, and Carbon-Emission Markets",
-      "link": "http://arxiv.org/abs/2210.09813v1",
-      "publishedAt": "2022-10-18",
-      "source": "arXiv"
-    },
-    {
-      "title": "Cointegration and ARDL specification between the Dubai crude oil and the US natural gas market",
-      "link": "http://arxiv.org/abs/2206.03278v1",
-      "publishedAt": "2022-06-03",
-      "source": "arXiv"
-    },
-    {
-      "title": "A combined fluid-dynamic and thermodynamic model to predict the onset of rapid phase transitions in LNG spills",
-      "link": "http://arxiv.org/abs/2002.08220v5",
-      "publishedAt": "2020-02-19",
-      "source": "arXiv"
+      "title": "Have the Links Between Natural Gas and Coal Prices Changed over Time? Evidence for European and Pacific Markets",
+      "link": "https://doi.org/10.3390/en18092201",
+      "publishedAt": "2025-04-25",
+      "source": "OpenAlex"
     }
   ]
 }
