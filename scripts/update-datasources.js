@@ -724,7 +724,7 @@ async function updateMarketHistory() {
       unit: 'USD/MMBtu',
       sourceSeriesId: 'PNGASJPUSDM',
       source: 'https://fred.stlouisfed.org/series/PNGASJPUSDM',
-      note: 'FRED 日频代理序列'
+      note: 'FRED 月频代理序列'
     },
     {
       symbol: 'TTF',
@@ -732,7 +732,7 @@ async function updateMarketHistory() {
       unit: 'USD/MMBtu',
       sourceSeriesId: 'PNGASEUUSDM',
       source: 'https://fred.stlouisfed.org/series/PNGASEUUSDM',
-      note: 'FRED 日频代理序列'
+      note: 'FRED 月频代理序列'
     },
     {
       symbol: 'Henry Hub',
@@ -750,11 +750,11 @@ async function updateMarketHistory() {
   for (const item of historySeries) {
     try {
       const rawPoints = await fetchFredSeriesHistory(item.sourceSeriesId, window.start, window.end);
-      const points = item.symbol === 'TTF'
+      const points = (item.symbol === 'TTF' || item.symbol === 'JKM')
         ? expandMonthlyPointsToDaily(rawPoints, window.start, window.end)
         : rawPoints;
 
-      const note = item.symbol === 'TTF'
+      const note = (item.symbol === 'TTF' || item.symbol === 'JKM')
         ? `${item.note}; 已按自然日展开（月频序列转日频展示）`
         : item.note;
 
