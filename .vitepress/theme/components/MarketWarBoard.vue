@@ -147,6 +147,8 @@ const plot = computed(() => ({
   h: dimensions.height - dimensions.top - dimensions.bottom
 }))
 
+const hoverIndex = ref<number | null>(null)
+
 const valueStats = computed(() => {
   const values: number[] = []
   const dates = new Set(plotDates.value)
@@ -242,6 +244,7 @@ const polylines = computed(() => {
     }
 
     const pts: string[] = []
+    const pointList: Array<{ date: string; x: number; y: number; value: number }> = []
     const values = dates.map((d) => byDate.get(d))
     let base = 0
     if (compareMode.value === 'indexed') {
@@ -263,6 +266,7 @@ const polylines = computed(() => {
       const x = dimensions.left + (idx / Math.max(1, dates.length - 1)) * plot.value.w
       const y = dimensions.top + (1 - (v - min) / range) * plot.value.h
       pts.push(`${x.toFixed(2)},${y.toFixed(2)}`)
+      pointList.push({ date: d, x, y, value: v })
     })
 
     return {
@@ -270,10 +274,71 @@ const polylines = computed(() => {
       displayName: displayLabel(s.symbol, s.displayName),
       unit: s.unit,
       color: colorMap[s.symbol] || '#90a4ae',
-      points: pts.join(' ')
+      points: pts.join(' '),
+      pointList
     }
   }).filter((x) => x.points)
 })
+
+const hoverDate = computed(() => {
+  if (hoverIndex.value === null) return ''
+  return plotDates.value[hoverIndex.value] || ''
+})
+
+const hoverX = computed(() => {
+  if (hoverIndex.value === null) return null
+  const n = Math.max(1, plotDates.value.length - 1)
+  return dimensions.left + (hoverIndex.value / n) * plot.value.w
+})
+
+const hoveredRows = computed(() => {
+  const d = hoverDate.value
+  if (!d) return []
+  return polylines.value
+    .map((line) => {
+      const p = line.pointList.find((x) => x.date === d)
+      if (!p) return null
+      return {
+        symbol: line.symbol,
+        displayName: line.displayName,
+        color: line.color,
+        unit: line.unit,
+        x: p.x,
+        y: p.y,
+        value: p.value
+      }
+    })
+    .filter((x): x is { symbol: string; displayName: string; color: string; unit: string; x: number; y: number; value: number } => Boolean(x))
+})
+
+const tooltipWidth = 250
+const tooltipHeight = computed(() => 24 + hoveredRows.value.length * 14)
+const tooltipX = computed(() => {
+  const x = hoverX.value
+  if (x === null) return dimensions.left + 8
+  const minX = dimensions.left + 8
+  const maxX = dimensions.width - dimensions.right - tooltipWidth - 4
+  return Math.max(minX, Math.min(maxX, x + 10))
+})
+const tooltipY = dimensions.top + 8
+
+function fmtHover(v: number) {
+  return compareMode.value === 'absolute' ? v.toFixed(3) : v.toFixed(2)
+}
+
+function onChartMove(e: MouseEvent) {
+  const target = e.currentTarget as SVGRectElement | null
+  if (!target) return
+  const bounds = target.getBoundingClientRect()
+  const raw = e.clientX - bounds.left
+  const ratio = Math.max(0, Math.min(1, raw / bounds.width))
+  const idx = Math.round(ratio * Math.max(0, plotDates.value.length - 1))
+  hoverIndex.value = Number.isFinite(idx) ? idx : null
+}
+
+function onChartLeave() {
+  hoverIndex.value = null
+}
 
 function toggleSymbol(symbol: string) {
   if (visibleSymbols.value.includes(symbol)) {
@@ -421,6 +486,55 @@ const chartAriaLabel = computed(() => (isEnglish.value ? 'Combined multi-metric 
             :stroke="line.color"
             class="line"
           />
+        </g>
+
+        <rect
+          :x="dimensions.left"
+          :y="dimensions.top"
+          :width="plot.w"
+          :height="plot.h"
+          class="hover-capture"
+          @mousemove="onChartMove"
+          @mouseleave="onChartLeave"
+        />
+
+        <g v-if="hoverDate && hoveredRows.length && hoverX !== null">
+          <line
+            :x1="hoverX"
+            :x2="hoverX"
+            :y1="dimensions.top"
+            :y2="dimensions.top + plot.h"
+            class="hover-line"
+          />
+
+          <circle
+            v-for="row in hoveredRows"
+            :key="`hp-${row.symbol}`"
+            :cx="row.x"
+            :cy="row.y"
+            r="3.5"
+            :fill="row.color"
+            class="hover-point"
+          />
+
+          <rect
+            :x="tooltipX"
+            :y="tooltipY"
+            :width="tooltipWidth"
+            :height="tooltipHeight"
+            rx="6"
+            class="hover-tooltip-bg"
+          />
+
+          <text :x="tooltipX + 8" :y="tooltipY + 14" class="hover-tooltip-text">
+            <tspan :x="tooltipX + 8" dy="0">{{ hoverDate }}</tspan>
+            <tspan
+              v-for="row in hoveredRows"
+              :key="`ht-${row.symbol}`"
+              :x="tooltipX + 8"
+              dy="14"
+            >{{ row.displayName }}: {{ fmtHover(row.value) }}{{ compareMode === 'absolute' ? ` ${row.unit}` : '' }}</tspan>
+          </text>
         </g>
 
         <g>
@@ -690,6 +804,33 @@ const chartAriaLabel = computed(() => (isEnglish.value ? 'Combined multi-metric 
   stroke-width: 2.3;
   stroke-linejoin: round;
   stroke-linecap: round;
+}
+
+.hover-capture {
+  fill: transparent;
+  pointer-events: all;
+}
+
+.hover-line {
+  stroke: color-mix(in srgb, var(--wb-axis) 70%, transparent);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.hover-point {
+  stroke: #0b111a;
+  stroke-width: 1.2;
+}
+
+.hover-tooltip-bg {
+  fill: rgba(9, 12, 18, 0.88);
+  stroke: rgba(180, 196, 220, 0.35);
+  stroke-width: 1;
+}
+
+.hover-tooltip-text {
+  fill: #e8f1ff;
+  font-size: 11px;
 }
 
 .axis-label {

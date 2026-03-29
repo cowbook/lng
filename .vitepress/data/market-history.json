@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-03-28T06:08:27.933Z",
+  "updatedAt": "2026-03-29T02:36:44.448Z",
   "window": {
-    "start": "2025-03-28",
-    "end": "2026-03-28"
+    "start": "2025-03-29",
+    "end": "2026-03-29"
   },
   "series": [
     {
@@ -13,10 +13,6 @@
       "source": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
       "note": "FRED 日频历史序列",
       "points": [
-        {
-          "date": "2025-03-28",
-          "value": 74.69
-        },
         {
           "date": "2025-03-31",
           "value": 77.23
@@ -1077,10 +1073,6 @@
       "source": "https://fred.stlouisfed.org/series/PNGASEUUSDM",
       "note": "FRED 日频代理序列; 已按自然日展开（月频序列转日频展示）",
       "points": [
-        {
-          "date": "2025-03-28",
-          "value": 13.15601031
-        },
         {
           "date": "2025-03-29",
           "value": 13.15601031
@@ -2540,6 +2532,10 @@
         {
           "date": "2026-03-28",
           "value": 11.19
+        },
+        {
+          "date": "2026-03-29",
+          "value": 11.19
         }
       ]
     },
@@ -2551,10 +2547,6 @@
       "source": "https://fred.stlouisfed.org/series/DHHNGSP",
       "note": "FRED 日频历史序列",
       "points": [
-        {
-          "date": "2025-03-28",
-          "value": 3.89
-        },
         {
           "date": "2025-03-31",
           "value": 4.11
