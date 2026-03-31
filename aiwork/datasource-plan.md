@@ -20,7 +20,7 @@ GitHub Actions 每日 08:30（北京时间）自动触发完整构建+部署。
 | TTF 汇率（EUR→USD）| FRED DEXUSEU | 固定值 1.08 | 内部使用 |
 | 历史数据（Brent）| FRED DCOILBRENTEU（日频） | — | `market-history.json` |
 | 历史数据（JKM）| NASDAQ Data Link CHRIS/CME_JKM1（日频） | Yahoo Finance `JKM=F` → 可选 FRED PNGASJPUSDM 月频代理 | 同上 |
-| 历史数据（TTF）| Yahoo Finance `TTF=F`（日频） | FRED PNGASEUUSDM 月频代理 | 同上 |
+| 历史数据（TTF）| Yahoo Finance `TTF=F`（日频） | Barchart `TG*` 历史页日频抓取 → 最近缓存（不再回退 FRED 月频代理） | 同上 |
 | 历史数据（Henry Hub）| FRED DHHNGSP（日频） | — | 同上 |
 | 数据健康状态 | 本地汇总逻辑 | — | `data-health.json` |
 

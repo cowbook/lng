@@ -329,6 +329,16 @@ git push origin main  # 自动触发GitHub Actions部署
 - README 已同步更新：补充实时价格主源、历史价格主源、JKM/TTF 回退链路、`.env` 自动加载说明。
 - 本次提交前同步更新 aiwork：`project.md`、`datasource-plan.md`、`memory.md` 与当前实现保持一致。
 
+### 2026-03-31 10:35
+
+继续完成当日任务收尾并发布：
+
+- 按要求将 TTF 历史回退链路调整为：`Yahoo -> Barchart -> 最近缓存`，移除 `FRED PNGASEUUSDM` 月频代理作为主动回退。
+- 在 `scripts/update-datasources.js` 新增 Barchart 历史抓取尝试函数（含 cookie/XSRF 方式请求），并对失败场景补充缓存复用逻辑，避免历史曲线被清空。
+- 文档同步：更新 `README.md`、`market/index.md`、`en/market/index.md` 的 TTF 历史来源与回退说明。
+- 构建验证：`npm run docs:build` 通过；当前网络下 Yahoo 403、Barchart 400 时，TTF 会沿用最近真日频缓存，保持非空曲线。
+- 发布状态：提交 `06f2287`（`refactor(history): use Barchart fallback for TTF`）并推送到 `origin/main` 成功。
+
 
 
 

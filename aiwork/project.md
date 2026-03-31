@@ -67,7 +67,7 @@ public/          # 静态资源（icon、images、robots.txt）
 | 实时价格 | Henry Hub | Barchart NYMEX NG | FRED DHHNGSP |
 | 历史价格 | Brent | FRED DCOILBRENTEU（日频） | — |
 | 历史价格 | JKM | NASDAQ Data Link CHRIS/CME_JKM1（日频） | Yahoo Finance `JKM=F` → 可选 FRED PNGASJPUSDM 月频代理 |
-| 历史价格 | TTF | Yahoo Finance `TTF=F`（日频） | FRED PNGASEUUSDM 月频代理 |
+| 历史价格 | TTF | Yahoo Finance `TTF=F`（日频） | Barchart `TG*` 历史页日频抓取 → 最近缓存（不再回退 FRED 月频代理） |
 | 历史价格 | Henry Hub | FRED DHHNGSP（日频） | — |
 | 汇率 | EUR→USD | FRED DEXUSEU | 固定值 1.08 |
 | 行业新闻 | LNG / 天然气新闻 | Natural Gas Intelligence RSS、Offshore Energy RSS | OilPrice RSS（当前 500 错误） |
