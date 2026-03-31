@@ -74,6 +74,23 @@ public/          # 静态资源（icon、images、robots.txt）
 | 学术文献 | LNG 研究 | Crossref（LNG 关键词过滤） | OpenAlex → arXiv |
 | 微信 | 公众号观察池 | 手动录入（`npm run wechat:add`） | — |
 
+## 英文内容现状
+
+| 栏目 | 状态 | 说明 |
+|------|------|------|
+| en/basis/ | 部分完成 | `lng.md`、`lng-industry.md` 已有英文版 |
+| en/market/ | 完成 | 市场 War Room 完整英文 UI，含历史图表与数据表 |
+| en/terminal/ | **完成至 rt033** | 33 个接收站英文页全部创建；rt032/rt033 中文源为空模板，英文页标注"profile in preparation" |
+| en/report/ | 部分完成 | China2025 英文版已有 50% |
+| en/essay/ | 未开始 | — |
+| en/trade/ | 未开始 | — |
+
+**英文导航**（en 区 nav 当前条目）:
+- Home → `/en/`
+- Market → `/en/market/`
+- Basis → `/en/basis/lng`
+- China Receiving Terminal → `/en/terminal/`
+
 ## 相关人员
 
 - **项目负责人**: Mark Zuang — markzuang0208@gmail.com — GitHub: cowbook

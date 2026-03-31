@@ -339,7 +339,41 @@ git push origin main  # 自动触发GitHub Actions部署
 - 构建验证：`npm run docs:build` 通过；当前网络下 Yahoo 403、Barchart 400 时，TTF 会沿用最近真日频缓存，保持非空曲线。
 - 发布状态：提交 `06f2287`（`refactor(history): use Barchart fallback for TTF`）并推送到 `origin/main` 成功。
 
+### 2026-03-31 11:50
 
+按用户需求完成以下几个迭代，最终提交 `0b120f1`（`feat(market): improve fullscreen layout and history table flow`）并推送：
 
+**TTF 历史单位转换**
+- `scripts/update-datasources.js` 将 Yahoo Finance `TTF=F` 历史点从 `EUR/MWh` 转换为 `USD/MMBtu`，原始值保存到 `originvalue` 字段，换算依据 FRED `DEXUSEU` 实时汇率。
+- 新增 `normalizeCachedTtfPoints()`：对以往缓存数据同步规范化，兼容"单位标注正确但数值未换算"的旧缓存场景（通过均值启发式判断是否仍为 EUR/MWh 尺度）。
+
+**历史数据按日期维度存储**
+- 新增 `buildHistoryRowsByDate()`，将 4 个品种（Brent/JKM/TTF/HenryHub）的历史点汇聚为以日期为 key 的 `rows` 数组，每行同时携带各品种值及 `ttfOriginvalue`。
+- `market-history.json` 新增顶层 `rows` 字段。
+
+**图表下方历史数据表**
+- `MarketWarBoard.vue` 新增历史数据表，根据当前图表时间范围（7D/30D/1Y）筛选，按日期倒序显示。
+- 表格展示 4 个指标数值及 TTF 原始值（EUR/MWh），支持中英文标题自动切换。
+
+**全屏功能**
+- 新增全屏按钮，触发 Fullscreen API，全屏范围覆盖时间段筛选区、4 个最新价格卡片、图表、图例。
+- 按钮最终放置在标题行右侧（与"LNG Market War Room"同行右对齐），进退全屏均可操作。
+- 新增 `.is-fullscreen` CSS 样式，保证全屏时内容布局正确、图表适当放大。
+
+**已验证**
+- `normalizeCachedTtfPoints` 修正后，缓存 TTF 值正常（首个≈13.73，`originvalue`≈40.667；末个≈18.09，`originvalue`≈53.575）。
+- `npm run docs:build` 多次通过，Yahoo/NDL/Barchart 外部源告警不影响构建产出。
+
+### 2026-03-31 15:00
+
+按用户要求完成英文导航补齐与终端内容扩充，推送到 `origin/main`：
+
+**英文导航新增 China Receiving Terminal**
+- `.vitepress/config.mts` 英文 nav 新增条目 `{ text: 'China Receiving Terminal', link: '/en/terminal/' }`。
+
+**英文终端页补齐（rt023–rt033）**
+- `en/terminal/` 原本只有 `rt001–rt022`，此次新建 `rt023.md`–`rt033.md`（共 11 个文件），消除 `en/terminal/index.md` 的死链报错。
+- 内容来源：`rt023–rt031` 按中文源页翻译，`rt032/rt033` 中文源页仍为空模板，英文页注明"profile in preparation"并保留已知指标数据。
+- `npm run docs:build` 通过，死链问题已消除。
 
 
