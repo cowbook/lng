@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useData, useRoute } from 'vitepress'
 
 type PriceItem = {
@@ -30,12 +30,22 @@ type HistorySeries = {
   points: HistoryPoint[]
 }
 
+type HistoryRow = {
+  date: string
+  brent: number | null
+  jkm: number | null
+  ttf: number | null
+  henryHub: number | null
+  ttfOriginvalue?: number | null
+}
+
 type HistoryData = {
   window?: {
     start?: string
     end?: string
   }
   series?: HistorySeries[]
+  rows?: HistoryRow[]
 }
 
 type HealthData = {
@@ -375,26 +385,135 @@ const sourceTitle = computed(() => (isEnglish.value ? 'Source and Fallback Notes
 const liveSourceLabel = computed(() => (isEnglish.value ? 'Realtime note' : '实时来源'))
 const histSourceLabel = computed(() => (isEnglish.value ? 'History source' : '历史来源'))
 const fallbackTitle = computed(() => (isEnglish.value ? 'Warnings / fallback' : '异常与回退'))
+const fullscreenText = computed(() => (isEnglish.value ? 'Fullscreen Chart' : '图表全屏'))
+const exitFullscreenText = computed(() => (isEnglish.value ? 'Exit Fullscreen' : '退出全屏'))
 const emptyHintText = computed(() => {
   return isEnglish.value
     ? 'No metric selected. Click the items above to show corresponding lines.'
     : '当前未选中任何指标，点击上方卡片可显示对应曲线。'
 })
 const chartAriaLabel = computed(() => (isEnglish.value ? 'Combined multi-metric line chart' : '多指标合并折线图'))
+const tableTitle = computed(() => (isEnglish.value ? 'Historical Data (by Date)' : '历史数据（按日期）'))
+const tableDateLabel = computed(() => (isEnglish.value ? 'Date' : '日期'))
+const noTableDataHint = computed(() => (isEnglish.value ? 'No data in selected range.' : '当前时间范围内无数据。'))
+
+const unitBySymbol = computed(() => {
+  const map = new Map<string, string>()
+  for (const card of cards.value) {
+    map.set(card.symbol, card.unit)
+  }
+  for (const item of props.history?.series || []) {
+    if (!map.has(item.symbol) && item.unit) {
+      map.set(item.symbol, item.unit)
+    }
+  }
+  return map
+})
+
+const historyRows = computed(() => {
+  const sourceRows = Array.isArray(props.history?.rows) ? props.history.rows : []
+  if (sourceRows.length) {
+    return sourceRows
+      .filter((row) => typeof row?.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(row.date))
+      .map((row) => ({
+        date: row.date,
+        brent: Number.isFinite(Number(row.brent)) ? Number(row.brent) : null,
+        jkm: Number.isFinite(Number(row.jkm)) ? Number(row.jkm) : null,
+        ttf: Number.isFinite(Number(row.ttf)) ? Number(row.ttf) : null,
+        henryHub: Number.isFinite(Number(row.henryHub)) ? Number(row.henryHub) : null,
+        ttfOriginvalue: Number.isFinite(Number(row.ttfOriginvalue)) ? Number(row.ttfOriginvalue) : null
+      }))
+  }
+
+  const mapBySymbol = historyMap.value
+  const byDate = new Map<string, HistoryRow>()
+  for (const symbol of cardOrder) {
+    const series = mapBySymbol.get(symbol)
+    if (!series) continue
+
+    for (const point of series.points || []) {
+      if (!point?.date) continue
+      const row = byDate.get(point.date) || {
+        date: point.date,
+        brent: null,
+        jkm: null,
+        ttf: null,
+        henryHub: null,
+        ttfOriginvalue: null
+      }
+
+      const value = Number.isFinite(Number(point.value)) ? Number(point.value) : null
+      if (symbol === 'Brent') row.brent = value
+      if (symbol === 'JKM') row.jkm = value
+      if (symbol === 'TTF') row.ttf = value
+      if (symbol === 'Henry Hub') row.henryHub = value
+
+      byDate.set(point.date, row)
+    }
+  }
+
+  return [...byDate.values()]
+})
+
+const rangeDatesAsc = computed(() => {
+  const dates = [...new Set(historyRows.value.map((row) => row.date))].sort((a, b) => a.localeCompare(b))
+  if (rangeMode.value === '7d') return dates.slice(-7)
+  if (rangeMode.value === '30d') return dates.slice(-30)
+  return dates
+})
+
+const historyTableRows = computed(() => {
+  const selectedDates = new Set(rangeDatesAsc.value)
+  return historyRows.value
+    .filter((row) => selectedDates.has(row.date))
+    .sort((a, b) => b.date.localeCompare(a.date))
+})
+
+const fullscreenPanelRef = ref<HTMLElement | null>(null)
+const isChartFullscreen = ref(false)
+
+async function toggleChartFullscreen() {
+  const el = fullscreenPanelRef.value
+  if (!el) return
+
+  if (!document.fullscreenElement) {
+    await el.requestFullscreen()
+  } else {
+    await document.exitFullscreen()
+  }
+}
+
+function syncFullscreenState() {
+  isChartFullscreen.value = document.fullscreenElement === fullscreenPanelRef.value
+}
+
+onMounted(() => {
+  document.addEventListener('fullscreenchange', syncFullscreenState)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('fullscreenchange', syncFullscreenState)
+})
 </script>
 
 <template>
   <section class="war-board">
     <header class="war-head">
-      <div>
-        <h2>{{ boardTitle }}</h2>
-      </div>
-      <div class="war-meta">
-        <span>{{ updatedLabel }}: {{ prices?.updatedAt || '-' }}</span>
-        <span :class="['status-pill', health?.status === 'ok' ? 'ok' : 'degraded']">{{ statusText }}</span>
+      <div class="war-head-main">
+        <div class="war-title-row">
+          <h2>{{ boardTitle }}</h2>
+          <button class="ctl-btn" type="button" @click="toggleChartFullscreen">
+            {{ isChartFullscreen ? exitFullscreenText : fullscreenText }}
+          </button>
+        </div>
+        <div class="war-meta">
+          <span>{{ updatedLabel }}: {{ prices?.updatedAt || '-' }}</span>
+          <span :class="['status-pill', health?.status === 'ok' ? 'ok' : 'degraded']">{{ statusText }}</span>
+        </div>
       </div>
     </header>
 
+    <div ref="fullscreenPanelRef" :class="['fullscreen-panel', isChartFullscreen ? 'is-fullscreen' : '']">
     <div class="control-row">
       <div class="control-group">
         <span class="control-label">{{ rangeLabel }}</span>
@@ -533,6 +652,34 @@ const chartAriaLabel = computed(() => (isEnglish.value ? 'Combined multi-metric 
         {{ line.displayName }}
       </span>
     </div>
+    </div>
+
+    <section class="history-table-block">
+      <h3>{{ tableTitle }}</h3>
+      <div class="table-shell" v-if="historyTableRows.length">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>{{ tableDateLabel }}</th>
+              <th>{{ displayLabel('Brent') }} ({{ unitBySymbol.get('Brent') || 'USD/Barrel' }})</th>
+              <th>{{ displayLabel('JKM') }} ({{ unitBySymbol.get('JKM') || 'USD/MMBtu' }})</th>
+              <th>{{ displayLabel('TTF') }} ({{ unitBySymbol.get('TTF') || 'USD/MMBtu' }})</th>
+              <th>{{ displayLabel('Henry Hub') }} ({{ unitBySymbol.get('Henry Hub') || 'USD/MMBtu' }})</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="row in historyTableRows" :key="`h-row-${row.date}`">
+              <td>{{ row.date }}</td>
+              <td>{{ fmt(row.brent) }}</td>
+              <td>{{ fmt(row.jkm) }}</td>
+              <td>{{ fmt(row.ttf) }}</td>
+              <td>{{ fmt(row.henryHub) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div v-else class="empty-hint table-empty">{{ noTableDataHint }}</div>
+    </section>
 
     <section class="source-block">
       <h3>{{ sourceTitle }}</h3>
@@ -599,12 +746,25 @@ const chartAriaLabel = computed(() => (isEnglish.value ? 'Combined multi-metric 
 
 .war-head {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 12px;
   margin-bottom: 12px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--wb-divider);
+}
+
+.war-head-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+
+.war-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .control-row {
@@ -612,6 +772,13 @@ const chartAriaLabel = computed(() => (isEnglish.value ? 'Combined multi-metric 
   gap: 14px;
   flex-wrap: wrap;
   margin: 0 0 12px;
+}
+
+.fullscreen-panel.is-fullscreen {
+  min-height: 100vh;
+  padding: 14px;
+  background: var(--vp-c-bg);
+  overflow: auto;
 }
 
 .control-group {
@@ -844,6 +1011,51 @@ const chartAriaLabel = computed(() => (isEnglish.value ? 'Combined multi-metric 
 .source-block,
 .warn-block {
   margin-top: 12px;
+}
+
+.history-table-block {
+  margin-top: 14px;
+}
+
+.history-table-block h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--wb-metric-name);
+}
+
+.table-shell {
+  overflow-x: auto;
+  border-top: 1px solid var(--wb-divider);
+  border-bottom: 1px solid var(--wb-divider);
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.history-table th,
+.history-table td {
+  padding: 8px 10px;
+  white-space: nowrap;
+  border-bottom: 1px solid color-mix(in srgb, var(--wb-divider) 70%, transparent);
+}
+
+.history-table thead th {
+  text-align: left;
+  color: var(--wb-metric-name);
+  background: color-mix(in srgb, var(--vp-c-bg-alt) 55%, transparent);
+}
+
+.history-table tbody td {
+  color: var(--wb-subtle);
+}
+
+.table-empty {
+  min-height: 72px;
+  border-top: 1px solid var(--wb-divider);
+  border-bottom: 1px solid var(--wb-divider);
 }
 
 .source-block h3,

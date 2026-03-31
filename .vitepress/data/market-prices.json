@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-31T02:32:26.564Z",
+  "updatedAt": "2026-03-31T03:19:04.632Z",
   "source": "Barchart futures + FRED/NASDAQ fallback",
   "items": [
     {
@@ -8,7 +8,7 @@
       "seriesId": "DCOILBRENTEU",
       "unit": "USD/Barrel",
       "note": "Barchart 公共页面抓取的 ICE Brent 活跃近月合约 CBK26",
-      "value": 111.58,
+      "value": 111.88,
       "date": "2026-03-30"
     },
     {
@@ -36,7 +36,7 @@
       "seriesId": "DHHNGSP",
       "unit": "USD/MMBtu",
       "note": "Barchart 公共页面抓取的 NYMEX Henry Hub Gas 活跃近月合约 NGK26",
-      "value": 2.844,
+      "value": 2.841,
       "date": "2026-03-30"
     }
   ]

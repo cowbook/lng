@@ -972,6 +972,82 @@ function convertHistoryPointsEurMwhToUsdMmbtu(points, usdPerEur) {
     .filter(Boolean);
 }
 
+function normalizeCachedTtfPoints(points, cacheUnit, usdPerEur, sourceSeriesId) {
+  const normalizedUnit = String(cacheUnit || '').trim().toUpperCase();
+  const finiteValues = (Array.isArray(points) ? points : [])
+    .map((point) => toNumber(point?.value))
+    .filter((value) => value !== null);
+  const avgValue = finiteValues.length
+    ? finiteValues.reduce((sum, value) => sum + value, 0) / finiteValues.length
+    : null;
+  const hasOriginvalue = (Array.isArray(points) ? points : []).some((point) => toNumber(point?.originvalue) !== null);
+  const likelyEurMwhFromMislabeledCache = (
+    String(sourceSeriesId || '').toUpperCase() === 'TTF=F'
+    && !hasOriginvalue
+    && avgValue !== null
+    && avgValue > 25
+  );
+  const shouldConvert = normalizedUnit === 'EUR/MWH' || likelyEurMwhFromMislabeledCache;
+
+  if (shouldConvert) {
+    return convertHistoryPointsEurMwhToUsdMmbtu(points, usdPerEur);
+  }
+
+  return (Array.isArray(points) ? points : [])
+    .map((point) => {
+      if (!isIsoDate(point?.date)) return null;
+      const value = toNumber(point?.value);
+      if (value === null) return null;
+      const row = {
+        date: point.date,
+        value
+      };
+      const originvalue = toNumber(point?.originvalue);
+      if (originvalue !== null) {
+        row.originvalue = originvalue;
+      }
+      return row;
+    })
+    .filter(Boolean);
+}
+
+function buildHistoryRowsByDate(seriesList) {
+  const fieldBySymbol = {
+    Brent: 'brent',
+    JKM: 'jkm',
+    TTF: 'ttf',
+    'Henry Hub': 'henryHub'
+  };
+
+  const rowMap = new Map();
+
+  for (const series of Array.isArray(seriesList) ? seriesList : []) {
+    const field = fieldBySymbol[series?.symbol];
+    if (!field) continue;
+
+    for (const point of Array.isArray(series?.points) ? series.points : []) {
+      if (!isIsoDate(point?.date)) continue;
+      const row = rowMap.get(point.date) || {
+        date: point.date,
+        brent: null,
+        jkm: null,
+        ttf: null,
+        henryHub: null,
+        ttfOriginvalue: null
+      };
+
+      row[field] = Number.isFinite(point?.value) ? point.value : null;
+      if (series.symbol === 'TTF') {
+        row.ttfOriginvalue = Number.isFinite(point?.originvalue) ? point.originvalue : null;
+      }
+
+      rowMap.set(point.date, row);
+    }
+  }
+
+  return [...rowMap.values()].sort((a, b) => b.date.localeCompare(a.date));
+}
+
 async function updateMarketHistory() {
   const window = getHistoryWindow(HISTORY_DAYS);
   const existingPath = path.join(DATA_DIR, 'market-history.json');
@@ -1092,13 +1168,23 @@ async function updateMarketHistory() {
           } catch (barchartError) {
             if (existingTtfTrueDaily?.points?.length) {
               console.warn(`[WARN] TTF history Barchart failed, reuse cached true-daily points: ${barchartError.message}`);
-              points = existingTtfTrueDaily.points;
+              points = normalizeCachedTtfPoints(
+                existingTtfTrueDaily.points,
+                existingTtfTrueDaily.unit,
+                usdPerEur,
+                existingTtfTrueDaily.sourceSeriesId
+              );
               sourceSeriesId = existingTtfTrueDaily.sourceSeriesId || sourceSeriesId;
               source = existingTtfTrueDaily.source || source;
               note = `${existingTtfTrueDaily.note || note}; 当前刷新失败，沿用最近一次真日频缓存`;
             } else if (existingTtfCached?.points?.length) {
               console.warn(`[WARN] TTF history Barchart failed, reuse cached points: ${barchartError.message}`);
-              points = existingTtfCached.points;
+              points = normalizeCachedTtfPoints(
+                existingTtfCached.points,
+                existingTtfCached.unit,
+                usdPerEur,
+                existingTtfCached.sourceSeriesId
+              );
               sourceSeriesId = existingTtfCached.sourceSeriesId || sourceSeriesId;
               source = existingTtfCached.source || source;
               note = `${existingTtfCached.note || note}; 当前刷新失败，沿用最近一次缓存`;
@@ -1132,10 +1218,13 @@ async function updateMarketHistory() {
     }
   }
 
+  const rows = buildHistoryRowsByDate(series);
+
   await writeJson('market-history.json', {
     updatedAt: new Date().toISOString(),
     window,
-    series
+    series,
+    rows
   });
 
   return {
