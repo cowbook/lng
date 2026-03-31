@@ -17,5 +17,5 @@ import MarketWarBoard from '../../.vitepress/theme/components/MarketWarBoard.vue
 
 - Brent: International crude benchmark. Primary source is publicly accessible Barchart ICE Brent front-month futures; fallback is FRED.
 - JKM: Northeast Asia LNG benchmark. Primary source is publicly accessible Barchart NYMEX JKM front-month futures.
-- TTF: European gas benchmark. Primary source is publicly accessible Barchart ENDEX Dutch TTF Gas front-month futures (native unit EUR/MWh); when falling back to FRED proxy, the unit is USD/MMBtu.
+- TTF: European gas benchmark. Historical primary source is Yahoo `TTF=F` (native unit EUR/MWh, normalized to USD/MMBtu for display); on Yahoo failure it attempts Barchart historical data, and if both fail it reuses the latest cached history.
 - Henry Hub: Core U.S. natural gas benchmark. Primary source is publicly accessible Barchart NYMEX Henry Hub front-month futures; fallback is FRED.

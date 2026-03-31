@@ -17,6 +17,6 @@ import MarketWarBoard from '../.vitepress/theme/components/MarketWarBoard.vue'
 
 - Brent: 国际原油价格基准，优先采用 Barchart 可公开访问的 ICE Brent 活跃近月合约价格，失败时回退 FRED
 - JKM: 东北亚 LNG 基准价格，优先采用 Barchart 可公开访问的 NYMEX JKM 活跃近月合约价格
-- TTF: 欧洲气价基准，优先采用 Barchart 可公开访问的 ENDEX Dutch TTF Gas 活跃近月合约价格（原始单位 EUR/MWh）；回退到 FRED 代理时使用 USD/MMBtu
+- TTF: 欧洲气价基准，历史主源为 Yahoo `TTF=F`（原始单位 EUR/MWh，展示统一换算为 USD/MMBtu）；Yahoo 不可用时尝试 Barchart 历史数据，若仍失败则沿用最近一次缓存
 - Henry Hub: 美国天然气价格核心参考，优先采用 Barchart 可公开访问的 NYMEX Henry Hub Gas 活跃近月合约价格，失败时回退 FRED
 

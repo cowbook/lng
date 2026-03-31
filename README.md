@@ -92,7 +92,8 @@ npm run content:new -- --type essay --slug ey260328 --title "示例标题"
 - `JKM`：当 NASDAQ Data Link 不可用时，自动回退到 Yahoo Finance `JKM=F` 连续合约日频收盘价
 - `JKM`：仅在显式设置 `JKM_HISTORY_ALLOW_PROXY=true` 时，才允许进一步回退到 FRED `PNGASJPUSDM` 月频代理序列并展开为自然日
 - `TTF`：主源为 Yahoo Finance `TTF=F` 连续合约日频收盘价
-- `TTF`：当 Yahoo Finance 不可用时，回退到 FRED `PNGASEUUSDM` 月频代理序列并展开为自然日
+- `TTF`：当 Yahoo Finance 不可用时，尝试从 Barchart 历史页抓取日频合约数据并统一换算为 USD/MMBtu（保留 `originvalue`）
+- `TTF`：当 Yahoo 与 Barchart 均不可用时，沿用最近一次历史缓存（不再回退到 FRED `PNGASEUUSDM` 月频代理序列）
 - `Henry Hub`：FRED `DHHNGSP` 日频历史序列
 
 ### 运行说明

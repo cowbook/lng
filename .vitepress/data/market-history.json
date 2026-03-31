@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-03-30T13:47:40.894Z",
+  "updatedAt": "2026-03-31T02:32:42.042Z",
   "window": {
-    "start": "2025-03-30",
-    "end": "2026-03-30"
+    "start": "2025-03-31",
+    "end": "2026-03-31"
   },
   "series": [
     {
@@ -1013,7 +1013,7 @@
       "unit": "USD/MMBtu",
       "sourceSeriesId": "JKM=F",
       "source": "https://finance.yahoo.com/quote/JKM=F/history",
-      "note": "Yahoo Finance 连续合约日频收盘价",
+      "note": "Yahoo Finance 连续合约日频收盘价; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存",
       "points": [
         {
           "date": "2025-03-31",
@@ -2020,10 +2020,10 @@
     {
       "symbol": "TTF",
       "displayName": "TTF 欧洲气价基准",
-      "unit": "EUR/MWh",
+      "unit": "USD/MMBtu",
       "sourceSeriesId": "TTF=F",
       "source": "https://finance.yahoo.com/quote/TTF=F/history",
-      "note": "Yahoo Finance 连续合约日频收盘价",
+      "note": "Yahoo Finance 连续合约日频收盘价; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存",
       "points": [
         {
           "date": "2025-03-31",

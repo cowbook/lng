@@ -804,6 +804,174 @@ async function fetchYahooHistory(symbol, startDate, endDate) {
   return points;
 }
 
+function toIsoDateFromAny(value) {
+  if (!value && value !== 0) return '';
+
+  if (typeof value === 'number' && Number.isFinite(value)) {
+    const ms = value > 2e10 ? value : value * 1000;
+    const d = new Date(ms);
+    return Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10);
+  }
+
+  if (typeof value !== 'string') return '';
+
+  const s = value.trim();
+  if (!s) return '';
+  if (isIsoDate(s)) return s;
+
+  const mdy = s.match(/^(\d{2})\/(\d{2})\/(\d{2,4})$/);
+  if (mdy) {
+    const mm = mdy[1];
+    const dd = mdy[2];
+    const yy = mdy[3].length === 2 ? `20${mdy[3]}` : mdy[3];
+    const iso = `${yy}-${mm}-${dd}`;
+    return isIsoDate(iso) ? iso : '';
+  }
+
+  const d = new Date(s);
+  return Number.isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10);
+}
+
+function normalizeBarchartHistoryPayload(payload, startDate, endDate) {
+  const list = Array.isArray(payload?.data)
+    ? payload.data
+    : Array.isArray(payload?.results)
+      ? payload.results
+      : Array.isArray(payload?.records)
+        ? payload.records
+        : [];
+
+  const points = list
+    .map((row) => {
+      const date = toIsoDateFromAny(
+        row?.tradingDay
+        || row?.tradeTime
+        || row?.date
+        || row?.timestamp
+        || row?.dateTime
+        || row?.localTimestamp
+      );
+      const value = toNumber(
+        String(
+          row?.close
+          ?? row?.lastPrice
+          ?? row?.closePrice
+          ?? row?.settlement
+          ?? row?.settle
+          ?? ''
+        )
+      );
+
+      if (!date || value === null) return null;
+      if (date < startDate || date > endDate) return null;
+      return { date, value };
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  if (!points.length) {
+    throw new Error('No valid rows in Barchart history payload');
+  }
+
+  return points;
+}
+
+async function fetchBarchartHistoryBySymbol(symbol, startDate, endDate) {
+  const historyPage = `https://www.barchart.com/futures/quotes/${symbol}/historical-prices`;
+  const pageResponse = await fetch(historyPage, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0',
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    }
+  });
+
+  if (!pageResponse.ok) {
+    throw new Error(`HTTP ${pageResponse.status}: ${historyPage}`);
+  }
+
+  const setCookie = pageResponse.headers.get('set-cookie') || '';
+  const cookie = setCookie
+    .split(/, (?=[^;]+?=)/)
+    .map((x) => x.split(';')[0])
+    .filter(Boolean)
+    .join('; ');
+  const tokenMatch = setCookie.match(/XSRF-TOKEN=([^;]+)/);
+  const xsrfToken = tokenMatch ? decodeURIComponent(tokenMatch[1]) : '';
+
+  const dayRange = Math.max(7, Math.ceil((parseIsoDate(endDate) - parseIsoDate(startDate)) / 86400000) + 7);
+  const endpoints = [
+    `https://www.barchart.com/proxies/timeseries/querydaysback?symbol=${encodeURIComponent(symbol)}&interval=1d&daysBack=${dayRange}`,
+    `https://www.barchart.com/proxies/timeseries/query?symbol=${encodeURIComponent(symbol)}&interval=1d&startDate=${startDate}&endDate=${endDate}`
+  ];
+
+  let lastError = null;
+
+  for (const endpoint of endpoints) {
+    try {
+      const response = await fetch(endpoint, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0',
+          Accept: 'application/json,text/plain,*/*',
+          Referer: historyPage,
+          'X-Requested-With': 'XMLHttpRequest',
+          'X-XSRF-TOKEN': xsrfToken,
+          Cookie: cookie
+        }
+      });
+
+      const text = await response.text();
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${endpoint}`);
+      }
+
+      const payload = JSON.parse(text);
+      const points = normalizeBarchartHistoryPayload(payload, startDate, endDate);
+      if (points.length) {
+        return points;
+      }
+    } catch (error) {
+      lastError = error;
+    }
+  }
+
+  throw new Error(`Barchart history unavailable for ${symbol}: ${lastError?.message || 'unknown error'}`);
+}
+
+async function fetchBarchartTtfHistory(startDate, endDate) {
+  const active = await fetchBarchartActiveFutures('TG');
+  const points = await fetchBarchartHistoryBySymbol(active.symbol, startDate, endDate);
+  return {
+    symbol: active.symbol,
+    points
+  };
+}
+
+function convertHistoryPointsEurMwhToUsdMmbtu(points, usdPerEur) {
+  if (!Array.isArray(points) || !Number.isFinite(usdPerEur) || usdPerEur <= 0) {
+    return [];
+  }
+
+  return points
+    .map((point) => {
+      const originvalue = toNumber(point?.value);
+      if (originvalue === null || !isIsoDate(point?.date)) {
+        return null;
+      }
+
+      const value = convertEurMwhToUsdMmbtu(originvalue, usdPerEur);
+      if (value === null) {
+        return null;
+      }
+
+      return {
+        date: point.date,
+        value,
+        originvalue
+      };
+    })
+    .filter(Boolean);
+}
+
 async function updateMarketHistory() {
   const window = getHistoryWindow(HISTORY_DAYS);
   const existingPath = path.join(DATA_DIR, 'market-history.json');
@@ -811,12 +979,28 @@ async function updateMarketHistory() {
   const existingJkmTrueDaily = Array.isArray(existing?.series)
     ? existing.series.find((s) => (
       s?.symbol === 'JKM' &&
-      s?.sourceSeriesId === 'CHRIS/CME_JKM1' &&
+      Array.isArray(s?.points) &&
+      s.points.length > 0 &&
+      !String(s?.note || '').includes('月频代理')
+    ))
+    : null;
+  const existingTtfTrueDaily = Array.isArray(existing?.series)
+    ? existing.series.find((s) => (
+      s?.symbol === 'TTF' &&
+      Array.isArray(s?.points) &&
+      s.points.length > 0 &&
+      !String(s?.note || '').includes('月频代理')
+    ))
+    : null;
+  const existingTtfCached = Array.isArray(existing?.series)
+    ? existing.series.find((s) => (
+      s?.symbol === 'TTF' &&
       Array.isArray(s?.points) &&
       s.points.length > 0
     ))
     : null;
   const allowJkmProxyFallback = /^(1|true|yes)$/i.test(String(process.env.JKM_HISTORY_ALLOW_PROXY || ''));
+  const usdPerEur = await fetchUsdPerEurRate();
   const historySeries = [
     {
       symbol: 'Brent',
@@ -837,10 +1021,10 @@ async function updateMarketHistory() {
     {
       symbol: 'TTF',
       displayName: 'TTF 欧洲气价基准',
-      unit: 'EUR/MWh',
+      unit: 'USD/MMBtu',
       sourceSeriesId: 'TTF=F',
       source: 'https://finance.yahoo.com/quote/TTF=F/history',
-      note: 'Yahoo Finance 连续合约日频收盘价'
+      note: 'Yahoo Finance 连续合约日频收盘价（原始单位 EUR/MWh，展示口径转换为 USD/MMBtu）'
     },
     {
       symbol: 'Henry Hub',
@@ -894,13 +1078,34 @@ async function updateMarketHistory() {
       } else if (item.symbol === 'TTF') {
         try {
           points = await fetchYahooHistory('TTF=F', window.start, window.end);
+          points = convertHistoryPointsEurMwhToUsdMmbtu(points, usdPerEur);
+          note = appendNoteOnce(note, `按 DEXUSEU=${usdPerEur} 将 EUR/MWh 换算为 USD/MMBtu，并保留 originvalue 原始值`);
         } catch (error) {
-          console.warn(`[WARN] TTF history Yahoo failed, fallback FRED proxy: ${error.message}`);
-          const rawPoints = await fetchFredSeriesHistory('PNGASEUUSDM', window.start, window.end);
-          points = expandMonthlyPointsToDaily(rawPoints, window.start, window.end);
-          sourceSeriesId = 'PNGASEUUSDM';
-          source = 'https://fred.stlouisfed.org/series/PNGASEUUSDM';
-          note = 'FRED 月频代理序列; 已按自然日展开（月频序列转日频展示）';
+          try {
+            console.warn(`[WARN] TTF history Yahoo failed, fallback Barchart: ${error.message}`);
+            const barchart = await fetchBarchartTtfHistory(window.start, window.end);
+            points = convertHistoryPointsEurMwhToUsdMmbtu(barchart.points, usdPerEur);
+            sourceSeriesId = barchart.symbol;
+            source = `https://www.barchart.com/futures/quotes/${barchart.symbol}/historical-prices`;
+            note = `Barchart ${barchart.symbol} 日频收盘价（原始单位 EUR/MWh，展示口径转换为 USD/MMBtu）`;
+            note = appendNoteOnce(note, `按 DEXUSEU=${usdPerEur} 将 EUR/MWh 换算为 USD/MMBtu，并保留 originvalue 原始值`);
+          } catch (barchartError) {
+            if (existingTtfTrueDaily?.points?.length) {
+              console.warn(`[WARN] TTF history Barchart failed, reuse cached true-daily points: ${barchartError.message}`);
+              points = existingTtfTrueDaily.points;
+              sourceSeriesId = existingTtfTrueDaily.sourceSeriesId || sourceSeriesId;
+              source = existingTtfTrueDaily.source || source;
+              note = `${existingTtfTrueDaily.note || note}; 当前刷新失败，沿用最近一次真日频缓存`;
+            } else if (existingTtfCached?.points?.length) {
+              console.warn(`[WARN] TTF history Barchart failed, reuse cached points: ${barchartError.message}`);
+              points = existingTtfCached.points;
+              sourceSeriesId = existingTtfCached.sourceSeriesId || sourceSeriesId;
+              source = existingTtfCached.source || source;
+              note = `${existingTtfCached.note || note}; 当前刷新失败，沿用最近一次缓存`;
+            } else {
+              throw new Error(`TTF true-daily source unavailable (Yahoo: ${error.message}; Barchart: ${barchartError.message})`);
+            }
+          }
         }
       } else {
         const rawPoints = await fetchFredSeriesHistory(item.sourceSeriesId, window.start, window.end);
