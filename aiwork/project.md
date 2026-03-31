@@ -10,7 +10,7 @@
 **项目路径**: `/Users/yanzhang/Projects/lngcool`  
 **生产地址**: https://lng.cool  
 **GitHub仓库**: https://github.com/cowbook/lng  
-**最后更新**: 2026-03-28
+**最后更新**: 2026-03-31
 
 ## 技术栈
 
@@ -59,16 +59,20 @@ public/          # 静态资源（icon、images、robots.txt）
 
 ## 数据源现状（已落地）
 
-| 指标 | 主源 | 回退 |
-|------|------|------|
-| Brent | Barchart ICE Brent (`CB` 合约族) | FRED DCOILBRENTEU |
-| JKM | Barchart NYMEX JKM | FRED PNGASJPUSDM |
-| TTF | Barchart Dutch TTF Gas (`TG*`) — EUR/MWh | FRED PNGASEUUSDM — USD/MMBtu |
-| Henry Hub | Barchart NYMEX NG | FRED DHHNGSP |
-| 汇率 | FRED DEXUSEU | 固定值 1.08 |
-| 行业新闻 | Natural Gas Intelligence RSS、Offshore Energy RSS | OilPrice RSS（当前 500 错误） |
-| 学术文献 | Crossref（LNG 关键词过滤） | OpenAlex → arXiv |
-| 微信 | 手动录入（`npm run wechat:add`） | — |
+| 类型 | 指标 | 主源 | 回退 |
+|------|------|------|------|
+| 实时价格 | Brent | Barchart ICE Brent (`CB` 合约族) | FRED DCOILBRENTEU |
+| 实时价格 | JKM | Barchart NYMEX JKM | NASDAQ Data Link / FRED 旧缓存 |
+| 实时价格 | TTF | Barchart Dutch TTF Gas (`TG*`) — EUR/MWh | FRED PNGASEUUSDM — USD/MMBtu |
+| 实时价格 | Henry Hub | Barchart NYMEX NG | FRED DHHNGSP |
+| 历史价格 | Brent | FRED DCOILBRENTEU（日频） | — |
+| 历史价格 | JKM | NASDAQ Data Link CHRIS/CME_JKM1（日频） | Yahoo Finance `JKM=F` → 可选 FRED PNGASJPUSDM 月频代理 |
+| 历史价格 | TTF | Yahoo Finance `TTF=F`（日频） | FRED PNGASEUUSDM 月频代理 |
+| 历史价格 | Henry Hub | FRED DHHNGSP（日频） | — |
+| 汇率 | EUR→USD | FRED DEXUSEU | 固定值 1.08 |
+| 行业新闻 | LNG / 天然气新闻 | Natural Gas Intelligence RSS、Offshore Energy RSS | OilPrice RSS（当前 500 错误） |
+| 学术文献 | LNG 研究 | Crossref（LNG 关键词过滤） | OpenAlex → arXiv |
+| 微信 | 公众号观察池 | 手动录入（`npm run wechat:add`） | — |
 
 ## 相关人员
 

@@ -77,3 +77,27 @@ npm run content:new -- --type essay --slug ey260328 --title "示例标题"
 ## 已采用数据源
 
 向维护这些数据源的供应商表示感谢:
+
+### 实时价格
+
+- `Brent`：Barchart 公共页面抓取的 ICE Brent 活跃近月合约价格
+- `JKM`：Barchart 公共页面抓取的 NYMEX JKM 近月活跃合约价格（基于 Platts JKM）
+- `TTF`：Barchart 公共页面抓取的 ENDEX Dutch TTF Gas 活跃近月合约价格
+- `Henry Hub`：Barchart 公共页面抓取的 NYMEX Henry Hub Gas 活跃近月合约价格
+
+### 历史价格
+
+- `Brent`：FRED `DCOILBRENTEU` 日频历史序列
+- `JKM`：主源为 NASDAQ Data Link `CHRIS/CME_JKM1` 连续合约日频结算价
+- `JKM`：当 NASDAQ Data Link 不可用时，自动回退到 Yahoo Finance `JKM=F` 连续合约日频收盘价
+- `JKM`：仅在显式设置 `JKM_HISTORY_ALLOW_PROXY=true` 时，才允许进一步回退到 FRED `PNGASJPUSDM` 月频代理序列并展开为自然日
+- `TTF`：主源为 Yahoo Finance `TTF=F` 连续合约日频收盘价
+- `TTF`：当 Yahoo Finance 不可用时，回退到 FRED `PNGASEUUSDM` 月频代理序列并展开为自然日
+- `Henry Hub`：FRED `DHHNGSP` 日频历史序列
+
+### 运行说明
+
+- 项目会自动加载根目录 `.env`
+- 当前使用到的环境变量：`NASDAQ_DATA_LINK_API_KEY`、`FRED_API_KEY`
+- `NASDAQ_DATA_LINK_API_KEY` 用于 JKM 官方连续合约历史源
+- 若希望 JKM 在官方源与 Yahoo 源都失败时继续使用月频代理兜底，可设置 `JKM_HISTORY_ALLOW_PROXY=true`

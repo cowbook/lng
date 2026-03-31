@@ -14,14 +14,17 @@ GitHub Actions 每日 08:30（北京时间）自动触发完整构建+部署。
 | 指标 | 主源 | 回退 | 输出字段 |
 |------|------|------|---------|
 | Brent | Barchart ICE Brent `CB*` | FRED DCOILBRENTEU | `market-prices.json` |
-| JKM | Barchart NYMEX JKM `JK*` | FRED PNGASJPUSDM | 同上 |
+| JKM | Barchart NYMEX JKM `JK*` | NASDAQ Data Link → FRED/缓存 | 同上 |
 | TTF | Barchart Dutch TTF `TG*`（EUR/MWh）| FRED PNGASEUUSDM（USD/MMBtu）| 同上 |
 | Henry Hub | Barchart NYMEX NG `NG*` | FRED DHHNGSP | 同上 |
 | TTF 汇率（EUR→USD）| FRED DEXUSEU | 固定值 1.08 | 内部使用 |
-| 历史数据（365天）| FRED 四系列 | — | `market-history.json` |
+| 历史数据（Brent）| FRED DCOILBRENTEU（日频） | — | `market-history.json` |
+| 历史数据（JKM）| NASDAQ Data Link CHRIS/CME_JKM1（日频） | Yahoo Finance `JKM=F` → 可选 FRED PNGASJPUSDM 月频代理 | 同上 |
+| 历史数据（TTF）| Yahoo Finance `TTF=F`（日频） | FRED PNGASEUUSDM 月频代理 | 同上 |
+| 历史数据（Henry Hub）| FRED DHHNGSP（日频） | — | 同上 |
 | 数据健康状态 | 本地汇总逻辑 | — | `data-health.json` |
 
-**FRED API Key**: 需在 GitHub Actions secrets 配置 `FRED_API_KEY`、`NASDAQ_DATA_LINK_API_KEY`。
+**环境变量**: 根目录 `.env` 与 GitHub Actions secrets 需配置 `FRED_API_KEY`、`NASDAQ_DATA_LINK_API_KEY`；若允许 JKM 末级代理兜底，可设置 `JKM_HISTORY_ALLOW_PROXY=true`。
 
 ### 新闻数据（news-digest.json）
 
@@ -43,5 +46,5 @@ GitHub Actions 每日 08:30（北京时间）自动触发完整构建+部署。
 |--------|------|------|
 | P1 | 微信自动化抓取 | 目前仅支持手动录入，考虑 RSS 代理或 RPA 方案 |
 | P2 | OilPrice RSS 稳定性 | 当前 HTTP 500，可替换为 S&P Global Commodity Insights RSS |
-| P2 | NASDAQ Data Link 回退 | 当前网络下存在 403 风险，备用回退已有 FRED |
+| P2 | NASDAQ Data Link 稳定性 | 当前网络下存在 403 风险，现已增加 Yahoo Finance `JKM=F` 真日频回退，可继续寻找更稳定官方源 |
 | P3 | 更多学术源 | 可接入 ScienceDirect / Springer LNG 专题 |

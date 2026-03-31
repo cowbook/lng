@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-29T02:36:40.270Z",
+  "updatedAt": "2026-03-30T13:47:38.400Z",
   "source": "Barchart futures + FRED/NASDAQ fallback",
   "items": [
     {
@@ -8,8 +8,8 @@
       "seriesId": "DCOILBRENTEU",
       "unit": "USD/Barrel",
       "note": "Barchart 公共页面抓取的 ICE Brent 活跃近月合约 CBK26",
-      "value": 112.57,
-      "date": "2026-03-27"
+      "value": 115.32,
+      "date": "2026-03-30"
     },
     {
       "symbol": "JKM",
@@ -26,18 +26,18 @@
       "seriesId": "TTF_BARCHART",
       "unit": "USD/MMBtu",
       "note": "Barchart 公共页面抓取的 ENDEX Dutch TTF Gas 活跃近月合约 TGJ26; 按 DEXUSEU=1.1543 将 EUR/MWh 换算为 USD/MMBtu",
-      "value": 18.328,
-      "originvalue": 54.177,
-      "date": "2026-03-27"
+      "value": 18.217,
+      "originvalue": 53.85,
+      "date": "2026-03-30"
     },
     {
       "symbol": "Henry Hub",
       "displayName": "Henry Hub",
       "seriesId": "DHHNGSP",
       "unit": "USD/MMBtu",
-      "note": "Barchart 公共页面抓取的 NYMEX Henry Hub Gas 活跃近月合约 NGJ26",
-      "value": 3.095,
-      "date": "2026-03-27"
+      "note": "Barchart 公共页面抓取的 NYMEX Henry Hub Gas 活跃近月合约 NGK26",
+      "value": 2.894,
+      "date": "2026-03-30"
     }
   ]
 }

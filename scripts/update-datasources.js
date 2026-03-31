@@ -1,8 +1,29 @@
 const fs = require('node:fs/promises');
+const fsSync = require('node:fs');
 const path = require('node:path');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA_DIR = path.join(ROOT, '.vitepress', 'data');
+
+function loadDotEnv(envPath) {
+  if (!fsSync.existsSync(envPath)) return;
+  const raw = fsSync.readFileSync(envPath, 'utf8');
+  for (const line of raw.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const eq = trimmed.indexOf('=');
+    if (eq <= 0) continue;
+    const key = trimmed.slice(0, eq).trim();
+    if (!key || process.env[key] !== undefined) continue;
+    let value = trimmed.slice(eq + 1).trim();
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+      value = value.slice(1, -1);
+    }
+    process.env[key] = value;
+  }
+}
+
+loadDotEnv(path.join(ROOT, '.env'));
 
 const FRED_BASE = 'https://api.stlouisfed.org/fred/series/observations';
 const FRED_KEY = process.env.FRED_API_KEY || '';
@@ -707,8 +728,95 @@ async function fetchFredSeriesHistory(seriesId, startDate, endDate) {
   return points;
 }
 
+async function fetchNdlJkmHistory(startDate, endDate) {
+  if (!NDL_KEY) {
+    throw new Error('NASDAQ_DATA_LINK_API_KEY is missing');
+  }
+
+  const params = new URLSearchParams({
+    start_date: startDate,
+    end_date: endDate,
+    order: 'asc',
+    rows: '5000',
+    api_key: NDL_KEY
+  });
+
+  const url = `https://data.nasdaq.com/api/v3/datasets/CHRIS/CME_JKM1/data.json?${params.toString()}`;
+  const payload = await fetchJson(url);
+  const rows = Array.isArray(payload?.dataset_data?.data) ? payload.dataset_data.data : [];
+
+  const points = rows
+    .map((row) => {
+      const date = row?.[0] || '';
+      const settleRaw = row?.[4];
+      const value = typeof settleRaw === 'number' ? settleRaw : toNumber(String(settleRaw ?? ''));
+      if (!date || value === null) return null;
+      return { date, value };
+    })
+    .filter((x) => x && isIsoDate(x.date));
+
+  if (!points.length) {
+    throw new Error('No valid rows in CHRIS/CME_JKM1 history');
+  }
+
+  return points;
+}
+
+async function fetchYahooHistory(symbol, startDate, endDate) {
+  const start = Date.parse(`${startDate}T00:00:00Z`);
+  const end = Date.parse(`${endDate}T23:59:59Z`);
+  if (!Number.isFinite(start) || !Number.isFinite(end)) {
+    throw new Error(`Invalid date range for Yahoo history: ${startDate}..${endDate}`);
+  }
+
+  const period1 = Math.floor(start / 1000);
+  const period2 = Math.floor(end / 1000);
+  const params = new URLSearchParams({
+    period1: String(period1),
+    period2: String(period2),
+    interval: '1d',
+    includeAdjustedClose: 'true'
+  });
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?${params.toString()}`;
+  const payload = await fetchJson(url);
+  const result = payload?.chart?.result?.[0];
+  const timestamps = Array.isArray(result?.timestamp) ? result.timestamp : [];
+  const close = Array.isArray(result?.indicators?.quote?.[0]?.close)
+    ? result.indicators.quote[0].close
+    : [];
+
+  const points = [];
+  for (let i = 0; i < Math.min(timestamps.length, close.length); i += 1) {
+    const ts = Number(timestamps[i]);
+    const valueRaw = close[i];
+    const value = typeof valueRaw === 'number' ? valueRaw : toNumber(String(valueRaw ?? ''));
+    if (!Number.isFinite(ts) || value === null) continue;
+    const date = new Date(ts * 1000).toISOString().slice(0, 10);
+    if (!isIsoDate(date)) continue;
+    if (date < startDate || date > endDate) continue;
+    points.push({ date, value });
+  }
+
+  if (!points.length) {
+    throw new Error(`No valid rows in Yahoo history for ${symbol}`);
+  }
+
+  return points;
+}
+
 async function updateMarketHistory() {
   const window = getHistoryWindow(HISTORY_DAYS);
+  const existingPath = path.join(DATA_DIR, 'market-history.json');
+  const existing = await readJsonSafe(existingPath, { series: [] });
+  const existingJkmTrueDaily = Array.isArray(existing?.series)
+    ? existing.series.find((s) => (
+      s?.symbol === 'JKM' &&
+      s?.sourceSeriesId === 'CHRIS/CME_JKM1' &&
+      Array.isArray(s?.points) &&
+      s.points.length > 0
+    ))
+    : null;
+  const allowJkmProxyFallback = /^(1|true|yes)$/i.test(String(process.env.JKM_HISTORY_ALLOW_PROXY || ''));
   const historySeries = [
     {
       symbol: 'Brent',
@@ -722,17 +830,17 @@ async function updateMarketHistory() {
       symbol: 'JKM',
       displayName: 'JKM 东北亚基准价',
       unit: 'USD/MMBtu',
-      sourceSeriesId: 'PNGASJPUSDM',
-      source: 'https://fred.stlouisfed.org/series/PNGASJPUSDM',
-      note: 'FRED 月频代理序列'
+      sourceSeriesId: 'CHRIS/CME_JKM1',
+      source: 'https://data.nasdaq.com/data/CHRIS/CME_JKM1',
+      note: 'NASDAQ Data Link 连续合约日频结算价（近月）'
     },
     {
       symbol: 'TTF',
       displayName: 'TTF 欧洲气价基准',
-      unit: 'USD/MMBtu',
-      sourceSeriesId: 'PNGASEUUSDM',
-      source: 'https://fred.stlouisfed.org/series/PNGASEUUSDM',
-      note: 'FRED 月频代理序列'
+      unit: 'EUR/MWh',
+      sourceSeriesId: 'TTF=F',
+      source: 'https://finance.yahoo.com/quote/TTF=F/history',
+      note: 'Yahoo Finance 连续合约日频收盘价'
     },
     {
       symbol: 'Henry Hub',
@@ -749,17 +857,60 @@ async function updateMarketHistory() {
 
   for (const item of historySeries) {
     try {
-      const rawPoints = await fetchFredSeriesHistory(item.sourceSeriesId, window.start, window.end);
-      const points = (item.symbol === 'TTF' || item.symbol === 'JKM')
-        ? expandMonthlyPointsToDaily(rawPoints, window.start, window.end)
-        : rawPoints;
+      let points = [];
+      let note = item.note;
+      let source = item.source;
+      let sourceSeriesId = item.sourceSeriesId;
 
-      const note = (item.symbol === 'TTF' || item.symbol === 'JKM')
-        ? `${item.note}; 已按自然日展开（月频序列转日频展示）`
-        : item.note;
+      if (item.symbol === 'JKM') {
+        try {
+          points = await fetchNdlJkmHistory(window.start, window.end);
+        } catch (error) {
+          try {
+            console.warn(`[WARN] JKM history NDL failed, fallback Yahoo true-daily: ${error.message}`);
+            points = await fetchYahooHistory('JKM=F', window.start, window.end);
+            sourceSeriesId = 'JKM=F';
+            source = 'https://finance.yahoo.com/quote/JKM=F/history';
+            note = 'Yahoo Finance 连续合约日频收盘价';
+          } catch (yahooError) {
+            if (allowJkmProxyFallback) {
+              console.warn(`[WARN] JKM history Yahoo failed, fallback FRED proxy by env switch: ${yahooError.message}`);
+              const rawPoints = await fetchFredSeriesHistory('PNGASJPUSDM', window.start, window.end);
+              points = expandMonthlyPointsToDaily(rawPoints, window.start, window.end);
+              sourceSeriesId = 'PNGASJPUSDM';
+              source = 'https://fred.stlouisfed.org/series/PNGASJPUSDM';
+              note = 'FRED 月频代理序列; 已按自然日展开（月频序列转日频展示）';
+            } else if (existingJkmTrueDaily?.points?.length) {
+              console.warn(`[WARN] JKM history Yahoo failed, reuse cached true-daily points: ${yahooError.message}`);
+              points = existingJkmTrueDaily.points;
+              sourceSeriesId = existingJkmTrueDaily.sourceSeriesId || sourceSeriesId;
+              source = existingJkmTrueDaily.source || source;
+              note = `${existingJkmTrueDaily.note || note}; 当前刷新失败，沿用最近一次真日频缓存`;
+            } else {
+              throw new Error(`JKM true-daily source unavailable (NDL: ${error.message}; Yahoo: ${yahooError.message}); verify source access or opt-in JKM_HISTORY_ALLOW_PROXY=true`);
+            }
+          }
+        }
+      } else if (item.symbol === 'TTF') {
+        try {
+          points = await fetchYahooHistory('TTF=F', window.start, window.end);
+        } catch (error) {
+          console.warn(`[WARN] TTF history Yahoo failed, fallback FRED proxy: ${error.message}`);
+          const rawPoints = await fetchFredSeriesHistory('PNGASEUUSDM', window.start, window.end);
+          points = expandMonthlyPointsToDaily(rawPoints, window.start, window.end);
+          sourceSeriesId = 'PNGASEUUSDM';
+          source = 'https://fred.stlouisfed.org/series/PNGASEUUSDM';
+          note = 'FRED 月频代理序列; 已按自然日展开（月频序列转日频展示）';
+        }
+      } else {
+        const rawPoints = await fetchFredSeriesHistory(item.sourceSeriesId, window.start, window.end);
+        points = rawPoints;
+      }
 
       series.push({
         ...item,
+        sourceSeriesId,
+        source,
         note,
         points
       });

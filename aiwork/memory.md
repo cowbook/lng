@@ -308,6 +308,27 @@ git push origin main  # 自动触发GitHub Actions部署
 
 验证：`npm run docs:build` 通过，构建正常。
 
+### 2026-03-31 09:20
+
+按用户要求继续修正数据源与文档，并准备提交当前工作区：
+
+- 修复 `scripts/update-datasources.js` 环境变量加载：脚本启动时自动读取根目录 `.env`，`NASDAQ_DATA_LINK_API_KEY` 不再依赖手工 export。
+- 重新核查市场页历史图表现：
+   - Brent 历史是 FRED 日频，曲线正常；
+   - JKM 空线问题来自 NDL 403 导致无点；
+   - TTF 近 7/30 天平线问题来自月频代理展开；
+   - Henry Hub 指数模式正常，无计算错误。
+- 扩展历史数据主链：
+   - 新增 `fetchYahooHistory()`；
+   - TTF 历史主源切换为 Yahoo Finance `TTF=F` 日频；
+   - JKM 历史链路改为 NASDAQ Data Link `CHRIS/CME_JKM1` 优先，失败时回退 Yahoo Finance `JKM=F` 真日频，再按环境变量决定是否允许 FRED 月频代理兜底。
+- 已验证结果：
+   - `market-history.json` 中 JKM 已落到 `JKM=F`，约 250 个日频点；
+   - TTF 已落到 `TTF=F`，约 252 个日频点；
+   - 市场页不再依赖 TTF 月频代理作为默认历史源。
+- README 已同步更新：补充实时价格主源、历史价格主源、JKM/TTF 回退链路、`.env` 自动加载说明。
+- 本次提交前同步更新 aiwork：`project.md`、`datasource-plan.md`、`memory.md` 与当前实现保持一致。
+
 
 
 
