@@ -28,11 +28,14 @@ loadDotEnv(path.join(ROOT, '.env'));
 const FRED_BASE = 'https://api.stlouisfed.org/fred/series/observations';
 const FRED_KEY = process.env.FRED_API_KEY || '';
 const NDL_KEY = process.env.NASDAQ_DATA_LINK_API_KEY || '';
+const FETCH_TIMEOUT_MS = Number(process.env.FETCH_TIMEOUT_MS || 15000);
+const FETCH_RETRIES = Math.max(0, Number(process.env.FETCH_RETRIES || 1));
 const FUTURES_MONTH_CODES = ['F', 'G', 'H', 'J', 'K', 'M', 'N', 'Q', 'U', 'V', 'X', 'Z'];
 const MMBTU_PER_MWH = 3.412141633;
 const DEFAULT_USD_PER_EUR = 1.1;
 const HISTORY_DAYS = 365;
 const STALE_NOTE_SUFFIX = '本次抓取日期较旧，保留现有较新值';
+const RESPONSE_CACHE = new Map();
 const LNG_NEWS_KEYWORDS = [
   'lng',
   'liquefied natural gas',
@@ -105,6 +108,109 @@ const WECHAT_ACCOUNTS = [
   'ICIS安迅思',
   '振邦天然气LNG新能源'
 ];
+
+const UPDATE_SECTION_TO_FILE = {
+  market: 'market-prices.json',
+  history: 'market-history.json',
+  news: 'news-digest.json',
+  wechat: 'wechat-watchlist.json'
+};
+
+function parseCliOptions(argv) {
+  const options = {
+    only: null,
+    ifStaleMinutes: 0
+  };
+
+  for (let i = 2; i < argv.length; i += 1) {
+    const token = argv[i];
+    if (token === '--only') {
+      const value = argv[i + 1] || '';
+      i += 1;
+      const parsed = value
+        .split(',')
+        .map((x) => x.trim().toLowerCase())
+        .filter(Boolean);
+      const valid = parsed.filter((x) => Object.prototype.hasOwnProperty.call(UPDATE_SECTION_TO_FILE, x));
+      options.only = valid.length ? new Set(valid) : new Set();
+      continue;
+    }
+
+    if (token === '--if-stale-minutes') {
+      const value = Number(argv[i + 1]);
+      i += 1;
+      options.ifStaleMinutes = Number.isFinite(value) && value > 0 ? Math.floor(value) : 0;
+    }
+  }
+
+  return options;
+}
+
+async function isSectionFresh(section, minutes) {
+  if (!minutes || minutes <= 0) {
+    return false;
+  }
+
+  const fileName = UPDATE_SECTION_TO_FILE[section];
+  if (!fileName) {
+    return false;
+  }
+
+  const filePath = path.join(DATA_DIR, fileName);
+  const payload = await readJsonSafe(filePath, null);
+  const updatedAt = typeof payload?.updatedAt === 'string' ? payload.updatedAt : '';
+  if (!updatedAt) {
+    return false;
+  }
+
+  const ts = Date.parse(updatedAt);
+  if (!Number.isFinite(ts)) {
+    return false;
+  }
+
+  const ageMs = Date.now() - ts;
+  return ageMs >= 0 && ageMs < minutes * 60 * 1000;
+}
+
+function skippedMarketHealth(reason) {
+  return {
+    itemCount: 0,
+    staleCount: 0,
+    fallbackCount: 0,
+    errorCount: 0,
+    nullValueCount: 0,
+    warnings: [`market: skipped (${reason})`],
+    skipped: true
+  };
+}
+
+function skippedHistoryHealth(reason) {
+  return {
+    seriesCount: 0,
+    warnings: [`history: skipped (${reason})`],
+    skipped: true
+  };
+}
+
+function skippedNewsHealth(reason) {
+  return {
+    newsCount: 0,
+    academicCount: 0,
+    usedNewsCache: false,
+    usedAcademicCache: false,
+    warnings: [`news: skipped (${reason})`],
+    skipped: true
+  };
+}
+
+function skippedWechatHealth(reason) {
+  return {
+    accountCount: 0,
+    manualDigestCount: 0,
+    warnings: [`wechat: skipped (${reason})`],
+    skipped: true
+  };
+}
 
 function toNumber(value) {
   if (typeof value === 'number') {
@@ -286,17 +392,85 @@ function convertEurMwhToUsdMmbtu(valueEurPerMwh, usdPerEur) {
 }
 
 async function fetchJson(url) {
-  const response = await fetch(url, {
+  return fetchWithRetry(url, {
     headers: {
       'User-Agent': 'lng.cool/1.0 (data updater)'
     }
+  }, {
+    parse: 'json',
+    retries: FETCH_RETRIES,
+    timeoutMs: FETCH_TIMEOUT_MS
   });
+}
 
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status}: ${url}`);
+async function fetchWithRetry(url, options = {}, config = {}) {
+  const {
+    parse = 'text',
+    retries = 0,
+    timeoutMs = 10000,
+    cacheKey,
+    useCache = true
+  } = config;
+
+  const key = cacheKey || `${parse}:${url}:${JSON.stringify(options.headers || {})}`;
+  if (useCache && RESPONSE_CACHE.has(key)) {
+    return RESPONSE_CACHE.get(key);
   }
 
-  return response.json();
+  const task = (async () => {
+    let lastError = null;
+
+    for (let attempt = 0; attempt <= retries; attempt += 1) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+      try {
+        const response = await fetch(url, {
+          ...options,
+          signal: controller.signal
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${url}`);
+        }
+
+        if (parse === 'response') {
+          return response;
+        }
+
+        if (parse === 'json') {
+          return response.json();
+        }
+
+        return response.text();
+      } catch (error) {
+        const isAbort = error && error.name === 'AbortError';
+        lastError = isAbort
+          ? new Error(`Timeout ${timeoutMs}ms: ${url}`)
+          : error;
+        if (attempt < retries) {
+          continue;
+        }
+      } finally {
+        clearTimeout(timer);
+      }
+    }
+
+    throw lastError || new Error(`Request failed: ${url}`);
+  })();
+
+  if (useCache) {
+    RESPONSE_CACHE.set(key, task);
+  }
+
+  try {
+    return await task;
+  } catch (error) {
+    if (useCache) {
+      RESPONSE_CACHE.delete(key);
+    }
+    throw error;
+  }
 }
 
 function pickLatestObservation(observations) {
@@ -638,17 +812,15 @@ function extractItemsFromRss(xml, maxItems = 8) {
 }
 
 async function fetchText(url) {
-  const response = await fetch(url, {
+  return fetchWithRetry(url, {
     headers: {
       'User-Agent': 'lng.cool/1.0 (data updater)'
     }
+  }, {
+    parse: 'text',
+    retries: FETCH_RETRIES,
+    timeoutMs: FETCH_TIMEOUT_MS
   });
-
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status}: ${url}`);
-  }
-
-  return response.text();
 }
 
 function formatDate(date) {
@@ -878,16 +1050,17 @@ function normalizeBarchartHistoryPayload(payload, startDate, endDate) {
 
 async function fetchBarchartHistoryBySymbol(symbol, startDate, endDate) {
   const historyPage = `https://www.barchart.com/futures/quotes/${symbol}/historical-prices`;
-  const pageResponse = await fetch(historyPage, {
+  const pageResponse = await fetchWithRetry(historyPage, {
     headers: {
       'User-Agent': 'Mozilla/5.0',
       Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
     }
+  }, {
+    parse: 'response',
+    retries: FETCH_RETRIES,
+    timeoutMs: FETCH_TIMEOUT_MS,
+    useCache: false
   });
-
-  if (!pageResponse.ok) {
-    throw new Error(`HTTP ${pageResponse.status}: ${historyPage}`);
-  }
 
   const setCookie = pageResponse.headers.get('set-cookie') || '';
   const cookie = setCookie
@@ -917,14 +1090,14 @@ async function fetchBarchartHistoryBySymbol(symbol, startDate, endDate) {
           'X-XSRF-TOKEN': xsrfToken,
           Cookie: cookie
         }
+      }, {
+        parse: 'text',
+        retries: FETCH_RETRIES,
+        timeoutMs: FETCH_TIMEOUT_MS,
+        useCache: false
       });
 
-      const text = await response.text();
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${endpoint}`);
-      }
-
-      const payload = JSON.parse(text);
+      const payload = JSON.parse(response);
       const points = normalizeBarchartHistoryPayload(payload, startDate, endDate);
       if (points.length) {
         return points;
@@ -1145,7 +1318,7 @@ async function updateMarketHistory() {
               points = existingJkmTrueDaily.points;
               sourceSeriesId = existingJkmTrueDaily.sourceSeriesId || sourceSeriesId;
               source = existingJkmTrueDaily.source || source;
-              note = `${existingJkmTrueDaily.note || note}; 当前刷新失败，沿用最近一次真日频缓存`;
+              note = appendNoteOnce(existingJkmTrueDaily.note || note, '当前刷新失败，沿用最近一次真日频缓存');
             } else {
               throw new Error(`JKM true-daily source unavailable (NDL: ${error.message}; Yahoo: ${yahooError.message}); verify source access or opt-in JKM_HISTORY_ALLOW_PROXY=true`);
             }
@@ -1176,7 +1349,7 @@ async function updateMarketHistory() {
               );
               sourceSeriesId = existingTtfTrueDaily.sourceSeriesId || sourceSeriesId;
               source = existingTtfTrueDaily.source || source;
-              note = `${existingTtfTrueDaily.note || note}; 当前刷新失败，沿用最近一次真日频缓存`;
+              note = appendNoteOnce(existingTtfTrueDaily.note || note, '当前刷新失败，沿用最近一次真日频缓存');
             } else if (existingTtfCached?.points?.length) {
               console.warn(`[WARN] TTF history Barchart failed, reuse cached points: ${barchartError.message}`);
               points = normalizeCachedTtfPoints(
@@ -1187,7 +1360,7 @@ async function updateMarketHistory() {
               );
               sourceSeriesId = existingTtfCached.sourceSeriesId || sourceSeriesId;
               source = existingTtfCached.source || source;
-              note = `${existingTtfCached.note || note}; 当前刷新失败，沿用最近一次缓存`;
+              note = appendNoteOnce(existingTtfCached.note || note, '当前刷新失败，沿用最近一次缓存');
             } else {
               throw new Error(`TTF true-daily source unavailable (Yahoo: ${error.message}; Barchart: ${barchartError.message})`);
             }
@@ -1551,7 +1724,7 @@ async function updateMarketPrices() {
         date: fallback?.date ?? '',
         unit: fallback?.unit || series.unit,
         originvalue: fallback?.originvalue,
-        note: `${series.note}; 更新失败已回退缓存`
+        note: appendNoteOnce(series.note, '更新失败已回退缓存')
       });
       console.warn(`[WARN] ${series.seriesId}: ${error.message}`);
     }
@@ -1635,11 +1808,33 @@ async function updateWechatWatchlist() {
 }
 
 async function main() {
+  const options = parseCliOptions(process.argv);
   console.log('[data] update started');
-  const marketHealth = await updateMarketPrices();
-  const historyHealth = await updateMarketHistory();
-  const newsHealth = await updateNewsDigest();
-  const wechatHealth = await updateWechatWatchlist();
+  const shouldRun = (section) => !options.only || options.only.has(section);
+  const staleReason = (minutes) => `fresh within ${minutes} minute(s)`;
+
+  const [marketHealth, historyHealth, newsHealth, wechatHealth] = await Promise.all([
+    (async () => {
+      if (!shouldRun('market')) return skippedMarketHealth('not selected');
+      if (await isSectionFresh('market', options.ifStaleMinutes)) return skippedMarketHealth(staleReason(options.ifStaleMinutes));
+      return updateMarketPrices();
+    })(),
+    (async () => {
+      if (!shouldRun('history')) return skippedHistoryHealth('not selected');
+      if (await isSectionFresh('history', options.ifStaleMinutes)) return skippedHistoryHealth(staleReason(options.ifStaleMinutes));
+      return updateMarketHistory();
+    })(),
+    (async () => {
+      if (!shouldRun('news')) return skippedNewsHealth('not selected');
+      if (await isSectionFresh('news', options.ifStaleMinutes)) return skippedNewsHealth(staleReason(options.ifStaleMinutes));
+      return updateNewsDigest();
+    })(),
+    (async () => {
+      if (!shouldRun('wechat')) return skippedWechatHealth('not selected');
+      if (await isSectionFresh('wechat', options.ifStaleMinutes)) return skippedWechatHealth(staleReason(options.ifStaleMinutes));
+      return updateWechatWatchlist();
+    })()
+  ]);
 
   const warnings = [
     ...(marketHealth.warnings || []),
@@ -1658,6 +1853,10 @@ async function main() {
   await writeJson('data-health.json', {
     updatedAt: new Date().toISOString(),
     status: degraded ? 'degraded' : 'ok',
+    options: {
+      only: options.only ? [...options.only] : ['market', 'history', 'news', 'wechat'],
+      ifStaleMinutes: options.ifStaleMinutes
+    },
     summary: {
       market: marketHealth,
       history: historyHealth,

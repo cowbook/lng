@@ -9,10 +9,15 @@
   "scripts": {
     "docs:dev": "vitepress dev",
     "update:data": "node scripts/update-datasources.js",
+    "update:data:market": "node scripts/update-datasources.js --only market",
+    "update:data:history": "node scripts/update-datasources.js --only history",
+    "update:data:news": "node scripts/update-datasources.js --only news",
     "wechat:add": "node scripts/add-wechat-item.js",
     "check:bilingual": "node scripts/check-bilingual.js",
     "content:new": "node scripts/new-content.js",
-    "docs:build": "npm run update:data && vitepress build",
+    "docs:build": "npm run docs:build:full",
+    "docs:build:full": "npm run update:data && vitepress build",
+    "docs:build:fast": "vitepress build",
     "docs:preview": "vitepress preview"
   },
   "dependencies": {

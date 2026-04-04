@@ -25,12 +25,33 @@ npm run docs:dev
 npm run update:data
 ```
 
+按模块增量更新（更快）：
+
+```bash
+npm run update:data:market
+npm run update:data:history
+npm run update:data:news
+```
+
+也可以直接传参：
+
+```bash
+node scripts/update-datasources.js --only market,news
+node scripts/update-datasources.js --only market --if-stale-minutes 60
+```
+
 ## 构建
 
-`npm run docs:build` 会先执行数据更新，再执行 VitePress 构建。
+`npm run docs:build`（等价于 `docs:build:full`）会先执行数据更新，再执行 VitePress 构建。
 
 ```bash
 npm run docs:build
+```
+
+快速构建（不更新数据）：
+
+```bash
+npm run docs:build:fast
 ```
 
 ## 预览
