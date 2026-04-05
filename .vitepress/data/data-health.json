@@ -1,30 +1,49 @@
 {
-  "updatedAt": "2026-03-31T03:19:39.381Z",
+  "updatedAt": "2026-04-04T12:48:07.785Z",
   "status": "ok",
+  "options": {
+    "only": [
+      "wechat"
+    ],
+    "ifStaleMinutes": 60
+  },
   "summary": {
     "market": {
-      "itemCount": 4,
+      "itemCount": 0,
       "staleCount": 0,
       "fallbackCount": 0,
       "errorCount": 0,
       "nullValueCount": 0,
-      "warnings": []
+      "warnings": [
+        "market: skipped (not selected)"
+      ],
+      "skipped": true
     },
     "history": {
-      "seriesCount": 4,
-      "warnings": []
+      "seriesCount": 0,
+      "warnings": [
+        "history: skipped (not selected)"
+      ],
+      "skipped": true
     },
     "news": {
-      "newsCount": 10,
-      "academicCount": 8,
+      "newsCount": 0,
+      "academicCount": 0,
       "usedNewsCache": false,
       "usedAcademicCache": false,
-      "warnings": []
+      "warnings": [
+        "news: skipped (not selected)"
+      ],
+      "skipped": true
     },
     "wechat": {
       "accountCount": 8,
       "manualDigestCount": 0
     }
   },
-  "warnings": []
+  "warnings": [
+    "market: skipped (not selected)",
+    "history: skipped (not selected)",
+    "news: skipped (not selected)"
+  ]
 }

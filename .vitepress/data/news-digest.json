@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-03-31T03:19:39.373Z",
+  "updatedAt": "2026-03-31T08:22:24.677Z",
   "news": [
+    {
+      "title": "Chevron Reports “Extensive Damage” at Major LNG Project",
+      "link": "https://oilprice.com/Latest-Energy-News/World-News/Chevron-Reports-Extensive-Damage-at-Major-LNG-Project.html",
+      "publishedAt": "2026-03-31",
+      "source": "OilPrice"
+    },
+    {
+      "title": "U.S. Gas Prices Top $4 as Middle East Conflict Disrupts Supply",
+      "link": "https://oilprice.com/Latest-Energy-News/World-News/US-Gas-Prices-Top-4-as-Middle-East-Conflict-Disrupts-Supply.html",
+      "publishedAt": "2026-03-31",
+      "source": "OilPrice"
+    },
     {
       "title": "Spot Prices Wrap: Seasonal Weakness Dominates Despite Expanding LNG Export Capacity",
       "link": "https://naturalgasintel.com/news/spot-prices-wrap-seasonal-weakness-dominates-despite-expanding-lng-export-capacity/",
@@ -46,18 +58,6 @@
     {
       "title": "Golden Pass LNG Hits First Production, Adding Demand to Gulf Coast Natural Gas Price Hubs",
       "link": "https://naturalgasintel.com/news/golden-pass-lng-hits-first-production-adding-demand-to-gulf-coast-natural-gas-price-hubs/",
-      "publishedAt": "2026-03-30",
-      "source": "Natural Gas Intelligence"
-    },
-    {
-      "title": "Midmorning Markets: Technical Barriers Contain Natural Gas Futures — For Now",
-      "link": "https://naturalgasintel.com/news/midmorning-markets-technical-barriers-contain-natural-gas-futures-for-now/",
-      "publishedAt": "2026-03-30",
-      "source": "Natural Gas Intelligence"
-    },
-    {
-      "title": "Golden Triangle Natural Gas Storage Gets Green Light to Expand to 60 Bcf-Plus",
-      "link": "https://naturalgasintel.com/news/golden-triangle-natural-gas-storage-gets-green-light-to-expand-to-60-bcf-plus/",
       "publishedAt": "2026-03-30",
       "source": "Natural Gas Intelligence"
     }
