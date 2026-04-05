@@ -111,7 +111,8 @@ export default defineConfig({
           { text: 'Market', link: '/en/market/' },
           /* to do:
           { text: 'Articles', link: '/article/' },*/
-          { text: 'Basis', link: '/en/basis/lng' }
+          { text: 'Basis', link: '/en/basis/lng' },
+          { text: 'China Receiving Terminal', link: '/en/terminal/' }
         ]
       }
 
@@ -219,7 +220,49 @@ export default defineConfig({
               { text: '28. 深燃华安LNG', link: '/terminal/rt028' },
               { text: '29. 东莞九丰LNG', link: '/terminal/rt029' },
               { text: '30. 杭嘉鑫平湖LNG', link: '/terminal/rt030' },
-              { text: '31. 广燃南沙LNG', link: '/terminal/rt031' }
+              { text: '31. 广燃南沙LNG', link: '/terminal/rt031' },
+              { text: '32. 温州华港LNG', link: '/terminal/rt032' },
+              { text: '33. 广能阳山LNG', link: '/terminal/rt033' }
+            ]}
+
+      ],
+
+      "/en/terminal/":[
+
+            { text: 'China LNG Terminals', link:'/en/terminal/',items:[
+              { text: '1. PipeChina Dalian LNG', link: '/en/terminal/rt001' },
+              { text: '2. PipeChina Beihai LNG', link: '/en/terminal/rt002' },
+              { text: '3. PipeChina Shenzhen Diefu LNG', link: '/en/terminal/rt003' },
+              { text: '4. PipeChina Tianjin LNG', link: '/en/terminal/rt004' },
+              { text: '5. PipeChina Hainan Yangpu LNG', link: '/en/terminal/rt005' },
+              { text: '6. PipeChina Eastern Guangdong LNG', link: '/en/terminal/rt006' },
+              { text: '7. PipeChina Zhangzhou LNG', link: '/en/terminal/rt007' },
+              { text: '8. PipeChina Fangchenggang LNG', link: '/en/terminal/rt008' },
+              { text: '9. CNOOC Dapeng LNG', link: '/en/terminal/rt009' },
+              { text: '10. CNOOC Putian LNG', link: '/en/terminal/rt010' },
+              { text: '11. CNOOC Ningbo LNG', link: '/en/terminal/rt011' },
+              { text: '12. CNOOC Zhuhai LNG', link: '/en/terminal/rt012' },
+              { text: '13. CNOOC Binhai LNG', link: '/en/terminal/rt013' },
+              { text: '14. PetroChina Rudong LNG', link: '/en/terminal/rt014' },
+              { text: '15. PetroChina Caofeidian LNG', link: '/en/terminal/rt015' },
+              { text: '16. PetroChina Shennan LNG', link: '/en/terminal/rt016' },
+              { text: '17. Sinopec Qingdao LNG', link: '/en/terminal/rt017' },
+              { text: '18. Sinopec Tianjin LNG', link: '/en/terminal/rt018' },
+              { text: '19. Shenergy Yangshan LNG', link: '/en/terminal/rt019' },
+              { text: '20. Shenergy Wuhaogou LNG', link: '/en/terminal/rt020' },
+              { text: '21. ENN Zhoushan LNG', link: '/en/terminal/rt021' },
+              { text: '22. Guanghui Qidong LNG', link: '/en/terminal/rt022' },
+              { text: '23. Xintian Caofeidian LNG', link: '/en/terminal/rt023'},
+              { text: '24. Beijing Gas Tianjin LNG', link: '/en/terminal/rt024' },
+              { text: '25. Zhejiang Energy Wenzhou LNG', link: '/en/terminal/rt025' },
+              { text: '26. Guangdong Energy Huizhou LNG', link: '/en/terminal/rt026' },
+              { text: '27. Huaying Chaozhou LNG', link: '/en/terminal/rt027' },
+              { text: '28. Shenzhen Gas Huaan LNG', link: '/en/terminal/rt028' },
+              { text: '29. Dongguan Jovo LNG', link: '/en/terminal/rt029' },
+              { text: '30. Hangjiaxin Pinghu LNG', link: '/en/terminal/rt030' },
+              { text: '31. Guangzhou Gas Nansha LNG', link: '/en/terminal/rt031' },
+              { text: '32. Wenzhou Huagang LNG', link: '/en/terminal/rt032' },
+              { text: '33. Guangdong Energy Yangshan LNG', link: '/en/terminal/rt033' }
             ]}
 
       ],
