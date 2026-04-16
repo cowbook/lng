@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-03-31T08:22:08.851Z",
+  "updatedAt": "2026-04-09T12:52:46.039Z",
   "window": {
-    "start": "2025-03-31",
-    "end": "2026-03-31"
+    "start": "2025-04-09",
+    "end": "2026-04-09"
   },
   "series": [
     {
@@ -13,34 +13,6 @@
       "source": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
       "note": "FRED 日频历史序列",
       "points": [
-        {
-          "date": "2025-03-31",
-          "value": 77.23
-        },
-        {
-          "date": "2025-04-01",
-          "value": 77.78
-        },
-        {
-          "date": "2025-04-02",
-          "value": 77.27
-        },
-        {
-          "date": "2025-04-03",
-          "value": 72.54
-        },
-        {
-          "date": "2025-04-04",
-          "value": 68.36
-        },
-        {
-          "date": "2025-04-07",
-          "value": 66.13
-        },
-        {
-          "date": "2025-04-08",
-          "value": 64.86
-        },
         {
           "date": "2025-04-09",
           "value": 67.3
@@ -1004,6 +976,38 @@
         {
           "date": "2026-03-23",
           "value": 103.79
+        },
+        {
+          "date": "2026-03-24",
+          "value": 108.42
+        },
+        {
+          "date": "2026-03-25",
+          "value": 109.14
+        },
+        {
+          "date": "2026-03-26",
+          "value": 113.39
+        },
+        {
+          "date": "2026-03-27",
+          "value": 121.47
+        },
+        {
+          "date": "2026-03-30",
+          "value": 121.88
+        },
+        {
+          "date": "2026-03-31",
+          "value": 126.69
+        },
+        {
+          "date": "2026-04-01",
+          "value": 119.56
+        },
+        {
+          "date": "2026-04-02",
+          "value": 127.61
         }
       ]
     },
@@ -1013,7 +1017,7 @@
       "unit": "USD/MMBtu",
       "sourceSeriesId": "JKM=F",
       "source": "https://finance.yahoo.com/quote/JKM=F/history",
-      "note": "Yahoo Finance 连续合约日频收盘价; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存",
+      "note": "Yahoo Finance 连续合约日频收盘价; 当前刷新失败，沿用最近一次真日频缓存",
       "points": [
         {
           "date": "2025-03-31",
@@ -2023,7 +2027,7 @@
       "unit": "USD/MMBtu",
       "sourceSeriesId": "TTF=F",
       "source": "https://finance.yahoo.com/quote/TTF=F/history",
-      "note": "Yahoo Finance 连续合约日频收盘价; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存; 当前刷新失败，沿用最近一次真日频缓存",
+      "note": "Yahoo Finance 连续合约日频收盘价; 当前刷新失败，沿用最近一次真日频缓存",
       "points": [
         {
           "date": "2025-03-31",
@@ -3296,34 +3300,6 @@
       "note": "FRED 日频历史序列",
       "points": [
         {
-          "date": "2025-03-31",
-          "value": 4.11
-        },
-        {
-          "date": "2025-04-01",
-          "value": 3.96
-        },
-        {
-          "date": "2025-04-02",
-          "value": 4.04
-        },
-        {
-          "date": "2025-04-03",
-          "value": 4.21
-        },
-        {
-          "date": "2025-04-04",
-          "value": 4.04
-        },
-        {
-          "date": "2025-04-07",
-          "value": 3.97
-        },
-        {
-          "date": "2025-04-08",
-          "value": 3.85
-        },
-        {
           "date": "2025-04-09",
           "value": 3.42
         },
@@ -4262,49 +4238,117 @@
         {
           "date": "2026-03-23",
           "value": 2.94
+        },
+        {
+          "date": "2026-03-24",
+          "value": 2.9
+        },
+        {
+          "date": "2026-03-25",
+          "value": 2.94
+        },
+        {
+          "date": "2026-03-26",
+          "value": 2.99
+        },
+        {
+          "date": "2026-03-27",
+          "value": 2.99
+        },
+        {
+          "date": "2026-03-30",
+          "value": 2.88
+        },
+        {
+          "date": "2026-03-31",
+          "value": 2.88
+        },
+        {
+          "date": "2026-04-01",
+          "value": 2.99
+        },
+        {
+          "date": "2026-04-02",
+          "value": 2.86
+        },
+        {
+          "date": "2026-04-06",
+          "value": 3.04
         }
       ]
     }
   ],
   "rows": [
     {
-      "date": "2026-03-30",
+      "date": "2026-04-06",
       "brent": null,
       "jkm": null,
+      "ttf": null,
+      "henryHub": 3.04,
+      "ttfOriginvalue": null
+    },
+    {
+      "date": "2026-04-02",
+      "brent": 127.61,
+      "jkm": null,
+      "ttf": null,
+      "henryHub": 2.86,
+      "ttfOriginvalue": null
+    },
+    {
+      "date": "2026-04-01",
+      "brent": 119.56,
+      "jkm": null,
+      "ttf": null,
+      "henryHub": 2.99,
+      "ttfOriginvalue": null
+    },
+    {
+      "date": "2026-03-31",
+      "brent": 126.69,
+      "jkm": null,
+      "ttf": null,
+      "henryHub": 2.88,
+      "ttfOriginvalue": null
+    },
+    {
+      "date": "2026-03-30",
+      "brent": 121.88,
+      "jkm": null,
       "ttf": 18.088,
-      "henryHub": null,
+      "henryHub": 2.88,
       "ttfOriginvalue": 53.57500076293945
     },
     {
       "date": "2026-03-27",
-      "brent": null,
+      "brent": 121.47,
       "jkm": 20.395000457763672,
       "ttf": 18.291,
-      "henryHub": null,
+      "henryHub": 2.99,
       "ttfOriginvalue": 54.176998138427734
     },
     {
       "date": "2026-03-26",
-      "brent": null,
+      "brent": 113.39,
       "jkm": 20.4950008392334,
       "ttf": 18.643,
-      "henryHub": null,
+      "henryHub": 2.99,
       "ttfOriginvalue": 55.21799850463867
     },
     {
       "date": "2026-03-25",
-      "brent": null,
+      "brent": 109.14,
       "jkm": 19.989999771118164,
       "ttf": 17.832,
-      "henryHub": null,
+      "henryHub": 2.94,
       "ttfOriginvalue": 52.816001892089844
     },
     {
       "date": "2026-03-24",
-      "brent": null,
+      "brent": 108.42,
       "jkm": 20.524999618530273,
       "ttf": 18.245,
-      "henryHub": null,
+      "henryHub": 2.9,
       "ttfOriginvalue": 54.04100036621094
     },
     {
@@ -6269,58 +6313,58 @@
     },
     {
       "date": "2025-04-08",
-      "brent": 64.86,
+      "brent": null,
       "jkm": 12.770000457763672,
       "ttf": 12.232,
-      "henryHub": 3.85,
+      "henryHub": null,
       "ttfOriginvalue": 36.23099899291992
     },
     {
       "date": "2025-04-07",
-      "brent": 66.13,
+      "brent": null,
       "jkm": 12.774999618530273,
       "ttf": 12.492,
-      "henryHub": 3.97,
+      "henryHub": null,
       "ttfOriginvalue": 37
     },
     {
       "date": "2025-04-04",
-      "brent": 68.36,
+      "brent": null,
       "jkm": 12.914999961853027,
       "ttf": 12.29,
-      "henryHub": 4.04,
+      "henryHub": null,
       "ttfOriginvalue": 36.4010009765625
     },
     {
       "date": "2025-04-03",
-      "brent": 72.54,
+      "brent": null,
       "jkm": 13.079999923706055,
       "ttf": 13.236,
-      "henryHub": 4.21,
+      "henryHub": null,
       "ttfOriginvalue": 39.202999114990234
     },
     {
       "date": "2025-04-02",
-      "brent": 77.27,
+      "brent": null,
       "jkm": 13.1850004196167,
       "ttf": 13.931,
-      "henryHub": 4.04,
+      "henryHub": null,
       "ttfOriginvalue": 41.26300048828125
     },
     {
       "date": "2025-04-01",
-      "brent": 77.78,
+      "brent": null,
       "jkm": 13.225000381469727,
       "ttf": 14.332,
-      "henryHub": 3.96,
+      "henryHub": null,
       "ttfOriginvalue": 42.45000076293945
     },
     {
       "date": "2025-03-31",
-      "brent": 77.23,
+      "brent": null,
       "jkm": 13.074999809265137,
       "ttf": 13.73,
-      "henryHub": 4.11,
+      "henryHub": null,
       "ttfOriginvalue": 40.66699981689453
     }
   ]
