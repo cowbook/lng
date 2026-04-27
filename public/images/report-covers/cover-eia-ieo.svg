@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="EIA International Energy Outlook cover">
+  <defs>
+    <linearGradient id="overlay" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07253c" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0b3f61" stop-opacity="0.86"/>
+    </linearGradient>
+  </defs>
+  <image href="/images/report-covers/eia-ieo-base.png" width="1200" height="630" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1200" height="630" fill="url(#overlay)"/>
+  <rect x="64" y="62" width="6" height="130" fill="#6fc8ff"/>
+  <text x="92" y="110" font-size="34" font-family="Segoe UI, Arial, sans-serif" fill="#9cd9ff">U.S. ENERGY INFORMATION ADMINISTRATION</text>
+  <text x="92" y="176" font-size="58" font-weight="700" font-family="Segoe UI, Arial, sans-serif" fill="#ffffff">International Energy Outlook</text>
+  <text x="92" y="232" font-size="34" font-family="Segoe UI, Arial, sans-serif" fill="#dbf0ff">2023</text>
+  <rect x="92" y="488" rx="10" ry="10" width="510" height="58" fill="#0d2e47" fill-opacity="0.84"/>
+  <text x="116" y="526" font-size="27" font-family="Segoe UI, Arial, sans-serif" fill="#e2f4ff">Long-term global energy scenarios</text>
+</svg>

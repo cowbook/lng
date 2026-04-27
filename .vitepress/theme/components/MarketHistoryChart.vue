@@ -27,6 +27,7 @@ type HistoryData = {
 
 const props = defineProps<{
   history: HistoryData
+  defaultSymbol?: string
 }>()
 
 const { page } = useData()
@@ -68,7 +69,7 @@ const i18n = computed(() => {
   }
 })
 
-const selectedSymbol = ref('TTF')
+const selectedSymbol = ref(props.defaultSymbol || 'JKM')
 const hoveredIndex = ref<number | null>(null)
 
 const allSeries = computed(() => {

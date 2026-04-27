@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="IEA Gas Market Report cover">
+  <defs>
+    <linearGradient id="overlay" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1b2b" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#123b5e" stop-opacity="0.86"/>
+    </linearGradient>
+  </defs>
+  <image href="/images/report-covers/iea-gas-market-base.png" width="1200" height="630" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1200" height="630" fill="url(#overlay)"/>
+  <rect x="64" y="62" width="6" height="130" fill="#2ec4ff"/>
+  <text x="92" y="110" font-size="34" font-family="Segoe UI, Arial, sans-serif" fill="#9dd8ff">INTERNATIONAL ENERGY AGENCY</text>
+  <text x="92" y="176" font-size="64" font-weight="700" font-family="Segoe UI, Arial, sans-serif" fill="#ffffff">Gas Market Report</text>
+  <text x="92" y="232" font-size="34" font-family="Segoe UI, Arial, sans-serif" fill="#d7ebff">Q2 2025</text>
+  <rect x="92" y="488" rx="10" ry="10" width="430" height="58" fill="#0f2d47" fill-opacity="0.84"/>
+  <text x="116" y="526" font-size="27" font-family="Segoe UI, Arial, sans-serif" fill="#dff3ff">Global Gas Supply | Demand | Trade</text>
+</svg>

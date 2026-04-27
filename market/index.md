@@ -9,9 +9,14 @@ import marketPrices from '../.vitepress/data/market-prices.json'
 import marketHistory from '../.vitepress/data/market-history.json'
 import dataHealth from '../.vitepress/data/data-health.json'
 import MarketWarBoard from '../.vitepress/theme/components/MarketWarBoard.vue'
+import MarketHistoryChart from '../.vitepress/theme/components/MarketHistoryChart.vue'
 </script>
 
 <MarketWarBoard :prices="marketPrices" :history="marketHistory" :health="dataHealth" />
+
+## JKM 历史曲线
+
+<MarketHistoryChart :history="marketHistory" default-symbol="JKM" />
 
 ## 指标说明
 

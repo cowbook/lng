@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="IEA Global Energy Review 2026 cover">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c2238"/>
+      <stop offset="52%" stop-color="#15446a"/>
+      <stop offset="100%" stop-color="#1f6b9c"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7ad8ff"/>
+      <stop offset="100%" stop-color="#d7f3ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1010" cy="120" r="220" fill="#ffffff" fill-opacity="0.06"/>
+  <circle cx="1120" cy="40" r="150" fill="#ffffff" fill-opacity="0.05"/>
+  <rect x="72" y="62" width="7" height="150" rx="3" fill="url(#bar)"/>
+  <text x="104" y="112" font-size="34" font-family="Segoe UI, Arial, sans-serif" fill="#b8e8ff">INTERNATIONAL ENERGY AGENCY</text>
+  <text x="104" y="182" font-size="64" font-weight="700" font-family="Segoe UI, Arial, sans-serif" fill="#ffffff">Global Energy Review 2026</text>
+  <text x="104" y="240" font-size="30" font-family="Segoe UI, Arial, sans-serif" fill="#dcefff">Assessment of 2025 trends across fuels, technologies and regions</text>
+  <rect x="104" y="470" width="510" height="60" rx="12" fill="#0f2e48" fill-opacity="0.82"/>
+  <text x="130" y="508" font-size="26" font-family="Segoe UI, Arial, sans-serif" fill="#e8f6ff">Power | Oil | Gas | Coal | Renewables</text>
+</svg>
