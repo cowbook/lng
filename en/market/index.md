@@ -13,14 +13,3 @@ import MarketHistoryChart from '../../.vitepress/theme/components/MarketHistoryC
 </script>
 
 <MarketWarBoard :prices="marketPrices" :history="marketHistory" :health="dataHealth" />
-
-## JKM Historical Curve
-
-<MarketHistoryChart :history="marketHistory" default-symbol="JKM" />
-
-## Indicator Notes
-
-- Brent: International crude benchmark. Primary source is publicly accessible Barchart ICE Brent front-month futures; fallback is FRED.
-- JKM: Northeast Asia LNG benchmark. Primary source is publicly accessible Barchart NYMEX JKM front-month futures.
-- TTF: European gas benchmark. Historical primary source is Yahoo `TTF=F` (native unit EUR/MWh, normalized to USD/MMBtu for display); on Yahoo failure it attempts Barchart historical data, and if both fail it reuses the latest cached history.
-- Henry Hub: Core U.S. natural gas benchmark. Primary source is publicly accessible Barchart NYMEX Henry Hub front-month futures; fallback is FRED.
