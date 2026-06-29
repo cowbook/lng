@@ -258,6 +258,25 @@ git push origin main  # 自动触发GitHub Actions部署
 - `README.md` 新增“内容生产流水线”与“建议发布节奏”：
    - 每日快讯 1 篇（200-400 字）
    - 每周深度 1 篇（1200-2500 字）
+
+### 2026-06-29 20:10
+
+按用户要求完成首页 LNG 指标更新（中英文同步）：
+- 数据源切换为 GIIGNL Annual Report 页面展示的 8 项指标口径。
+- `index.md` 与 `en/index.md` 的 `features` 区块全部替换为新数值与描述，保持原有卡片结构。
+- 中文页完成单位本地化（亿吨/万吨/艘），英文页保持 MT/MTPA/vessels 原始口径。
+
+### 2026-06-29 20:35
+
+按用户要求升级首页“访问计数”功能：
+- 首版实现：新增 `GithubCounter` 组件并接入中英文首页，使用 GitHub 公共 API 展示仓库公开计数。
+- 二次调整（用户要求仅保留访问量）：
+   - 将组件改为仅显示访问量（最近 14 天 Views），移除 Stars/Forks/Watchers/Issues。
+   - 新增 `.vitepress/data/github-traffic.json` 作为页面读取数据源。
+   - 新增 `scripts/update-github-traffic.js`，通过 GitHub Traffic API 拉取访问量并写入数据文件。
+   - 更新 `.github/workflows/deploy.yml`，在构建前执行 traffic 更新脚本。
+   - 中英文首页仅保留“访问量”卡片调用（`index.md`、`en/index.md`）。
+- 构建验证：`npm run docs:build:fast` 通过。
    - 给出周一选题、周三成稿、周五发布的执行节拍
 - 修正 `aiwork/datasource-plan.md` 末尾残留代码块符号，保持文档整洁。
 
