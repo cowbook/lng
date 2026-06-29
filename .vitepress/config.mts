@@ -222,7 +222,7 @@ export default defineConfig({
               { text: '30. 杭嘉鑫平湖LNG', link: '/terminal/rt030' },
               { text: '31. 广燃南沙LNG', link: '/terminal/rt031' },
               { text: '32. 温州华港LNG', link: '/terminal/rt032' },
-              { text: '33. 广能阳山LNG', link: '/terminal/rt033' }
+              { text: '33. 广能阳江LNG', link: '/terminal/rt033' }
             ]}
 
       ],
@@ -262,7 +262,7 @@ export default defineConfig({
               { text: '30. Hangjiaxin Pinghu LNG', link: '/en/terminal/rt030' },
               { text: '31. Guangzhou Gas Nansha LNG', link: '/en/terminal/rt031' },
               { text: '32. Wenzhou Huagang LNG', link: '/en/terminal/rt032' },
-              { text: '33. Guangdong Energy Yangshan LNG', link: '/en/terminal/rt033' }
+              { text: '33. Guangdong Energy Yangjiang LNG', link: '/en/terminal/rt033' }
             ]}
 
       ],

@@ -16,37 +16,39 @@ hero:
  
 features:
   - icon: 🌊
-    title: 4.1 <b>亿吨</b>
-    details: <div class="wave"><div class="wave1"></div><div class="wave2"></div><div class="wave3"></div></div><text>2024年全球LNG贸易 </text>
+    title: 4.28 <b>亿吨</b>
+    details: <div class="wave"><div class="wave1"></div><div class="wave2"></div><div class="wave3"></div></div><text>全球LNG进口量（35%为现货）</text>
 
   - icon: 📈
-    title: 11.9 <b>$/mmBtu</b>
-    details: 2024年JKM平均价格
+    title: 5.24 <b>亿吨/年</b>
+    details: 液化能力（含FLNG 1650万吨/年）
 
   - icon: ⚓
-    title: 4.94 <b>亿吨/年</b>
-    details: 液化能力（年）
+    title: 12.47 <b>亿吨/年</b>
+    details: 气化能力（9个新终端/9个扩建）
 
   - icon: 💭
-    title: 10.6 <b>亿吨/年</b>
-    details: 气化能力（年）
+    title: 899 <b>艘</b>
+    details: LNG船队规模（同比+8%）
 
   - icon: ⚗️
-    title: 11.2 <b>亿吨/年</b>
-    details: 报建液化能力
+    title: +2200 <b>万吨</b>
+    details: 全球增量（欧洲+2800万吨，亚洲-1100万吨）
 
   - icon: 💭
-    title: 2.1 <b>亿吨/年</b>
-    details: 海上气化能力
+    title: 9 <b>个</b>
+    details: 液化项目FID（另有3个新项目+1个扩建）
 
   - icon: 🛥️
-    title: 742 <b>条</b>
-    details: LNG运输船
+    title: +2500 <b>万吨/年</b>
+    details: 亚洲新增气化能力（台湾第3座、印度第8座终端）
 
   - icon: 🚤
-    title: 56 <b>条</b>
-    details: LNG动力船
+    title: 400 <b>万吨</b>
+    details: LNG加注量（同比+38%，新增3艘LNGBV）
 ---
+
+
 
 ## 研究报告
 
@@ -76,20 +78,16 @@ features:
 
 
 
-  <article class="report-card"><img class="report-cover cover-bordered" src="/images/report-covers/cover-iea-gas-market.svg" alt="IEA Gas Market Report" /><div class="report-content"><a class="report-title"  target="_blank" href="https://www.iea.org/reports/gas-market-report-q1-2026">📑 IEA Gas Market Report</a><p>IEA 季度天然气市场报告，系统追踪全球供需、库存、价格与跨区域贸易流向，是判断短中期市场平衡和价格风险的核心资料之一。</p><p>适合用于跟踪欧洲库存、亚洲 LNG 采购节奏和全球气价联动关系。</p><a target="_blank"  class="report-link" href="https://iea.blob.core.windows.net/assets/f746c0aa-03f3-47ba-a0d9-b45c3c758150/GasMarketReport%2CQ1-2026.pdf">⬇️ 查看/下载入口</a></div></article>
-
-
-  <article class="report-card"><img class="report-cover cover-bordered" src="/images/report-covers/cover-iea-gas-security.svg" alt="IEA Global Gas Security Review" /><div class="report-content"><a target="_blank" class="report-title"  href="https://www.iea.org/reports/global-gas-security-review-2025">📑 IEA Global Gas Security Review</a><p>IEA 天然气安全专题报告，聚焦极端天气、地缘冲突、基础设施故障等情景下的供应韧性评估。</p><p>报告强调储气能力、进口来源多元化和需求侧管理在天然气安全中的关键作用。</p><a target="_blank"  class="report-link" href="https://www.iea.org/reports/global-gas-security-review-2025">⬇️ 查看/下载入口</a></div></article>
-
-
-
-  <article class="report-card"><img class="report-cover cover-bordered" src="/images/report-covers/cover-giignl-publications.svg" alt="GIIGNL Publications" /><div class="report-content"><a target="_blank" class="report-title"  href="https://www.giignl.org/publications">📑 GIIGNL Publications</a><p>GIIGNL（国际LNG进口商组织）发布的年度与专题研究覆盖 LNG 合同结构、运输、终端、市场结构等一线主题。</p><p>适合用于补充商业实务视角，和宏观能源机构报告形成互补。</p><a target="_blank"  class="report-link" href="https://www.giignl.org/publications">⬇️ 查看/下载入口</a></div></article>
-
-  <article class="report-card"><img class="report-cover cover-bordered" src="/images/report-covers/cover-ei-statistical-review.svg" alt="Energy Institute Statistical Review" /><div class="report-content"><a target="_blank" class="report-title"  href="https://www.energyinst.org/statistical-review">📑 Energy Institute Statistical Review</a><p>全球能源统计权威来源之一，覆盖天然气消费、贸易、价格与长期结构变化，适合做跨周期对比与历史基线分析。</p><p>此前由 bp 发布，现由 Energy Institute 牵头维护，延续长期序列可比性。</p><a target="_blank" href="https://www.energyinst.org/statistical-review" class="report-link">⬇️ 查看/下载入口</a></div></article>
-
-  <article class="report-card"><img class="report-cover cover-bordered" src="/images/report-covers/cover-eia-ieo.svg" alt="EIA International Energy Outlook" /><div class="report-content"><a target="_blank" class="report-title" href="https://www.eia.gov/outlooks/ieo/">📑 EIA International Energy Outlook</a><p>美国 EIA 的长期国际能源展望，包含天然气供需、跨区域贸易和能源结构演化的基准情景。</p><p>适合用于构建中长期需求预测和情景推演假设。</p><a target="_blank" class="report-link"  href="https://www.eia.gov/outlooks/ieo/pdf/IEO2023_Narrative.pdf">⬇️ Download PDF</a></div></article>
-
 </div>
+
+
+
+
+<GithubCounter
+  title="GitHub 访问量"
+  label="最近14天访问量"
+/>
+
 
 <style>
 .report-grid {

@@ -123,3 +123,7 @@ npm run content:new -- --type essay --slug ey260328 --title "示例标题"
 - 当前使用到的环境变量：`NASDAQ_DATA_LINK_API_KEY`、`FRED_API_KEY`
 - `NASDAQ_DATA_LINK_API_KEY` 用于 JKM 官方连续合约历史源
 - 若希望 JKM 在官方源与 Yahoo 源都失败时继续使用月频代理兜底，可设置 `JKM_HISTORY_ALLOW_PROXY=true`
+
+### 新闻源
+
+- `https://www.giignl.org/`

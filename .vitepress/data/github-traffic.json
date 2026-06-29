@@ -1,0 +1,9 @@
+{
+  "updatedAt": "2026-06-29T14:08:57.610Z",
+  "source": "github-traffic-api",
+  "repo": "cowbook/lng",
+  "count": 0,
+  "uniques": 0,
+  "windowDays": 14,
+  "note": "Missing GITHUB_TOKEN, fallback value written."
+}

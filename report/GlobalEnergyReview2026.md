@@ -127,419 +127,415 @@ IEA. CC BY 4.0.
 
 ## 太阳能在2025年实现了非凡的增长
 
-Two main trends marked the evolution of global electricity generation in 2025. Solar PV posted a record increase of 600 TWh, taking its total electricity generation to nearly 2 700 TWh. This was more than double its output in 2022 and brings solar PV’s share in total global electricity generation to over 8%. The absolute increase of solar PV generation in 2025 is the largest ever observed for any source, excluding years marked by rebounds from global economic shocks such as Covid-19. Although China saw a huge increase in its solar PV generation, the growth of this source was a global story, with the United States, India and the Middle East all seeing increases of 20% or more.
+2025年全球发电演变呈现两大趋势。第一，太阳能光伏发电量创纪录增加600太瓦时（TWh），总发电量接近2 700太瓦时，较2022年翻了一倍以上，使其在全球总发电中的占比超过8%。若剔除新冠疫情等全球经济冲击后“反弹年份”的影响，2025年太阳能光伏发电增量是各类电源中有记录以来最大值。尽管中国太阳能光伏增量巨大，但这一增长具有全球性，美国、印度和中东的增幅均达到或超过20%。
 
-The flipside of the strong growth of solar PV was a decline in global electricity generation from coal for the first time since 2019 (excluding the Covid-19 shock in 2020). China led the way here, with coal generation falling by around 1.5%, while India also saw a drop of 3%. In the European Union, coal power fell below 10% of total generation for the first time.
+第二，太阳能光伏强劲增长的另一面，是全球煤电发电量自2019年以来首次下降（不含2020年疫情冲击年份）。其中，中国煤电发电量下降约1.5%，印度也下降约3%。欧盟煤电占总发电比重首次降至10%以下。
 
-Natural gas generation continued to grow at the global level, but more slowly than in 2024. Meanwhile, nuclear power generation expanded by around 1.2%, reaching its highest level ever. Wind power generation increased by around 8%, held back by poor wind conditions in some major markets. Overall, growth in renewables and nuclear exceeded the entire global increase in electricity generation in 2025, while generation from fossil fuels fell slightly. Even so, fossil fuels continued to contribute more than half of global electricity generation, with coal remaining the largest single source.
+全球天然气发电继续增长，但增速低于2024年。同期，核电发电量增长约1.2%，达到历史最高水平。受部分主要市场风况偏弱影响，风电发电量增长约8%。总体看，2025年可再生能源与核电的增量超过全球发电总增量，而化石能源发电量小幅下降。即便如此，化石能源发电在全球总发电中仍占一半以上，煤电仍是单一最大电源。
 
-Share of average annual change in electricity generation from renewables and nuclear, and from solar PV, 2000-2025
+2000-2025年可再生能源与核电、以及太阳能光伏发电年均增量占比
 
 ![](images/92f771ca50e816c78112eb8b608fa7784b6a0469a14937c9fb8c0e0707ad9251.jpg)
 
-## The global energy intensity slowdown of the last few years reversed in 2025
+## 过去几年全球能源强度改善放缓的趋势在2025年出现逆转
 
-A range of factors explain the slower worldwide energy demand growth in 2025. Global GDP expanded by 3.1%, compared to 3.3% in 2024. Global temperatures surged in 2024, pushing up electricity demand for cooling, and while 2025 was still a hot year, the effect of temperature variability in driving up energy demand was more muted in comparison. The share of renewables in electricity generation expanded even more rapidly in 2025 than in the previous year, and this improved primary energy intensity. Finally, the underlying rate of energy intensity improvements also accelerated.
+2025年全球能源需求增速放缓，主要由多重因素共同驱动。全球GDP增长3.1%，低于2024年的3.3%。2024年高温显著推升制冷用电需求；虽然2025年仍属偏热年份，但温度波动对能源需求的拉动效应明显弱于上年。与此同时，2025年可再生能源在发电结构中的占比提升速度快于2024年，从而改善了一次能源强度。此外，能源强度的基础性改善速度本身也在加快。
 
-A major trend shaping the global energy sector in recent years was the apparent slowdown in global energy intensity improvements in the post-Covid period. However, in 2025, global energy intensity improved by nearly 2%, in line with its long-term average from 2010 to 2019. This represented a notable acceleration from the recent trend of around 1.3% per year between 2019 and 2024.
+后疫情时期，全球能源强度改善放缓曾是近年能源领域的重要特征。然而，2025年全球能源强度改善接近2%，与2010-2019年的长期平均水平一致，显著高于2019-2024年约1.3%的年均改善速度。
 
-However, the global numbers mask the important role played by China. The country’s energy intensity improvements slowed sharply from nearly 4% per year between 2010 and 2019 to just 0.6% per year from 2019 to 2024. In 2025, China’s energy intensity improvement jumped back to above 3%. Putting China aside, global energy intensity improvements would have appeared more stable in recent years. Understanding why China’s energy intensity slowed so dramatically in recent years requires further analysis. However, it appears to be in part because of adverse weather and partly due to structural changes in China’s economy after Covid-19 towards a more export- and industry-intensive model of growth.
+不过，全球平均数据掩盖了中国因素的重要性。中国能源强度改善速度从2010-2019年接近每年4%，大幅放缓至2019-2024年的每年0.6%；到2025年又回升至3%以上。若剔除中国，近年全球能源强度改善整体会显得更稳定。中国近年能源强度为何显著放缓，仍需进一步分析，但初步看既与不利天气有关，也与后疫情时期经济结构向更偏出口和工业密集型增长模式转变有关。
 
-Average annual energy intensity improvement by region, 2010-2025, and drivers of global energy demand growth in 2024 and 2025
+2010-2025年分地区能源强度年均改善率，以及2024与2025年全球能源需求增长驱动因素
 
 ![](images/f9b6232c0436423371763cb5d462106642d65a3b2573042457a8a8bc0c19ac04.jpg)
 
-Notes: EJ = exajoule ; GDP = gross domestic product. “Temperature” reflects the impact of weather-related variations in heating and cooling needs on energy demand. It is estimated using changes in heating degree days (HDD) and cooling degree days (CDD) relative to the previous year.
+注：EJ为艾焦耳；GDP为国内生产总值。“温度”反映天气导致的供暖与制冷需求变化对能源需求的影响，依据采暖度日（HDD）和制冷度日（CDD）相对上年的变化进行估算。
 
-## As extreme weather tested energy systems, natural gas stepped up
+## 在极端天气冲击能源系统时，天然气发挥了关键支撑作用
 
-2025 was the world’s third warmest year on record, slightly cooler than the all-time high set in 2024. However, these global trends mask different dynamics at the regional level.
+2025年是有记录以来第三热的年份，仅略低于2024年的历史高点。但这一全球趋势在地区层面呈现出明显差异。
 
-In advanced economies, a colder winter in 2025 drove up heating demand and led to higher consumption of natural gas. We estimate that temperature variations contributed more than 16 billion cubic metres (bcm) of the around 40 bcm of global natural gas demand growth in 2025. In some regions, such as the European Union, poor wind conditions during cold snaps also drove up natural gas use in power generation. This highlighted the importance of power system flexibility and dispatchable capacity as the share of variable renewables increases. Beyond temperature variations, drought conditions in several regions, particularly in Europe and across Central and South America, reduced hydropower output, further contributing to the increase in carbon dioxide (CO2) emissions as the shortfall was largely met by fossil fuels.
+在发达经济体，2025年更冷的冬季推升了供暖需求，进而提高了天然气消费。我们估算，2025年全球天然气需求增量约400亿立方米（bcm），其中温度变化贡献超过160亿立方米。在欧盟等地区，寒潮期间风况偏弱也推高了发电用气。这再次凸显，随着可变可再生能源占比上升，电力系统灵活性与可调度容量的重要性日益提高。除温度因素外，欧洲及中南美多地干旱导致水电减发，缺口主要由化石能源补足，从而进一步推高二氧化碳（CO2）排放。
 
-For coal, the opposite trend played out. Cooling degree days (a measure of cooling needs) remained well above the long-term 2000-2019 average, sustaining elevated electricity demand for cooling in many regions. However, relative to 2024, global cooling degree days fell 6% in 2025. This trend was particularly marked in India, where an early and strong monsoon season raised hydropower output and lowered air-conditioning use. Overall, we estimate that without the effects of cooler weather, global growth in coal demand would have been slightly higher, rising by 0.5% instead of 0.4%, although still below the growth observed in 2024.
+煤炭则呈现相反方向变化。2025年制冷度日（衡量制冷需求）仍显著高于2000-2019年长期平均，支撑了多地区较高的制冷用电需求；但与2024年相比，2025年全球制冷度日下降6%。该趋势在印度尤为明显，偏早且偏强的季风抬升了水电出力并降低空调用电。总体估算显示，若无偏凉天气影响，2025年全球煤炭需求增速将从0.4%升至约0.5%，但仍低于2024年。
 
-Contribution of weather effects to change of energy demand and emissions, 2025
+2025年天气因素对能源需求与排放变化的贡献
 
 ![](images/e3a4986b8daf3cd67f4c0412e3318b44e53d2be12064fce6f6093de77c357e91.jpg)
 
-Note: Bcm = billion cubic metres; Mt CO2 = million tonnes of carbon dioxide; TWh = terawatt-hour; Mtce = million tonnes of coal equivalent.
+注：Bcm为十亿立方米；Mt CO2为百万吨二氧化碳；TWh为太瓦时；Mtce为百万吨标准煤当量。
 
-## Growth in global CO2 emissions slowed further, but total emissions still reached a record high
+## 全球CO2排放增速进一步放缓，但总量仍创历史新高
 
-Global energy-related CO2 emissions rose by around 0.4% in 2025, continuing the long-term trend of slowing growth. However, emissions still hit a new record high of more than 38 billion tonnes (Gt) in 2025. Total CO2 emissions from fuel combustion and industrial processes increased by around 145 million tonnes. We estimate that the net impact of weather-related factors – including temperature variations and shortfalls in hydropower and wind – pushed up CO2 emissions from the combustion of fossil fuels by around 90 million tonnes in 2025, driven by higher natural gas consumption.
+2025年全球能源相关CO2排放增长约0.4%，延续长期“增速放缓”趋势。但排放总量仍在2025年升至380亿吨（Gt）以上的新高。燃料燃烧与工业过程产生的CO2排放合计增加约1.45亿吨。我们估算，天气相关因素（包括温度波动及风电、水电出力不足）的净影响，使2025年化石燃料燃烧排放额外增加约9 000万吨，主要由天然气消费上升驱动。
 
-2025 saw a reversal in the long-term trend of declining emissions in advanced economies and rapid growth in emissions in emerging market and developing economies. In advanced economies, emissions rose by 0.5%, the first annual increase since 2018 (excluding the post-Covid rebound). In the United States, high gas prices led to gas to coal switching in electricity generation, while a cold winter drove up demand for natural gas. In the EU, emissions fell but by less than in recent years, due to higher heating needs and lower output from wind and hydro.
+2025年，发达经济体排放长期下降、而新兴市场和发展中经济体排放快速增长的长期格局出现阶段性反转。发达经济体排放增长0.5%，是2018年以来首次年度增长（不含疫情后反弹年份）。美国方面，天然气价格高企导致发电“气转煤”，叠加寒冬抬升用气需求。欧盟排放虽仍下降，但降幅小于近年，主要因供暖需求上升、风电和水电出力偏低。
 
-Emissions in China fell by around 0.5% due to declining emissions from both industrial process and electricity generation. Rapid growth in renewables and nuclear pushed down coal use in electricity generation; strong growth of electric vehicles kept a lid on oil demand, while a limited increase in cooling degree days curbed electricity demand growth. For the first time on record, emissions in India fell during normal economic conditions, previously having decreased only in 2020 and during the oil shocks of the 1970s. This decline was largely due to cyclical factors resulting from the strong monsoon, although renewables also surged.
+中国排放下降约0.5%，工业过程与发电环节排放均有回落。可再生能源与核电快速扩张压低煤电用煤；电动汽车强劲增长抑制石油需求；制冷度日增幅有限也约束了用电需求增长。印度在常态经济条件下排放首次出现下降；此前仅在2020年及20世纪70年代石油危机时期出现过下降。其原因主要是强季风带来的周期性影响，同时可再生能源也实现了快速增长。
 
-Weather conditions had a notable impact on emissions in different regions in 2025. In advanced economies, weather pushed up emissions due to higher heating demand and lower wind and hydro output. Without these effects, emissions in advanced economies would have continued their long-term trend of decline. In China, the fall in emissions would be marginally larger if adjusted for weather effects. In contrast, weather played a substantial role in limiting rising emissions in other emerging market and developing economies, notably due to lower cooling demand in India and Southeast Asia.
+2025年天气条件对不同地区排放影响显著。在发达经济体，天气因素通过提高供暖需求并压低风电、水电出力，推高了排放。若剔除这些因素，发达经济体排放将继续其长期下降趋势。中国在天气调整后，排放降幅会略有扩大。相反，在其他新兴市场和发展中经济体，天气在抑制排放上升方面发挥了较大作用，尤其体现在印度和东南亚制冷需求偏弱。
 
-Average annual growth rate of global energy related CO2 emissions, 2009-2025, change of CO2 emissions by region, 2025
+2009-2025年全球能源相关CO2排放年均增速及2025年分地区排放变化
 
 ![](images/3e6300b280aacfdaa2a7b028947630309f2fd1caa14008491a3f1f7cb3f11f52.jpg)
 
-Notes: EMDE = emerging market and developing economies; Mt CO2 = million tonnes of carbon dioxide. “Weatheradjusted” refers to impacts of temperature variations based on heating and cooling degree days. Unless otherwise specified, it does not account for the impact of weather on renewable energy output, such as variations in hydropower or wind generation.
+注：EMDE为新兴市场和发展中经济体；Mt CO2为百万吨二氧化碳。“天气调整后”指基于采暖度日和制冷度日的温度波动影响。除非另有说明，不包含天气对可再生能源出力（如水电、风电波动）的影响。
 
-## Oil
+## 石油
 
-## Oil demand growth remained subdued in 2025
+## 2025年石油需求增长依然温和
 
-Oil demand increased in 2025 by 0.65 mb/d (million barrels per day) or 1.2 EJ, but this 0.7% rise marked a further slowdown from 2024’s already-muted 0.75 mb/d of growth. The increase in both years was in line with IEA projections. The 2025 increase fell well short of the 2010-19 average annual rise of 1.4 mb/d, offering further evidence of a structural deceleration in oil markets.
+2025年石油需求增加0.65百万桶/日（mb/d），约合1.2艾焦耳（EJ）；但0.7%的增速较2024年已偏弱的0.75 mb/d进一步放缓。两年增量总体与IEA预测一致。2025年的增长明显低于2010-2019年1.4 mb/d的年均增量，进一步印证石油市场进入结构性减速阶段。
 
-This slowdown mainly reflected weaker growth in petrochemical feedstock use. Demand for naphtha, liquefied petroleum gas (LPG) and ethane – the major raw materials for plastics consumption – lagged most clearly in the second quarter of 2025 as trade turmoil weighed on international trade and disrupted key US exports to Chinese chemical plants. The full-year increase of 1.2% was well below the 2.6% recorded in 2024, when feedstocks accounted for the largest share of the overall rise in oil use.
+这一放缓主要源于石化原料需求增速回落。石脑油、液化石油气（LPG）和乙烷等塑料生产关键原料需求，在2025年二季度表现尤为疲弱。彼时贸易扰动压制国际贸易，并冲击美国对中国化工装置的关键出口。全年石化原料相关需求增幅为1.2%，显著低于2024年的2.6%；而2024年正是石化原料对石油需求增长贡献最大的年份。
 
-In 2025, the growth of oil products for transport fuels – which accounted for the largest share of oil product demand – was largely steady. Despite the year’s climate of macroeconomic uncertainty, overall economic performance remained broadly robust in most major markets, which supported growth in mobility demand. However, the effect on total oil consumption growth was eroded by the rising electrification of road transport and higher biofuels use.
+2025年，交通燃料相关油品需求（在油品需求中占比最高）总体保持平稳。尽管宏观不确定性较高，多数主要市场经济表现仍具韧性，支撑出行需求增长；但道路交通电气化加快与生物燃料使用提升，削弱了其对石油总需求增长的拉动。
 
-Global oil demand growth by sector, 2021-2025
+2021-2025年分部门全球石油需求增量
 
 ![](images/6377697b7221826b01a3d3d99641af3bc9a17fc7e3baa8b4fefa5e8da7f2f192.jpg)
 
-An additional factor supporting oil demand was steadily falling prices over the course of 2025, with an average decline of 15% compared with 2024 levels due to healthy supply increases. Supply rose by 3 mb/d in 2025 over 2024 as OPEC+ production came back online after cuts and non-OPEC+ supply, especially from the Americas, continued to climb.
+另一个支撑石油需求的因素是2025年油价持续回落。受供应增长较快影响，全年均价较2024年下降约15%。与2024年相比，2025年供应增加约3 mb/d，其中OPEC+在减产后逐步恢复产量，非OPEC+（尤其美洲）供应继续攀升。
 
-## Emerging markets drive regional growth
+## 新兴市场主导了区域增长
 
-Oil consumption in in the United States grew by 170 kb/d (thousand barrels per day), or 0.9%, while demand in the European Union, Japan and Korea declined by a combined 270 kb/d. Overall oil use in advanced economies in 2025 stood 1.7 mb/d (around 4%) below its 2019 level.
+美国石油消费增长170千桶/日（kb/d），即0.9%；而欧盟、日本和韩国合计下降270 kb/d。整体看，2025年发达经济体石油消费仍比2019年低1.7 mb/d（约4%）。
 
-In the United States, a rise in petrochemical feedstock consumption narrowly outweighed the decline in transport use. By contrast, growth in petrochemical intake fell in the European Union, Japan and Korea. Operators were forced to close several plants amid intensifying competition, largely from producers in the United States and China. Overall, feedstock use of oil was flat across advanced economies.
+在美国，石化原料消费上升仅略高于交通用油下降幅度。相较之下，欧盟、日本和韩国石化原料需求增长走弱，在竞争加剧（主要来自美国和中国生产商）的背景下，部分装置被迫关停。总体而言，发达经济体石化原料用油基本持平。
 
-Transport demand was lower in Japan and Korea and marginally higher in the European Union. Rises in fuel use in advanced economies were largely restricted to aviation. Improving vehicle efficiencies, particularly due to new hybrid vehicles, and incremental electrification were sufficient to offset rising activity. This resulted in flat road fuel demand in advanced economies in 2025.
+交通需求方面，日本和韩国下降，欧盟小幅上升。发达经济体燃料消费增长主要集中在航空领域。车辆效率提升（尤其是新型混合动力车型增加）及交通电气化增量，基本抵消了出行活动增长，使2025年发达经济体道路燃料需求维持平稳。
 
-Emerging market and developing economies accounted for nearly all of the increase in oil use in 2025, with their demand rising by 600 kb/d or 1.2%. More than half of this, 360 kb/d, was recorded in Asia Pacific. China reclaimed its position as the biggest source of growth, with 220 kb/d, while economies in Southeast Asia added around 100 kb/d. Other regions also saw growth: consumption in Africa rose by 190 kb/d, mainly driven by a rebound in Nigeria, while demand in Central and South America increased by 40 kb/d.
+2025年石油增量几乎全部来自新兴市场和发展中经济体，其需求增加600 kb/d（1.2%）。其中，亚太贡献360 kb/d，占比过半。中国重新成为最大增量来源（220 kb/d），东南亚经济体合计增加约100 kb/d。其他地区同样增长：非洲增加190 kb/d（主要由尼日利亚反弹带动），中南美增加40 kb/d。
 
-Even though China was the single largest centre of oil demand growth, the increase it recorded in 2025 – just over a third of the global total – was well below its pre-pandemic trend. Transport fuels dominated the rise in consumption from 2009 to 2021, with their consumption more than doubling across this period. However, since then, transport demand has plateaued, with jet fuel the only meaningful growth sector. In 2025, while oil use for aviation rose by 3.6%, gasoline and diesel demand were virtually unchanged.
+尽管中国仍是全球最大单一增量中心，但其2025年增量仅占全球三分之一略多，明显低于疫情前趋势。2009-2021年交通燃料是中国石油消费增长主引擎，该阶段消费量翻倍以上；但此后交通需求趋于平台化，只有航煤仍保持明显增长。2025年航空用油增长3.6%，汽油和柴油需求基本不变。
 
-This flatlining consumption of oil in transport has unfolded quickly, against a backdrop of strong reported GDP growth. Chinese GDP increased by a total of 20% between 2021 and 2025; for a dynamic middle-income country like China, this would usually translate into an increase of at least 10-15% in fuel use. Instead, this growth has been offset by the rapid electrification of the country’s road vehicle fleet, strong sales of natural gas-fuelled trucks and rising high-speed rail ridership.
+在中国GDP保持较快增长背景下，交通用油“平台化”出现速度较快。2021-2025年中国GDP累计增长约20%；按常见规律，这类中等收入且增长较快的经济体，燃料消费通常应增长10%-15%。但这一潜在增量被道路交通快速电气化、天然气重卡销售增长以及高铁客运提升所抵消。
 
-In contrast, Chinese feedstock use has kept expanding rapidly. With the continued surge in petrochemical plant capacity and a lack of competition or substitutes – unlike in the transport sector, where EVs are displacing oil use – the increase in demand for feedstocks remained at about 200 kb/d in both 2024 and 2025, accounting for almost all of China’s increase in oil use.
+与之相对，中国石化原料用油继续快速扩张。石化产能持续上行，且缺乏有效替代或竞争（不同于交通领域电动车替代石油），使2024和2025年石化原料需求增量均维持在约200 kb/d，几乎构成中国石油增量的全部来源。
 
 ![](images/61ed4208e38088187e31ed9cf8039d99a2e30591fe86fa4e8963deb9db302af7.jpg)
 
-Oil demand growth in India slowed sharply in 2025 to only 0.6%. Much of the disconnect between this low rate and the country’s rapid GDP growth is explained by the rapidly rising use of biofuels in road transport, which rose by around 50% in 2025. The strong monsoon season also dampened transport activity. The largest source of incremental oil product demand in India was LPG, primarily for clean cooking. This has been supported by government programs promoting the fuel for domestic use, especially in rural areas.
+印度2025年石油需求增速显著放缓至0.6%。这一低增速与其较快GDP增长之间的“背离”，很大程度上由道路交通生物燃料使用快速上升所解释，后者在2025年增长约50%。同时，强季风也抑制了交通活动。印度油品增量中最大来源是LPG，主要用于清洁烹饪，这与政府推动居民（尤其农村）用能替代政策密切相关。
 
-Demand in the Middle East was virtually flat, with growth in transport (+1%) and petrochemical feedstocks (+2%) balanced by falling power sector use (-2%). Most of this decline was in Saudi Arabia, which has ambitious goals to cut domestic consumption of oil products by 2030 by increasing power output from natural gas and renewables. Substantial progress appears to have been made in 2025, with oil demand declining by 130 kb/d despite strong summer cooling demand (a decline of over 10%).
+中东需求总体近乎持平：交通（+1%）和石化原料（+2%）增长，被电力部门用油下降（-2%）抵消。降幅主要来自沙特阿拉伯。该国正以2030年为节点，通过提高天然气与可再生能源发电占比，减少国内油品消耗。2025年已取得明显进展：即使夏季制冷需求强劲，石油需求仍下降130 kb/d（降幅超过10%）。
 
-## Natural gas
+## 天然气
 
-## Natural gas demand growth slowed in 2025
+## 2025年天然气需求增速放缓
 
-Following a strong increase of 2.8% in 2024, global gas demand growth slowed significantly in 2025 amid weaker industrial activity and relatively high spot liquefied natural gas (LNG) prices in the first half of the year. Demand increased by 1% in 2025, translating to an increase of around 40 bcm (or 1.4 EJ) in absolute terms. Incremental demand was largely concentrated in the United States and the European Union – where it was supported by colder winter weather – and in the Middle East, where gas use in the power sector grew rapidly offsetting oil use. By contrast, demand in the Asia Pacific region effectively flatlined, with growth at its lowest level since the 2022 energy crisis.
+继2024年增长2.8%之后，受工业活动走弱和上半年LNG现货价格偏高影响，2025年全球天然气需求增速明显回落。全年需求增长1%，对应绝对增量约400亿立方米（约1.4艾焦耳）。增量主要集中在美国、欧盟（受寒冬支撑）以及中东（电力部门“油转气”推动）。相比之下，亚太地区需求基本横盘，增速降至2022年能源危机以来最低。
 
 ![](images/d38e2210492a31178a8c1697f12448065395746aa6733bccc1f69bde49486257.jpg)
 
-Note: EMDE = emerging market and developing economies.
+注：EMDE为新兴市场和发展中经济体。
 
-## The buildings sector emerged as the largest driver of global gas demand growth in 2025, due to cold weather
+## 受寒冷天气影响，建筑部门成为2025年全球天然气需求增长的最大驱动项
 
-The contribution of the buildings sector to growth in natural gas demand increased sharply in 2025, reaching almost 70%. By contrast, the industrial and power sectors, which together accounted for around 65% of incremental gas demand in 2024, saw much weaker growth. Industry demand stayed flat, while gas-fired power generation rose only slightly. A number of factors lay behind these shifts.
+2025年建筑部门对天然气需求增长的贡献显著上升，接近70%。相比之下，工业和电力部门（两者在2024年合计贡献约65%的天然气增量）增长明显转弱：工业需求基本持平，燃气发电仅小幅增加。该结构变化由多重因素共同驱动。
 
-Total gas demand in buildings rose by around 3%. This increase was largely concentrated in the European Union and the United States, where colder winter weather resulted in higher space heating needs across the residential and services sectors.
+建筑部门天然气需求总量增长约3%，增量主要集中在欧盟和美国。寒冷冬季抬升了居民与服务业的空间供暖需求。
 
-Global gas demand in the power sector grew by less than 1% in 2025. In the United States, higher natural gas prices supported gas-to-coal switching for electricity generation. In the Asia Pacific region, high spot LNG prices in the first half of the year, together with continued renewables growth and improving nuclear availability, slowed growth in gas use for power. In contrast, in the European Union, gas-to-power demand grew strongly amid higher electricity consumption and lower power output from wind and hydro. In Brazil, lower hydropower availability supported a strong increase in gas-based power generation. In the Middle East, continued oil-to-gas switching supported strong growth in gas use in the power sector.
+2025年全球电力部门天然气需求增速低于1%。美国因气价上升，发电端出现“气转煤”。亚太地区受上半年LNG现货价格高位、可再生能源持续扩张及核电可用性改善等因素影响，发电用气增长放缓。与之相对，欧盟在用电增长与风电、水电出力下滑的背景下，燃气发电需求显著提升。巴西因水电可用性下降，燃气发电大幅增长。中东地区持续“油转气”，同样支撑了电力部门用气快速增长。
 
-Gas use in industry remained broadly flat in 2025. In the European Union, higher natural gas prices depressed gas demand in industry. Similarly, high LNG spot prices in the first half of the year moderated industrial gas demand in the Asia Pacific region and supported fuel switching in sub-sectors such as oil refining.
+工业部门天然气消费在2025年总体持平。欧盟高气价抑制了工业用气；亚太地区上半年LNG现货价格高企，也使工业用气需求降温，并推动炼油等子行业燃料替代。
 
-## The United States, European Union and Middle East drove global gas demand growth in 2025
+## 美国、欧盟和中东主导了2025年全球天然气需求增量
 
-Natural gas demand trends varied across key regions in 2025, with macroeconomics, price dynamics and weather factors driving consumption trends. In the United States, natural gas consumption increased by just over 1%, primarily driven by colder winter temperatures. Combined heating degree days in the first and fourth quarters of the year increased by nearly 9% compared with 2024, which drove up natural gas use in the buildings sector by around 9%. In contrast, natural gas demand from the US power sector declined by around 3.5% in 2025 amid stronger renewable power output and price-driven gas-to-coal switching. Henry Hub spot prices rose by 60% in 2025 compared with their previous year’s levels, weakening the competitiveness of gas-fired power generation against coal-fired plants. Natural gas demand in industry and the energy sector increased by around 1%, partly supported by stronger gas use by the country’s growing LNG liquefaction fleet.
+2025年各主要区域天然气需求分化明显，宏观经济、价格和天气共同塑造消费走势。美国天然气消费增长略超1%，主要由寒冬带动。与2024年相比，当年一季度和四季度合计采暖度日增加近9%，推动建筑部门用气增长约9%。但在可再生能源发电增强以及“气转煤”作用下，美国电力部门用气下降约3.5%。2025年Henry Hub现货价较上年上涨约60%，削弱了燃气发电竞争力。工业和能源部门用气增长约1%，部分由LNG液化产能扩张带动。
 
-Natural gas use in the European Union rose by around 3% in 2025, its strongest increase since 2021. The power sector drove higher gas use, with stronger electricity demand, together with weaker wind and hydropower output, supporting an increase of nearly 8% in gas-based electricity generation. In addition, colder weather supported higher gas use in buildings in the first quarter of the year. In contrast, higher natural gas prices weighed on gas use in industry in 2025.
+欧盟天然气消费2025年增长约3%，为2021年以来最大增幅。电力部门是主要拉动项：用电需求走强叠加风电、水电出力偏弱，使燃气发电量增长近8%。此外，一季度偏冷天气也抬升了建筑部门用气。与此同时，高气价抑制了工业用气。
 
-In the Asia Pacific region, natural gas demand in 2025 remained flat at 2024 levels. China’s natural gas demand grew by around 2% in 2025, marking a clear slowdown compared with the 7% increase it saw in 2024. Weaker industrial activity and the rapid expansion of renewable electricity generation limited the prospects for natural gas demand growth. In Japan, natural gas demand declined by almost
+亚太地区2025年天然气需求总体与2024年持平。中国增长约2%，较2024年7%的增速明显回落；工业活动走弱与可再生电力快速扩张，共同压缩了天然气增长空间。日本天然气需求下降接近1%，部分原因是核电持续恢复压低电力部门用气。印度天然气消费下降3.5%，其中发电用气下降接近10%，主要受可再生能源强劲增长和天气偏温和影响。
 
-1%, partly due to lower gas use in the power sector amid a continued recovery in nuclear power generation. India’s natural gas use declined by 3.5% in 2025, with gas demand for power generation falling by almost 10% in 2025 amid strong renewables growth and milder weather.
-
-Elsewhere in the Asia Pacific region, Thailand’s natural gas consumption fell by 4% in 2025, primarily driven by steep declines in power sector gas use. Pakistan’s natural gas consumption fell by around 8%, largely driven by weaker gas burn in the power sector amid rapid solar growth. In contrast, natural gas demand in Bangladesh grew by an estimated 4% in 2025, primarily supported by industry.
+亚太其他国家中，泰国天然气消费下降4%，主要由电力部门用气大幅下滑所致；巴基斯坦下降约8%，同样受太阳能快速增长背景下发电端燃气消耗回落影响。孟加拉国则相反，受工业支撑，天然气需求估算增长约4%。
 
 ![](images/cd087311c891a196a82587062bb5080c6f6148693833a41f4a0472a8cd26dfcb.jpg)
 
-Note: EMDE = emerging market and developing economies.
+注：EMDE为新兴市场和发展中经济体。
 
-Natural gas demand in the Middle East grew by an estimated 2.5%, driven by oilto-gas switching in the power sector and the region’s expanding gas-intensive industries. Saudi Arabia was the largest contributor to this growth, with the country’s gas consumption rising by around 6% amid stronger gas burn in the power sector.
+中东地区天然气需求估算增长2.5%，主要由电力部门“油转气”和区域内天然气密集型产业扩张驱动。沙特是最大贡献国，在发电端燃气消耗增强带动下，其天然气消费增长约6%。
 
-Natural gas demand remained broadly flat in Central and South America in 2025. In Brazil, primary gas supply rose by 12% in 2025 on the back of rising domestic gas output and lower hydropower generation. This increase in Brazil was largely offset by declines recorded elsewhere in the region, including Argentina (-2%) and Colombia (-20%) amid improving hydropower output.
+2025年中南美天然气需求总体持平。巴西在本土天然气产量提升与水电发电下降背景下，一次天然气供应增长12%；但该增量基本被区域内其他国家降幅抵消，包括阿根廷（-2%）和哥伦比亚（-20%，受水电恢复改善影响）。
 
-In the Russian Federation (hereafter, “Russia”), natural gas demand fell by an estimated 3%. This decline was largely concentrated in the first quarter of 2025, when milder winter temperatures reduced gas use by buildings and gas-based district heating. A weaker macroeconomic environment also weighed on gas use in industry and the power sector.
+俄罗斯联邦（下称“俄罗斯”）天然气需求估算下降3%。降幅主要集中在2025年一季度，偏暖冬季降低了建筑部门和燃气区域供热用气。宏观环境走弱也对工业和电力部门用气形成拖累。
 
-## Coal
+## 煤炭
 
-## Global coal demand in 2025 grew moderately, remaining near 2024 levels
+## 2025年全球煤炭需求温和增长，整体接近2024年水平
 
-Global coal demand in 2025 grew modestly above 2024 levels, rising by only 0.4%, an increase of around 30 million tonnes (or 0.7 EJ). This growth, which was in line with IEA estimates, was significantly below the 1.4% increase seen in 2024 and marked the end of the post-Covid rebound, with global coal demand growth slowing each year since 2021.
+2025年全球煤炭需求较2024年小幅增长0.4%，增量约3 000万吨（约0.7艾焦耳）。该结果与IEA估算一致，但显著低于2024年1.4%的增幅，也意味着后疫情反弹阶段基本结束：自2021年以来，全球煤炭需求增速逐年放缓。
 
-Coal use in power generation diverged from recent trends in several regions around the world. In the United States, strong coal use in the power sector supported a 10% rise in demand, reversing the trend of declines in recent years. Meanwhile, in China – by far the world’s biggest coal consumer – electricity generation from coal fell for the first time since 2015. In India, coal-fired electricity generation also declined, mostly due to the impact of an early and strong monsoon. And in the European Union, the long-term decrease in coal use slowed, mostly due to low hydropower and wind output. Together, these trends balanced each other out, resulting in only modest global demand growth over the year.
+在发电端，多个地区煤炭使用趋势与近年不同。美国电力部门煤炭消费走强，带动需求增长10%，扭转了近年的下降趋势；而在全球最大煤炭消费国中国，煤电发电量自2015年以来首次下降。印度煤电发电量也下降，主要受季风提前且偏强影响。欧盟方面，长期煤炭消费下行趋势放缓，主因风电、水电出力偏低。上述变化相互对冲，使全球煤炭需求全年仅温和增长。
 
-Annual change in coal demand by region, 2023-2025
+2023-2025年分地区煤炭需求年度变化
 
 ![](images/93c4ff3079af86ef09ac70b23360c2a378fbba5b8ce72913093a7d85fcba49c6.jpg)
 
-Coal power generation accounts for two-thirds of coal consumption globally, and therefore is the main driver of coal demand trends. In 2025, coal power generation was basically flat, remaining close to 2024 levels. In the industrial sector, coal demand continued its decline in advanced economies as well as in heavy industry in China, where cement and steel production peaked in 2014 and 2020 respectively. However, this was offset by demand growth in other sectors, with coal increasingly used to produce chemicals in China, steel in India and nickel in Indonesia.
+煤电发电约占全球煤炭消费的三分之二，因此是煤炭需求走势的核心决定因素。2025年煤电发电量基本持平，接近2024年水平。工业领域中，发达经济体煤炭需求继续下降；中国重工业用煤也延续回落（其水泥和钢铁产量分别在2014年和2020年见顶）。但这些降幅被其他领域增长部分抵消，包括中国化工、印度钢铁和印度尼西亚镍冶炼对煤炭需求上升。
 
-## Flat coal consumption in China in 2025 drove a global slowdown
+## 中国2025年煤炭消费趋平，是全球煤炭需求放缓的关键因素
 
-China consumes 30% more coal than the rest of the world put together. As a result, it remains the main driver of global demand trends. Overall, coal demand in China in 2025 stayed very close to 2024 levels, recording a slight increase of 0.1%.
+中国煤炭消费量比“全球其余国家总和”还高出约30%，因此仍是全球煤炭需求的主要决定因素。2025年中国煤炭需求与2024年几乎持平，仅小幅增长0.1%。
 
-While China saw continued strong electricity demand growth in 2025, this was met by a combination of fast growth in solar PV and wind generation, increased hydropower output and growth in nuclear power. As a result, coal electricity generation in China declined by around 1.5% in 2025, falling for only the second time since the 1970s. Coal use in energy-intensive industry in China also declined as steel and cement output shrank by 4% and 7%, respectively. However, these declines were largely offset by an increase in demand for coal for the production of plastics and the chemical sector.
+尽管2025年中国用电需求继续较快增长，但这一增量主要由太阳能光伏、风电快速扩张、水电出力提升和核电增长共同满足。因此，中国煤电发电量在2025年下降约1.5%，成为20世纪70年代以来第二次下降。中国高耗能工业用煤也下降，钢铁和水泥产量分别收缩4%和7%。不过，塑料与化工生产用煤增加，抵消了相当部分降幅。
 
-In parallel, the commissioning of coal power plants in China accelerated significantly in 2025, reaching almost 80 gigawatts (GW). This was the result of an elevated number of approvals between 2022 and 2024 following power shortages in 2021. The construction of new plants is primarily intended to meet peak electricity demand and support China’s energy security goals.
+与此同时，中国煤电投运在2025年明显提速，新增接近80吉瓦（GW）。这主要是2021年电力紧张后，2022-2024年核准项目集中转化的结果。新建机组更多用于满足尖峰负荷与支撑能源安全目标。
 
-In India, an early and intense monsoon had a significant impact on coal power generation, and hence on wider coal demand, with electricity accounting for almost three-quarters of the country’s coal use. The change in the monsoon resulted in weaker electricity demand growth, mainly because of reduced air conditioning and agricultural pump use. In addition, record high rainfall significantly boosted hydropower output, while growth in wind and solar PV continued. As a result, coalfired power generation in India declined by around 3%, marking only the third decline in five decades. Other sectors partially offset the decline in the power sector. The output of steel – the second-largest coal-consuming sector – grew by more than 10% in 2025. These effects combined to result in an overall decline in coal demand of 1%.
+印度方面，提前且强烈的季风对煤电发电乃至煤炭总需求产生显著影响。由于电力约占印度煤炭消费的四分之三，季风变化通过减少空调和农业抽水用电，削弱了电力需求增长。同时，创纪录降雨显著抬升水电出力，风电和光伏继续增长。结果是印度煤电发电量下降约3%，为过去50年仅第三次下降。其他部门部分对冲电力部门降幅，例如第二大耗煤行业钢铁在2025年产量增长超过10%。综合作用下，印度煤炭总需求下降约1%。
 
-In the United States, where coal use had declined by 16% in 2023 and 5% in 2024, demand grew by 10% in 2025, driven by higher use in the electricity sector, which accounts for almost 90% of US coal consumption. Strong electricity demand and higher gas prices, together with US government support for slowing coal plant retirements, were the major drivers behind this reversal.
+美国在2023年和2024年煤炭消费分别下降16%和5%后，2025年转为增长10%，主要由电力部门拉动（其占美国煤炭消费近90%）。用电需求走强、气价上升以及美国政府对延缓煤电退役的支持，共同驱动了这一反转。
 
-In the European Union, coal demand fell by 5% in 2025, a much slower rate than in 2023 and 2024, when consumption declined by 23% and 11%, respectively. Low hydropower and wind output, particularly in the first half of the year, boosted coal-fired power generation. Coal use in the European Union halved over the previous decade, due to factors such as coal plant closures, the growth of renewables and high carbon prices.
+欧盟2025年煤炭需求下降5%，降幅显著小于2023年和2024年的23%与11%。尤其在上半年，风电和水电偏弱抬升了煤电发电。过去十年欧盟煤炭消费已减半，主要受煤电关停、可再生能源扩张及高碳价等因素推动。
 
-## Electricity demand
+## 电力需求
 
-## Electricity demand grew more than twice as fast as overall energy demand
+## 电力需求增速超过能源总需求增速的两倍
 
-Global electricity demand grew year-on-year by around 3% in 2025, easing from 4.4% in 2024, when intense heat waves boosted electricity consumption. Nevertheless, the 2025 growth rate remained above the 2.8% annual average observed between 2014 and 2024 and was also well over twice the rate of overall global energy demand growth in 2025 (1.3%).
+2025年全球电力需求同比增长约3%。受极端热浪推升，2024年增速曾达4.4%；与之相比，2025年有所回落。即便如此，3%的增速仍高于2014-2024年2.8%的年均水平，也显著高于2025年全球能源总需求1.3%的增速（超过两倍）。
 
-Average annual change in electricity demand by region, 2014-2025
+2014-2025年分地区电力需求年均变化
 
 ![](images/dbe34210897b6276516d3ac6ab388f7e20333d13dc5b9c2d346f0c4d2c8a880f.jpg)
 
-## Demand growth was well above long-term average rates in advanced economies, but slowed in Asian economies
+## 发达经济体需求增速高于长期均值，但亚洲经济体增速放缓
 
-In 2025, emerging market and developing economies accounted for 80% of global electricity demand growth. China’s share of the increase in global demand was 58%, higher than in 2024, when it stood at 52%, but lower than the 62% average observed over the previous decade. China’s net electricity demand surpassed 9 500 TWh in 2025, up by 5.1%, but slower than the growth of 6.6% in 2023 and 7.0% in 2024. Demand from the buildings and transport sectors continued to expand strongly, supported by rising incomes, higher appliance ownership, and the fast growth of China’s electric vehicle fleet. However, amid global economic uncertainty, trade barriers and a structural weakening of domestic consumption, industrial electricity demand increased by only 3.7% in 2025, compared with the robust 6.0% in 2023 and 5.1% in 2024.
+2025年，新兴市场和发展中经济体贡献了全球电力需求增量的80%。其中，中国贡献58%，高于2024年的52%，但低于过去十年62%的平均水平。中国净电力需求在2025年超过9 500太瓦时，同比增长5.1%，较2023年6.6%和2024年7.0%的增速放缓。受收入提升、家电保有量增加和电动车保有快速扩张支撑，建筑与交通部门需求继续强劲增长；但在全球经济不确定、贸易壁垒及内需结构性走弱背景下，工业用电仅增长3.7%，明显低于2023年的6.0%和2024年的5.1%。
 
-After four consecutive years of demand expanding by more than 6%, India’s electricity consumption rose by only 1.4% in 2025. Although underlying drivers supported a strong 5.8% increase during the first four months of the year, the unusually early and intense monsoon brought cooler weather and heavier rainfall, reducing the need for air conditioning and water pumping for agriculture. Cooling degree days were around 10% lower than in 2024, with a particularly sharp drop in June, a month that in recent years has typically made up a larger share of India’s electricity demand.
+印度在连续四年电力需求增速超过6%后，2025年仅增长1.4%。尽管前四个月在基本面支撑下仍增长5.8%，但异常偏早且偏强的季风带来更凉爽天气和更大降雨，降低了空调负荷与农业抽水用电。制冷度日较2024年下降约10%，其中6月降幅尤为明显，而6月通常是印度年内用电占比较高月份。
 
-Southeast Asia was also affected by milder weather conditions compared with 2024, and electricity demand rose by an estimated 3% in 2025, a slowdown from the 8.6% increase seen in 2024, and significantly below the 6% annual average rate observed over the previous decade. Nevertheless, both in India and Southeast Asia, the slowdown in demand growth is likely to be temporary, with strong demand growth expected to resume in the coming years.
+东南亚同样受较2024年更温和天气影响，2025年用电需求估算增长3%，较2024年的8.6%显著回落，也明显低于过去十年约6%的年均增速。不过，无论印度还是东南亚，这种放缓大概率是阶段性的，未来几年需求有望重回较快增长。
 
-Electricity demand in the Middle East continued to grow robustly at nearly 4% in 2025, slightly faster than the rate seen in 2024. While some countries in the region saw milder summer temperatures than in 2024, several others experienced increased cooling needs. Continued economic growth and the increased uptake of air conditioners in the region is set to continue supporting rising electricity consumption.
+中东地区2025年电力需求继续稳健增长，接近4%，略高于2024年。尽管部分国家夏季气温较2024年偏温和，但其他国家制冷需求增加。区域经济持续增长及空调普及率提升，预计仍将支撑电力消费上行。
 
-Electricity demand in the United States grew by 2%, slower than the 2.8% growth seen in 2024 but more than three times as fast as the average growth rate over the previous decade. The buildings sector accounted for 80% of demand growth in 2025, boosted in particular by rapidly-increasing data centre loads, which alone contributed around half of the country’s entire increase in electricity consumption. A cold winter, with a nearly 10% increase in heating degree days, also supported power demand in 2025 by boosting space heating needs.
+美国2025年电力需求增长2%，低于2024年的2.8%，但仍是过去十年平均增速的三倍以上。建筑部门贡献了当年约80%的需求增量，特别是数据中心负荷快速攀升，单项就贡献了美国用电总增量的一半左右。寒冬同样提供支撑：采暖度日接近增加10%，抬升了空间供暖用电。
 
-In the European Union, electricity demand rose by 1% year-on-year in 2025 after increasing by 1.6% in 2024. The growth was driven by the buildings sector, with colder winter temperatures driving increased space heating needs, as well as higher cooling demand in some countries during the summer due to heatwaves. Increasing uptake of electric vehicles, expansion of data centres and rollout of heat pumps also supported demand. While some recovery in industrial output was observed following declines in 2022 and 2023, growth in the sector’s electricity demand remained relatively modest.
+欧盟2025年用电同比增长1%，此前2024年增长1.6%。增长主要来自建筑部门：冬季更冷抬升供暖需求，部分国家夏季热浪也推高制冷需求。电动车渗透提升、数据中心扩张和热泵部署推进，亦形成支撑。工业方面虽在2022-2023年下滑后有所恢复，但工业用电增速仍相对温和。
 
-Overall, advanced economies accounted for 20% of electricity demand growth in 2025, up from 17% in 2024, and well above the share of around 5% seen over the previous decade.
+总体看，发达经济体在2025年贡献了20%的全球电力需求增量，高于2024年的17%，也显著高于过去十年约5%的平均占比。
 
-## The buildings sector led electricity demand growth
+## 建筑部门继续引领电力需求增长
 
-Global electricity demand grew robustly across all sectors in 2025. The buildings sector was again the largest single contributor to electricity consumption – accounting for nearly 45% of the total annual increase – followed by the industrial sector. Demand growth in the buildings sector in 2025 was supported by continued uptake of appliances and the rising stock of air conditioners and heat pumps, as well as rapid expansion of power demand from data centres in certain regions. Milder weather conditions in some regions, notably India and Southeast Asia, brought cooling degree days down by over 6% compared to 2024, limiting the increase in electricity demand in buildings. This effect was partially offset by higher electricity demand for heating at the global level, resulting in a net impact of less than 10 TWh.
+2025年各部门电力需求均实现较强增长。建筑部门再次成为最大单一贡献项，占全年总增量近45%，其后为工业部门。建筑部门需求增长的主要支撑因素包括家电持续普及、空调与热泵保有量上升，以及部分地区数据中心负荷快速扩张。印度和东南亚等地区天气较2024年更温和，制冷度日下降超过6%，限制了建筑部门用电增幅。该影响被全球供暖用电增加部分对冲，净影响不足10太瓦时。
 
-Average annual change in electricity consumption by sector, 2014-2025
+2014-2025年分部门用电量年均变化
 
 ![](images/aa0cb68e1447186628769be55fce109f95c765bb0b771418a06fff3f56108b95.jpg)
 
-Meanwhile, growth in electricity demand from the transport sector in 2025 was more than double the average rate observed between 2014 and 2024 as electric vehicle uptake accelerated in many regions. Transport contributed over 10% of global electricity demand growth in 2025, up from an average of only 4% over the previous decade. Data centres continued to grow strongly, with their electricity consumption increasing by around 17%. However, in absolute terms this 70 TWh increase compares with a total electricity demand increase of around 800 TWh.
+与此同时，受多地区电动车加速普及带动，2025年交通部门用电需求增速达到2014-2024年平均水平的两倍以上。交通部门对全球用电增量的贡献超过10%，而过去十年平均仅约4%。数据中心用电继续强劲增长，增幅约17%；但从绝对量看，其约70太瓦时的增量，相比全球约800太瓦时的总用电增量仍属其中一部分。
 
-## Technology: Electric vehicles
+## 技术：电动汽车
 
-Electric car sales increased by more than 20% year-on-year in 2025, rising to 21 million units, with one in four cars sold being electric. This was in line with the IEA’s forecast for annual sales share in the 2025 edition of the Global EV Outlook.
+2025年全球电动汽车销量同比增长超过20%，达到2 100万辆，即每售出4辆新车就有1辆为电动车。这与IEA在《全球电动车展望2025》中的年度销量占比预测一致。
 
-Intense domestic competition, attractive prices and the growing availability of different models have supported the rapid rollout of EVs in China, with electric cars capturing more than half of all annual car sales for the first time in 2025. Sales of electric heavy-freight trucks also tripled in 2025, reaching more than 200 000 units. Almost all the growth in China’s electric car sales came from pure battery electric vehicles, with plug-in hybrids seeing a smaller increase (4%).
+在中国，激烈的国内竞争、具有吸引力的价格和车型供给丰富度提升，共同推动电动车加速渗透。2025年电动汽车在新车销量中的占比首次超过50%。电动重卡销量也在2025年增长至三倍，超过20万辆。中国电动车销量增长几乎全部来自纯电车型，插电混动车型增幅相对较小（4%）。
 
-Electric car sales in selected markets, 2021-2025
+2021-2025年部分市场电动汽车销量
 
 ![](images/068b983ebbb80ab10af27723a69bfc2ca7f47768a784ad4b50e1a81c9e168b65.jpg)
 
 IEA. CC BY 4.0.
 
-Source: IEA analysis based on data from ACEA, EAFO, EV Volumes and Marklines.
+来源：IEA基于ACEA、EAFO、EV Volumes和Marklines数据测算。
 
-In the European Union, electric car sales increased by 30% in 2025. The biggest EU car market – Germany – saw significant growth in electric car sales, as did Spain and Italy, following a reintroduction of purchase subsidies in those two countries. Other large-volume markets saw growth in electric car sales as well. In Poland, sales increased by 140%, while the Netherlands saw a 25% rise. In France, sales volumes were similar to 2024.
+欧盟2025年电动汽车销量增长30%。欧盟最大汽车市场德国实现显著增长；西班牙和意大利在重启购车补贴后亦明显增长。其他高销量市场也普遍上行：波兰增长140%，荷兰增长25%，法国销量与2024年大体持平。
 
-Europe as a whole overtook China as the fastest growing major market for electric cars. In the United Kingdom, sales rose by over 25%. In Norway, battery electric cars reached a record 96% share of all car sales. Electric medium- and heavyfreight truck sales also started to pick up in Europe, increasing by around 40% and reaching a 3% market share in 2025.
+从整体看，欧洲超过中国，成为主要电动车市场中增速最快地区。英国销量增长超过25%，挪威纯电车型在新车销售中的占比创下96%的历史高位。欧洲中重型电动卡车销量也开始上行，增长约40%，2025年市场份额达到3%。
 
-In the United States, electric car sales declined by 2%, largely the result of the elimination both of federal tax credits after September and of fines for not meeting fuel economy standards. Before the elimination of tax credits, sales in the United States reached an all-time high in the third quarter of 2025.
+美国电动汽车销量下降2%，主要受9月后联邦税收抵免取消以及未达燃油经济性标准罚则取消影响。在政策退出前，美国电动车销量于2025年三季度创历史新高。
 
-Emerging market and developing economies outside China continued to see significant growth in electric car sales, registering an annual increase of around 80%. In 2025, electric car sales in these countries reached volumes equivalent to Australia’s total annual car sales. This was in part supported by growing imports from China as intense domestic competition pushed Chinese manufacturers to seek export markets.
+除中国外的新兴市场和发展中经济体，电动汽车销量继续高速增长，年增幅约80%。2025年这些国家的电动车销量规模已接近澳大利亚全年新车销量总量。其背后部分原因是中国出口增加：在国内竞争加剧背景下，中国车企积极开拓海外市场。
 
-In India, annual sales of all EVs reached a new record of 2.3 million units as electric car sales increased by over 75%. Electric car sales in Southeast Asia more than doubled in 2025, driven by sales in Thailand and Viet Nam. One of Southeast Asia’s largest car markets – Indonesia – also added significantly to the growth, seeing its electric car sales rise by 125%. Electric car markets in Latin America and the Caribbean saw around 70% annual growth, reaching close to 350 000 units in 2025. Sales in Mexico more than tripled, while in Brazil they increased by 40%, building on top of already strong sales growth in 2024. Sizeable growth was also recorded in smaller markets in the region, particularly Ecuador and Uruguay, where electric car sales rose by around 240% and 140%, respectively, in 2025.
+印度方面，全部电动车年销量创2 300 000辆新高，其中电动汽车销量增长超过75%。东南亚电动汽车销量在2025年翻倍以上，主要由泰国和越南带动。印尼作为东南亚大市场之一，电动汽车销量增长125%。拉美和加勒比地区电动汽车市场年增幅约70%，2025年接近350 000辆。墨西哥销量增长逾三倍，巴西在2024年高增长基础上再增40%。区域内较小市场同样表现突出，尤其厄瓜多尔和乌拉圭，2025年分别增长约240%和140%。
 
-## Technology: Heat pumps
+## 技术：热泵
 
-Global heat pump sales fell by about 2% in 2025. Sales in China and Japan were largely flat, while Europe saw a strong return of demand. Sales in the United States declined.
+2025年全球热泵销量下降约2%。中国和日本销量总体持平，欧洲需求明显恢复，美国销量下降。
 
-In China1, heat pump sales stayed broadly stable. Reversible air conditioners (used as primary heating equipment) make up about half the Chinese heat pump market, and while record-breaking sales of air conditioners supported strong demand in the first half the year, they fell sharply in the second half. Sales of airto-water and hot water heat pumps, which make up the remainder of the market, remained at similar levels to 2024.
+在中国，热泵销量整体稳定。可逆式空调（作为主要采暖设备）约占中国热泵市场一半。尽管上半年空调创纪录销售带动需求走强，下半年则明显回落。其余市场由空气源热泵（空气-水）和热泵热水器构成，销量与2024年大体相当。
 
-In Europe, annual sales rose by 11%, marking the first year of growth since 2022. This recovery was largely driven by Germany, where sales in the first half of the year increased by 55%. It was also the first year that heat pumps outsold gas boilers in the country. However, in France, Europe’s largest heat pump market, sales declined moderately.
+欧洲方面，全年销量增长11%，为2022年以来首次恢复增长。复苏主要由德国驱动，其上半年销量增长55%，并首次实现热泵销量超过燃气锅炉。法国作为欧洲最大热泵市场，销量则出现温和下降。
 
-Heat pump sales for selected regions, 2021-2025
+2021-2025年主要地区热泵销量
 
 ![](images/3ff287e64c0a1e824e4c1012c0e46200aa4d3f9c6de431d33a4a870c916eddbc.jpg)
 
-Source: IEA analysis based on the European Heat Pump Association (EHPA); the Air-Conditioning, Heating and Refrigeration Institute (AHRI); the Japan Refrigeration and Air Conditioning Industry (JRAIA), and ChinaIOL.
+来源：IEA基于欧洲热泵协会（EHPA）、美国空调供暖制冷协会（AHRI）、日本制冷空调工业会（JRAIA）和ChinaIOL数据测算。
 
-In the United States, heat pump sales fell by around 13% in 2025. As of 2025, all heat pumps manufactured in the United States had to use A2L refrigerants, which may have boosted sales in 2024 as manufacturers rushed older models to the market. At the same time, shortages of refrigerants contributed to lower sales in 2025. A slowdown in new housing construction is also likely to have contributed to the decline. Even so, heat pumps still outsold gas boilers for the fourth year in a row.
+美国2025年热泵销量下降约13%。自2025年起，美国制造热泵需全面采用A2L制冷剂，这可能促使厂商在2024年加速出清旧型号，从而前置了部分需求。与此同时，制冷剂供应偏紧也压制了2025年销量。新建住宅放缓亦可能是下滑原因之一。尽管如此，热泵销量仍连续第四年超过燃气锅炉。
 
-In Japan, sales remained similar to 2024 levels. While absolute sales of heat pump water heaters did not increase, the market share relative to gas water heaters did, indicating an ongoing structural shift.
+日本销量与2024年基本持平。虽然热泵热水器绝对销量未明显增加，但其相对燃气热水器的市场份额提升，显示结构性替代仍在持续。
 
-## Electricity supply
+## 电力供应
 
-## The increase in low-emissions power generation in 2025 outstripped total electricity supply growth
+## 2025年低排放电源增量超过电力总供给增量
 
-Global electricity generation increased by over 850 TWh in 2025, with renewables accounting for the vast majority of growth. Together, generation from renewables and nuclear power rose by more than the total global increase in generation. In contrast, generation from fossil fuels declined: a modest rise in natural gas-fired generation was outweighed by a decline for coal. Global coal-fired generation fell by around 0.5%, marking the first decrease since the Covid‑driven drop in 2020 and the first decline outside of a period of crisis-related disruption since 2015. As a result, in line with previous IEA forecasts, global renewable generation virtually matched coal-fired generation in 2025.
+2025年全球发电量增加超过850太瓦时，其中绝大部分增量来自可再生能源。可再生能源与核电合计增量超过全球发电总增量。相对地，化石能源发电总量下降：燃气发电虽小幅增加，但被煤电下降所抵消。全球煤电发电量下降约0.5%，这是继2020年疫情冲击后首次下降，也是2015年以来在非危机扰动年份中的首次下降。由此，全球可再生能源发电量在2025年几乎与煤电持平，符合IEA此前判断。
 
-Global electricity generation and renewable generation by source, 2015-2025
+2015-2025年全球发电总量及分电源可再生发电量
 
 ![](images/229a701cb7563f470e6619903b52c8044ccb87484deb14140ba32286b7b96f82.jpg)
 
-Note: ‘Bioenergy’ includes bioenergy and waste, ‘Other’ includes geothermal, concentrating solar power (CSP) and marine.
+注：“生物能源”包括生物能源与废弃物发电；“其他”包括地热、光热发电（CSP）和海洋能。
 
-Global renewable generation increased by around 8.5% year-on-year in 2025, slightly slower than the 9.6% rise observed in 2024 but much faster than the around 6% average of the previous decade. This was despite declines in hydropower output in Europe and Eurasia and lower-than-normal wind speeds, particularly in Europe, which tempered growth. Solar PV saw its largest-ever increase in generation, rising by about 600 TWh. About 55% took place in China, but growth was otherwise broad-based geographically.
+2025年全球可再生能源发电同比增长约8.5%，低于2024年的9.6%，但仍明显高于过去十年约6%的平均增速。尽管欧洲和欧亚地区水电出力下降、且尤其欧洲风速偏低抑制增长，整体仍保持高位。太阳能光伏发电量增加约600太瓦时，创历史最大增量，其中约55%来自中国，其他地区也实现了广泛增长。
 
-Annual nuclear generation reached a record high following strong growth in 2024. Output grew by 1.2% in 2025, the result of reactor restarts in Japan, the strong performance of plants in France, and new units that began operations in several countries.
+继2024年强劲增长后，全球核电年发电量在2025年再创历史新高，同比增长1.2%，主要来自日本反应堆重启、法国机组表现较强以及多国新机组投运。
 
-Global coal‑fired generation dipped slightly in 2025, following an increase of 1.4% in 2024. The slight decline was in part due to unusual regional patterns. Unlike in recent years, coal-fired electricity output fell in both China and India, while it rose in the United States and declined by less than expected in the European Union. 2025 marked the first time in five decades that China and India saw simultaneous declines. In China, strong growth in renewable and nuclear generation, coupled with slower electricity demand growth than in 2024, helped drive coal‑fired output down. In India, coal use declined due to a rapid expansion of renewables and an early and strong monsoon, with renewables posting their largest‑ever annual increase. In the United States, higher natural gas prices compared with 2024, strong demand growth and slower coal plant retirements pushed coal‑fired generation higher. In the European Union, despite record solar PV output, weak wind and hydropower output resulted in higher gas‑fired generation and a small decline in coal-fired generation.
+2024年增长1.4%后，全球煤电发电量在2025年小幅回落。该回落部分源于“非常规”地区组合：不同于近年，中国和印度煤电同时下降，而美国上升、欧盟降幅也小于预期。2025年是近50年来中印煤电首次同步下降。中国方面，可再生能源和核电强劲增长叠加用电增速低于2024年，压低了煤电出力；印度则受可再生能源快速扩张和季风提前偏强影响，煤炭使用下降，同时可再生能源实现史上最大年增量。美国因气价高于2024年、需求增长强劲及煤电退役放缓，煤电发电量上升。欧盟虽光伏发电创纪录，但风电与水电偏弱，导致燃气发电增加、煤电仅小幅下降。
 
 ![](images/f66dcfe45fd092694cf989f1f87553a1ed1668decc5dd083513af5eb8dabcb56.jpg)
 
-Note: ‘Other renewables’ includes geothermal, bioenergy and waste, concentrating solar power (CSP), and marine.
+注：“其他可再生能源”包括地热、生物能源与废弃物发电、光热发电（CSP）和海洋能。
 
-Global natural gas-fired generation increased by around 0.5% in 2025, following an increase of 2.1% in 2024. Gas-fired generation rose strongly in Europe as weather trends boosted demand for heating and cooling. It also increased in the Middle East due to oil-to-gas switching in the power sector, particularly in Saudi Arabia. Global growth was tempered by declines in the United States, where natural gas prices encouraged switching from gas to coal. Outside the Middle East, oil is also increasingly being replaced by renewables and natural gas. As a result, global oil-fired generation declined by around 1.5% in 2025.
+2025年全球燃气发电增长约0.5%，低于2024年的2.1%。欧洲在天气因素推动供暖与制冷需求上升背景下，燃气发电明显增加。中东（尤其沙特）也因电力部门“油转气”而上升。美国方面则因天然气价格偏高出现“气转煤”，对全球增量形成抑制。除中东外，燃油发电也日益被可再生能源和天然气替代，导致全球燃油发电量在2025年下降约1.5%。
 
-## Share of low-emissions generation at record high, but coal and gas remain largest sources of electricity
+## 低排放发电占比创新高，但煤与气仍是两大主力电源
 
-The global electricity generation mix saw a marked increase in power generated from low-emissions sources (renewables and nuclear), which reached 43% in 2025 – the highest level in the last fifty years. The share of renewables in global total electricity generation increased to 34% in 2025, up from 32% in 2024 and 23% a decade ago. The share of wind and solar PV generation together reached 17%, increasing from 15% in 2024, and up from about 5% just a decade ago. At the same time, coal remained the largest source of electricity, providing 34% of global generation. Natural gas was the second-largest source, accounting for 21% of the total.
+全球发电结构中，低排放电源（可再生能源+核电）占比在2025年升至43%，为过去50年来最高。可再生能源占全球总发电比重提高至34%，高于2024年的32%和十年前的23%。风电与光伏合计占比达到17%，高于2024年的15%，而十年前仅约5%。同时，煤电仍是第一大电源，占全球发电34%；天然气为第二大电源，占比21%。
 
 ![](images/b7e94702de4f387ebd1a8e43a7bd5741a87b0fe37964905a21a11c911dde465f.jpg)
 
-Note: ‘Renewables’ includes Solar PV, wind, hydropower, geothermal, bioenergy and waste, concentrating solar power (CSP), and marine.
+注：“可再生能源”包括太阳能光伏、风电、水电、地热、生物能源与废弃物发电、光热发电（CSP）和海洋能。
 
-In emerging market and developing economies such as China, India and Southeast Asia, coal remained the dominant source of electricity. Nevertheless, due to the rapid expansion of low-emissions sources, the share of coal-fired generation in China declined to 55% in 2025, down from 70% a decade ago. In India, it edged down to 71% in 2025 from 74% in 2024 and 76% back in 2015. In Southeast Asia, by contrast, the share of coal-fired generation remained at 48% in 2025, similar to its 2024 share, and up from 37% a decade ago. Renewables increased to 32% of electricity generation across emerging market and developing economies, while nuclear remained at close to 5%.
+在中国、印度和东南亚等新兴市场与发展中经济体中，煤电仍是主导电源。但受低排放电源快速扩张影响，中国煤电占比已由十年前的70%降至2025年的55%；印度由2015年的76%、2024年的74%降至2025年的71%。东南亚则不同：2025年煤电占比维持在48%，与2024年相当，但高于十年前的37%。该组经济体整体可再生能源发电占比提升至32%，核电占比维持在接近5%。
 
-In advanced economies, renewables provided 36% of electricity generation in 2025, up slightly from the previous year and well above their 24% share a decade ago. Complemented by nuclear power, which accounted for 16%, low-emissions sources generated more than half of electricity in advanced economies in 2025. Among this group, the share of coal has been rapidly declining in recent years, falling from 30% in 2015 to around 16% in 2024 and stabilised at that level in 2025. In the European Union, planned coal phaseouts continued and the share of solar PV and wind reached 30% in 2025, surpassing that of fossil fuels for the first time. In the United Kingdom, which closed its last coal fired power station in 2024, the share of renewables grew to 55%. The United States saw an uptick in coal-fired generation in 2025, with its share rising to 17% from 16% in 2024 amid higher natural gas prices. Natural gas accounted for 40% of US generation in 2025, down from 42% in 2024 but still significantly higher than the 32% share seen a decade ago. In both the European Union and the United States, alongside renewables, nuclear energy continues to play an important role, covering 23% and 18% of generation, respectively.
+发达经济体方面，2025年可再生能源发电占比为36%，较上年小幅提高，显著高于十年前的24%。叠加占比16%的核电，低排放电源在发达经济体发电中占比已超过一半。煤电占比近年快速下降：从2015年的30%降至2024年约16%，并在2025年基本稳定。欧盟持续推进煤电退出，2025年风电和光伏占比达到30%，首次超过化石能源。英国于2024年关闭最后一座煤电站后，2025年可再生能源占比升至55%。美国在气价上升背景下，2025年煤电占比由2024年的16%回升至17%。美国天然气发电占比为40%，低于2024年的42%，但仍显著高于十年前的32%。在欧盟和美国，除可再生能源外，核电仍是关键支撑电源，发电占比分别为23%和18%。
 
-## Technology: Solar PV and wind
+## 技术：太阳能光伏与风电
 
-In 2025, global annual renewable capacity additions increased by 16%, reaching 800 GW despite challenges linked to supply chain strains, grid connection delays, financial pressures and policy shifts. This marked the 23rd consecutive year that renewables set new expansion records. Solar PV accounted for more than threequarters of new renewable capacity additions worldwide, followed by wind (20%). The remaining share was made up by hydropower, bioenergy, geothermal, concentrating solar power and marine energy.
+2025年，尽管面临供应链紧张、并网延迟、融资压力和政策调整等挑战，全球可再生能源新增装机仍增长16%，达到800吉瓦（GW）。这是可再生能源连续第23年刷新扩张纪录。其中，太阳能光伏占全球可再生新增装机的四分之三以上，风电占20%，其余由水电、生物能源、地热、光热和海洋能构成。
 
-Total renewable capacity additions by technology, 2015-2025
+2015-2025年分技术可再生能源新增装机
 
 ![](images/d2ff65bce95a3927556090c06949d4993b735f5a1617914fba5237f650db7be7.jpg)
 
-Notes: 2025 values are based on both actual and estimated additions for regions where full-year data is not yet available. “Other renewables” include hydropower, bioenergy, geothermal, concentrating solar power and marine energy.
+注：2025年数值由“全年完整数据地区的实际新增”与“数据未完整地区的估算新增”共同构成。“其他可再生能源”包括水电、生物能源、地热、光热和海洋能。
 
-Solar PV capacity additions in 2025 rose by around 12%, surpassing 600 GW for the first time. This expansion brought cumulative solar PV capacity to around 2 800 TW, becoming the technology with the largest installed capacity globally. Thirty countries installed over 1 GW of solar PV in a single year, almost twice as many as in 2020. Meanwhile, following stable growth in 2024, annual wind capacity additions increased by nearly 40% globally, setting a new record at around 160 GW, despite ongoing supply chain challenges.
+2025年太阳能光伏新增装机增长约12%，首次超过600吉瓦。由此，全球光伏累计装机提升至约2 800吉瓦，成为全球装机规模最大的发电技术。当年共有30个国家单年新增光伏超过1吉瓦，接近2020年的两倍。风电方面，在2024年稳定增长基础上，2025年全球新增装机增长近40%，达到约160吉瓦的新纪录，尽管供应链压力仍在持续。
 
-## Solar PV and wind set new records in key markets, while China continued to drive global renewable deployment
+## 重点市场光伏和风电创新高，中国继续主导全球可再生能源扩张
 
-Renewable capacity expansion in China continued to increase in 2025, reaching a new record with nearly 500 GW of additions, accounting for over 60% of global growth. Last year, China alone commissioned nearly 370 GW of solar PV and 117 GW of wind capacity – 13% and 48% higher, respectively, than in 2024. The country’s shift from long-term fixed tariffs to competitive auctions, effective June 2025, prompted developers to rush solar PV installations in the first half of the year, followed by a slowdown in the second half. In contrast, wind installations continued to accelerate in the latter half of 2025 as large-scale “mega‑base” projects outside the auction scheme were completed.
+2025年中国可再生能源扩张继续提速，新增接近500吉瓦，再创历史新高，占全球增量的60%以上。仅中国一国，当年就新增光伏近370吉瓦、风电117吉瓦，较2024年分别增长13%和48%。中国自2025年6月起由长期固定电价转向竞争性拍卖，促使开发商在上半年集中抢装光伏、下半年增速放缓。与之相对，风电在2025年下半年继续加速，主要因拍卖机制外的大型“沙戈荒基地”项目陆续完工。
 
-Solar PV and wind net additions in selected markets, 2024-2025
+2024-2025年部分市场光伏与风电净新增装机
 
 ![](images/62654fb76e57b7ae9846485625c0d83a9170c1890abb3aa16cab9687db6790f4.jpg)
 
-In 2025, the European Union added nearly 85 GW of new renewable capacity, a record high and about 10% more than in 2024. Solar PV led the way with almost 70 GW installed. Germany added 17 GW, accounting for one‑quarter of total EU solar PV additions. Spain hit a record 14 GW of solar PV additions, up 50% from 2024 and accounting for one‑fifth of the EU total. Several other countries, including France, Lithuania and Romania, also set new records. Onshore wind capacity additions rose to about 13 GW in the European Union. Offshore wind additions, however, fell to just 1 GW, down from 1.7 GW in 2024, with only France and Germany installing new capacity.
+欧盟2025年新增可再生能源装机近85吉瓦，创历史新高，较2024年增加约10%。其中光伏接近70吉瓦，是绝对主力。德国新增17吉瓦，约占欧盟光伏新增四分之一；西班牙新增14吉瓦，创历史纪录，较2024年增长50%，占欧盟总量五分之一。法国、立陶宛、罗马尼亚等多国也创下新高。欧盟陆上风电新增约13吉瓦；海上风电则由2024年的1.7吉瓦降至约1吉瓦，仅法国和德国有新增。
 
-India’s annual renewable capacity additions increased by almost 60% in 2025, the fastest growth among major markets. This was driven by the commissioning of almost 50 GW of solar PV. India’s wind additions, while much smaller compared with solar PV, doubled in 2025 to reach over 6 GW. The United States installed
+印度2025年可再生新增装机增长近60%，在主要市场中增速最快，主要由近50吉瓦光伏投运带动。印度风电新增虽显著小于光伏，但也在2025年翻倍至6吉瓦以上。美国2025年新增可再生装机49吉瓦，同比下降10%，主要受光伏新增回落影响。
 
-49 GW of renewable capacity in 2025, a decline of 10% compared with the previous year, led by lower solar PV additions.
+撒哈拉以南非洲与中东北非地区2025年可再生新增装机均实现翻倍，分别达到约12吉瓦。撒哈拉以南非洲增长来自光伏、水电和风电的组合贡献，其中南非首次实现光伏新增超过3吉瓦。沙特光伏新增提升至接近7吉瓦，约为上年的四倍。巴基斯坦光伏装机也持续增长，2025年新增约10吉瓦，几乎全部由并网与离网分布式系统驱动。
 
-Renewable capacity additions doubled both in sub‑Saharan Africa and in the Middle East and North Africa, reaching around 12 GW in both regions. In sub‑Saharan Africa, growth came from a combination of technologies, including solar PV, hydropower and wind – led by South Africa, which installed over 3 GW of solar PV for the first time. Saudi Arabia’s solar PV additions quadrupled to nearly 7 GW. Meanwhile, solar PV installations continued to grow in Pakistan as well, with around 10 GW of additions in 2025. This was driven almost entirely by on‑ and off‑grid distributed systems.
+## 技术：核能
 
-## Technology: Nuclear
+2025年全球新增核电投运3吉瓦，中国、印度和俄罗斯各有一台新机组完工投运。但同期也有3吉瓦核电退役，其中三分之二位于比利时。总体上，2025年末全球核电装机维持在420吉瓦，全球30多个国家有核电机组在运。2025年新开工10台机组（中国9台、俄罗斯1台），合计12.2吉瓦。过去十年，新开工核电机组中94%采用中国或俄罗斯设计。
 
-In 2025, 3 GW of new nuclear capacity came online, with China, India and Russia each completing work on a new reactor. However, these additions were offset by the retirement of 3 GW of nuclear capacity, two-thirds of which was in Belgium. In total, global nuclear capacity remained at 420 GW at the end of 2025, with reactors in operation in over 30 countries. There were ten construction starts in 2025 – nine in China and one in Russia – with a total capacity of 12.2 GW. Over the past decade, 94% of nuclear reactors that started construction were of Chinese or Russian design.
+## 在建核电规模处于近30年高位之一
 
-## The capacity of nuclear reactors under construction is one of the highest levels seen in the last 30 years
+当前全球15个国家在建核电总规模为78吉瓦。其中一半位于中国，预计到2030年前后中国核电总装机将达到约100吉瓦。其他新兴市场和发展中经济体中，埃及、印度和土耳其各有约5吉瓦在建。发达经济体方面，日本、韩国、英国各有2台在建，斯洛伐克有1台，总规模9.5吉瓦。日本仍在持续重启此前停运机组。
 
-Nuclear reactors with a combined capacity of 78 GW are currently under construction in 15 countries. Half of capacity under construction globally is in China, with total installed capacity in the country expected to reach 100 GW by around 2030. Among other emerging market and developing economies, Egypt, India and Türkiye each have around 5 GW under construction. In advanced economies, Japan, Korea and the United Kingdom each have two reactors under construction, while Slovakia has one; their combined capacity is 9.5 GW. Japan continues to restart reactors whose operations had been suspended.
-
-Nearly all nuclear reactors currently under construction are large scale, most with capacities above 1 000 MW. At the same time, China already operates one landbased small modular reactor (SMR), and Russia a marine-based one. There is one 125 MW commercial SMR under construction in China and one with 300 MW of capacity in Russia. Additional SMRs are likely to begin construction in the near term in Canada, Korea, the United Kingdom and the United States.
+当前在建机组几乎全部为大型机组，多数单机容量超过1 000兆瓦（MW）。与此同时，中国已投运1台陆基小型模块化反应堆（SMR），俄罗斯已投运1台海基SMR。中国有1台125兆瓦商业SMR在建，俄罗斯有1台300兆瓦在建。加拿大、韩国、英国和美国也有望在近期启动更多SMR项目。
 
 ![](images/fd95f3184a1703ac9f81933e0dc0620e200eea7e6e3922d588b4f53fb454f3fb.jpg)
 
-Note: Japan includes reactors with suspended operation as of March 2026. Source: IEA analysis based on IAEA PRIS database (Accessed 25 March 2026).
+注：日本数据包含截至2026年3月仍处于停运状态的机组。来源：IEA基于IAEA PRIS数据库（访问日期：2026年3月25日）测算。
 
-## Technology: Battery storage
+## 技术：电池储能
 
-Battery storage is the fastest growing power technology today. In 2025, 108 GW of new battery storage capacity was deployed worldwide, 40% more than in 2024. Installed capacity is now eleven times higher than in 2021. Lithium‑iron phosphate (LFP) batteries now account for around 90% of deployments; while less energy‑dense than rival chemistries commonly used in EVs, LFP batteries are typically cheaper and better suited to more frequent cycling. Just five years ago, the market share of LFP batteries in deployments was well below 50%.
+电池储能是当前增长最快的电力技术。2025年全球新增电池储能装机108吉瓦，较2024年高40%，累计装机较2021年已扩大11倍。磷酸铁锂（LFP）电池目前约占部署量的90%。尽管其能量密度低于电动车常见的部分替代化学体系，但LFP通常成本更低、且更适合高频充放电。仅在五年前，LFP在新增部署中的市场份额还明显低于50%。
 
-Battery storage capacity additions in selected regions, 2023-2025, and global capacity additions, 2000-2025
+2023-2025年主要地区电池储能新增装机，以及2000-2025年全球新增装机
 
 ![](images/b3a984276144dcd90b6023308244512aadd5c5058c0084d36c1a9dd09b1fdf9f.jpg)
 
 ![](images/a4908c42396099586bd15a271958535b97837c78d94e91436ce02a72b3388e8a.jpg)
 
-Note: 2025 values are based on Benchmark (2026) data.
+注：2025年数据基于Benchmark（2026）。
 
-Around 80% of new battery capacity in 2025 was utility‑scale. The remainder was behind-the-meter capacity installed by commercial and residential consumers. Battery storage durations are gradually lengthening. While most projects still cluster around two hours, an increasing number can be deployed for four hours or more, reflecting the growing value of flexibility in systems with rising shares of PV.
+2025年新增电池储能中，约80%为电网侧（公用事业级）项目，其余为工商业和居民用户部署的用户侧（表后）容量。储能时长正在逐步拉长：虽然多数项目仍集中在约2小时，但可实现4小时及以上的项目数量持续增加，反映出在光伏占比不断提升的电力系统中，灵活性价值正快速上升。
 
-China continued to lead battery deployment in 2025, accounting for around 60% of global additions, followed by the United States and Europe. However, deployment is widening beyond the largest markets, with strong momentum in Australia and parts of the Middle East, where storage is increasingly seen as a key building block for electricity security and renewables integration.
+2025年，中国继续领跑全球电池储能部署，约占全球新增装机的60%，其后依次为美国和欧洲。不过，部署重心也在向头部市场之外扩散：澳大利亚和中东部分地区增势明显，当地日益将储能视为保障电力安全、促进可再生能源消纳的关键基础设施。
 
-Battery-based uninterruptible power supplies (UPS) – primarily in data centres – also saw significant growth, with capacity additions rising 30% to 45 GW in 2025. However, unlike battery storage systems, UPS generally only provide short‑duration backup to bridge outages until other backup sources start.
+以电池为基础的不间断电源（UPS，主要应用于数据中心）同样实现显著增长，2025年新增容量增长30%至45吉瓦。但与电池储能系统不同，UPS通常仅提供短时备电，用于在停电发生后衔接至其他备用电源启动。
 
-## CO2 emissions
+## CO2排放
 
-## Energy sector emissions continued to rise in 2025, but regional trends varied markedly
+## 2025年能源部门排放继续上升，但地区走势分化明显
 
-Global growth in energy-related CO2 emissions slowed in 2025, rising by around 0.4%, the slowest rate since 2021. Despite this slowdown, total energy-related CO2 emissions increased by around 145 million tonnes (Mt) in 2025, reaching a new high of nearly 38.4 billion tonnes (Gt)2, and 5% above 2019 levels. The increase coincided with record atmospheric CO2 concentrations of about 427 parts-per-million (ppm), roughly 2.4 ppm higher than in 2024 and around 50% above pre-industrial levels.
+2025年全球能源相关CO2排放增速进一步放缓至约0.4%，为2021年以来最低。尽管增速放缓，2025年能源相关CO2排放总量仍增加约1.45亿吨（Mt），达到近384亿吨（Gt）的新高，较2019年高约5%。同期，大气CO2浓度也创纪录，约为427ppm，较2024年高约2.4ppm，较工业化前水平高约50%。
 
-Emissions from fuel combustion grew by close to 0.5% (around 185 Mt CO2), while emissions from industrial processes declined by roughly 2% (about 40 Mt CO2), partially offsetting the overall increase. Emissions growth remained below the pace of global economic expansion (global GDP increased by about 3.1% in 2025), indicating a continued decoupling between emissions and economic activity following the disruption observed earlier in the decade.
+燃料燃烧排放增长接近0.5%（约1.85亿吨CO2），工业过程排放下降约2%（约4 000万吨CO2），对总增量形成部分对冲。排放增速仍低于全球经济扩张速度（2025年全球GDP增长约3.1%），表明在本十年早期扰动之后，排放与经济活动“脱钩”趋势仍在延续。
 
-Global energy related CO2 emissions and their annual change, 1960-2025, and change by region, 2025
+1960-2025年全球能源相关CO2排放及其年度变化，以及2025年分地区变化
 
 ![](images/88cb4df2ac7cc8e51e475e0b6ae64c53434b77c78e2d9d780b955f8f686b64c2.jpg)
 
-## For the first time since the 1990s, advanced economies saw higher emissions growth than emerging economies
+## 20世纪90年代以来首次：发达经济体排放增速高于新兴经济体
 
-In 2025, global energy-related CO2 emissions rose more strongly in advanced economies than in emerging market and developing economies for the first time in nearly 30 years. Emissions in advanced economies increased by 0.5%, while in emerging market and developing economies, growth slowed to 0.3%.
+2025年，全球能源相关CO2排放近30年来首次表现为发达经济体增速高于新兴市场和发展中经济体。发达经济体排放增长0.5%，而新兴市场和发展中经济体增速放缓至0.3%。
 
-Emissions in China declined by around 0.5%, reflecting continued reductions in emissions from both industrial processes and electricity generation. This was mainly driven by a surge in low-emissions generation combined with slower electricity demand growth compared with 2024, and a notable contraction in cement and steel production. However, these effects were partially offset by the chemical industry. In emerging market and developing economies excluding China, emissions increased by 1.1%, significantly below the 2.2% average annual growth observed over the past five years, with India a major contributor to this slowdown. Emissions in India dipped in 2025, driven primarily by weather effects linked to an earlier and stronger monsoon cycle, alongside continued robust expansion of renewable energy capacity.
+中国排放下降约0.5%，反映出工业过程和发电环节排放持续回落。主要驱动因素是低排放电源快速扩张、用电增速较2024年放缓，以及水泥和钢铁产量明显收缩；化工行业增长对上述降幅形成了部分对冲。剔除中国后，新兴市场和发展中经济体排放增长1.1%，显著低于过去五年2.2%的年均增速，其中印度是放缓的重要贡献方。印度2025年排放小幅下降，主要受季风提前且增强带来的天气效应影响，同时可再生能源装机仍保持强劲扩张。
 
 ![](images/8bd9c8147b6db8e6addd0c2d1fbf841c33f2664629ce786ff5235d4c72e51644.jpg)
 
 ![](images/806fe299f4449746ab8194f385218cae4a730a57f08cdcc92ab1aeb4d65835ae.jpg)
 
-Note: “Weather-adjusted” refers to impacts of temperature variations based on heating and cooling degree days. Unless otherwise specified, it does not account for the impact of weather on renewable energy output, such as variations in hydropower or wind generation.
+注：“天气调整后”是指基于采暖度日与制冷度日对温度波动影响进行修正。除非另有说明，不包含天气对可再生能源出力（如水电、风电波动）的影响。
 
-Outside of China, annual emissions trends were largely driven by weather effects. In advanced economies, colder winter conditions boosted heating demand, increasing natural gas consumption in buildings and the power sector. By contrast, reduced cooling needs in many emerging markets and developing economies moderated coal and electricity demand growth. On a weather-adjusted basis, CO2 emissions in advanced economies would have declined by around 0.5%, reflecting continued structural improvements in energy efficiency and clean energy deployment. In emerging markets and developing economies outside of China, emissions would have increased by around 1.7% as weather played a substantial role in curbing emissions growth, notably in India and Southeast Asia.
+在中国之外，年度排放走势很大程度由天气效应主导。发达经济体中，更冷冬季抬升供暖需求，推高建筑和电力部门天然气消费；而许多新兴市场和发展中经济体制冷需求减弱，放缓了煤炭和电力需求增长。按天气调整口径，发达经济体CO2排放本可下降约0.5%，体现出能效提升和清洁能源部署的结构性改善仍在推进。对中国以外的新兴市场和发展中经济体而言，若剔除天气抑制作用，排放将增长约1.7%，其中印度和东南亚尤为典型。
 
-## Natural gas drove CO2 emissions growth while coal emissions plateaued
+## 天然气是排放增量主因，煤炭排放增势趋于平台
 
-Natural gas was the largest contributor to the increase in global energy-related CO2 emissions in 2025. Of the total 185 Mt CO2 rise in emissions from fuel combustion, natural gas accounted for nearly half, or 85 Mt CO2, followed by oil at 60 Mt. Coal emissions plateaued, increasing by 25 Mt CO2 (compared to 210 Mt CO2 in the previous year), masking divergent regional trends. Higher natural gas prices supported gas-to-coal switching in the United States, adding more than 75 Mt, while China’s coal emissions fell, reflecting the country’s 1.4% decline in coal power generation. The increase in oil-related emissions was concentrated in China, India and other emerging market and developing economies, where rising transport activity and economic growth continued to support higher oil demand.
+2025年，天然气是全球能源相关CO2排放增长的最大来源。在燃料燃烧排放增加的1.85亿吨CO2中，天然气贡献接近一半（约8 500万吨CO2），其次是石油（约6 000万吨）。煤炭排放基本进入平台期，仅增加2 500万吨CO2（上年增量为2.10亿吨CO2），这一“总量趋平”掩盖了地区间显著分化：美国在高气价驱动下“气转煤”，带来超过7 500万吨增量；中国煤炭排放下降，反映其煤电发电量下降1.4%。石油相关排放增量主要集中在中国、印度及其他新兴市场和发展中经济体，背后是交通活动回升与经济增长共同支撑石油需求。
 
-Weather effects also played a significant role in shaping fuel-specific trends in 2025. More than 40% of the growth in global natural gas demand was linked to higher heating needs in advanced economies, where colder winter conditions boosted consumption in buildings and the power sector. In India, lower coal use reflected reduced cooling demand due to milder temperatures and an earlier monsoon season. We estimate that weather effects decreased coal demand by around 8 million tonnes of coal equivalent (Mtce) in the country, reducing CO2 emissions by over 20 Mt.
+天气效应同样深刻影响了分燃料走势。2025年全球天然气需求增量中，超过40%与发达经济体供暖需求上升有关，寒冬推动了建筑和电力部门消费。在印度，煤炭使用下降则与气温偏温和、季风提前导致制冷需求降低有关。我们估算，天气因素使印度煤炭需求减少约800万吨标准煤当量（Mtce），从而减少CO2排放逾2 000万吨。
 
 ![](images/76baacd30cd2eb181691dab36a57107ceafb7952b2a64e8b5004db4447d4315e.jpg)
 
 ![](images/5d526ca94781fea01e9a7bec2d35eb9cbd6eb4f8f0c799e1de9157a3de1a95b3.jpg)
 
-Note: EMDE = emerging market and developing economies. International bunkers include the demand for fuels for international aviation and international maritime transport.
+注：EMDE为新兴市场和发展中经济体。国际航煤与国际航运燃料需求计入“国际船舶与航空加注（international bunkers）”。
 
-## Temperature swings and drought conditions pushed up emissions
+## 温度波动与干旱共同推高了排放
 
-Global energy demand was shaped by continued temperature volatility in 2025, which was the third warmest year on record – slightly cooler than the record set in 2024. An earlier and more widespread monsoon season brought increased rainfall and cloud cover in India and Southeast Asia, reducing extreme heat and lowering air conditioning use. Without these milder conditions, the coal demand increase would have been around 30% higher globally. Despite this easing, cooling degree days remained well above the long-term average between 2000 and 2019, sustaining elevated electricity needs in many regions. At the same time, colder winters in advanced economies increased heating degree days and shifted energy consumption toward heating fuels compared with 2024.
+2025年全球能源需求继续受温度波动影响。该年为有记录以来第三热年份，仅略低于2024年纪录。印度和东南亚季风提前且覆盖更广，带来更多降雨和云量，缓解极端高温并降低空调用电。若无这些偏温和条件，全球煤炭需求增量将高约30%。尽管如此，制冷度日仍明显高于2000-2019年长期平均，维持了多地区较高用电需求。与此同时，发达经济体冬季更冷，采暖度日增加，能源消费相较2024年进一步向供暖燃料倾斜。
 
-Beyond temperature effects, drought conditions in several regions, particularly in Europe and across Central and South America, constrained hydropower output. The resulting shortfall was largely met by higher fossil fuel output, leading to an estimated additional 40 Mt of CO2 emissions globally.
+除温度因素外，欧洲及中南美多地干旱压制了水电出力。由此产生的电力缺口主要由化石能源补足，估算额外带来约4 000万吨CO2排放。
 
 ![](images/998ce7e3addf8911e94db907f1086a3f090736b43f9d6ec456256268720abff7.jpg)
 
-Europe was largely drier than normal, and hot summer temperatures exacerbated drought conditions, particularly in western and eastern portions of the continent. Had the availability of the hydropower fleet in 2025 remained consistent with 2024 levels, an additional 75 TWh of electricity would have been generated in the region, avoiding around 45 Mt of CO2 from fossil fuel-based power plants. Weaker average daily wind speeds also reduced wind power output compared to 2024, increasing reliance on fossil-fuel based generation. If wind conditions had been the same as 2024, over 20 Mt CO2 would have been avoided in Europe.
+欧洲整体偏干，且夏季高温加剧了旱情，尤其在西欧和东欧地区更为明显。若2025年欧洲水电可用性保持在2024年水平，区域可额外发电约75太瓦时，可避免化石电源约4 500万吨CO2排放。日均风速偏弱也使风电出力低于2024年，提升了对化石电源的依赖。若风况与2024年相同，欧洲可再避免超过2 000万吨CO2排放。
 
 ![](images/965fc2fc6734264ac6078101c0c51a25364ca251b5235f20b90b76b7a75357e4.jpg)
 
-Note: C & S America = Central and South America.
+注：C & S America指中南美。
 
-Excluding winter precipitation, India recorded above-normal rainfall across all seasons, with May precipitation reaching its highest level since 1901. This early onset of the southwest monsoon boosted hydropower output and contributed to an estimated reduction in emissions of around 15 Mt CO2.
+印度除冬季外各季降雨均高于常年，其中5月降水达到1901年以来最高。西南季风提前到来提升了水电出力，估算使排放减少约1 500万吨CO2。
 
-We estimate that the net impact of weather-related factors – including temperature variations and shortfalls in hydropower and wind – pushed up CO2 emissions from the combustion of fossil fuels by around 90 million tonnes in 2025, accounting for around half of the total 185 Mt rise in combustion emissions.
+我们估算，温度波动及风电、水电出力不足等天气相关因素的净影响，使2025年化石燃料燃烧CO2排放增加约9 000万吨，占当年燃烧排放总增量1.85亿吨的约一半。
 
-## Rapid clean energy deployment displaces fossil fuels and lowers emissions
+## 清洁能源快速部署正在替代化石能源并降低排放
 
-The deployment of solar PV, wind power, nuclear power, electric cars and heat pumps since 2019 avoided annual global fossil fuel energy demand of more than 35 EJ in 2025. This is equivalent to around 7% of fossil fuel demand in 2025, or the combined total energy demand of Latin America. The deployment of these technologies displaced over 23 EJ of coal, more than 9 EJ of natural gas, and around 3 EJ of oil in 2025. The coal displaced exceeds India’s total coal demand in 2025, while natural gas displacement is equivalent to almost half the global LNG market. Electric cars account for roughly two-thirds of the annual oil displaced, with part of the emissions reductions impact of this displacement offset by increases in coal and natural gas use to meet additional electricity demand.
+自2019年以来，太阳能光伏、风电、核电、电动汽车和热泵的部署，在2025年合计避免了全球化石能源需求超过35艾焦耳。这相当于2025年全球化石能源需求的约7%，或约等于整个拉丁美洲的能源总需求。仅在2025年，这些技术就替代了超过23艾焦耳的煤炭、超过9艾焦耳的天然气和约3艾焦耳的石油。被替代的煤炭量已超过印度2025年煤炭总需求；被替代的天然气量约相当于全球LNG市场的一半。被替代石油中约三分之二来自电动汽车贡献，不过其中一部分减排效应被新增用电带来的煤炭和天然气使用所抵消。
 
-Change in CO2 emissions from fuel combustion and avoided emissions from deployment of selected clean technologies, 2019-2025
+2019-2025年燃料燃烧CO2排放变化与重点清洁技术部署带来的减排量
 
 ![](images/6078e9b6641dae513ffeb4c183ff72883241908722b8517e74957e18bb1d9108.jpg)
 
-Together, solar PV, wind power, nuclear power, electric cars and heat pumps avoided around 3 Gt of CO2 emissions in 2025, equivalent to around 8% of global energy-related CO2 emissions annually. In some markets, the impact has been even more pronounced. In China, the European Union, Australia, New Zealand and Brazil, the deployment of these technologies since 2019 avoided the equivalent of more than 10% of energy-related CO2 emissions in 2025.
+合计看，太阳能光伏、风电、核电、电动汽车和热泵在2025年避免了约30亿吨（3 Gt）CO2排放，约相当于全球能源相关年排放的8%。在部分市场，这一效应更为显著。中国、欧盟、澳大利亚、新西兰和巴西自2019年以来部署上述技术，在2025年实现的减排已相当于各自能源相关排放的10%以上。
 
-Globally, the rollout of solar PV made the largest contribution, avoiding 1.5 Gt of annual CO2 emissions, equivalent to around half of India’s total annual CO2 emissions in 2025. Half of the emissions avoided by solar PV were in China. Avoided emissions from deployment of wind power amounted to 1.1 Gt of CO2, equivalent to the combined annual emissions of France, Germany and Italy. Nuclear power, electric cars and heat pumps followed at 210 Mt, 100 Mt and 90 Mt of CO2 respectively. While the avoided emissions from electric cars and heat pumps are lower than from the other technologies studied, they may increase in coming years as the stock of these technologies continues to expand.
+从全球看，太阳能光伏贡献最大，2025年避免排放约15亿吨CO2，约相当于印度当年CO2总排放的一半，其中一半减排发生在中国。风电避免排放约11亿吨CO2，约等于法国、德国和意大利三国年排放总和。其后依次为核电（2.10亿吨）、电动汽车（1.00亿吨）和热泵（0.90亿吨）。尽管电动汽车和热泵当前减排规模低于前几类技术，但随着存量持续扩大，未来减排贡献有望进一步提升。
 
-## Data and methodology
+## 数据与方法
 
-The IEA drew upon a wide range of statistical sources to construct estimates of energy demand and energy-related CO2 emissions for 2025.
+IEA综合使用了广泛统计来源，对2025年能源需求和能源相关CO2排放进行了估算。
 
-Sources included the latest monthly data submissions to the IEA Energy Data Centre, real-time data from power system operators across the world, statistical releases from national administrations, and recent data from IEA market reports, which cover coal, electricity, energy efficiency, natural gas, oil and renewables. Data on technology deployments come from a wide range of sources, including national statistics, industry associations, and commercial data providers. The definitions for regions, fuels and sectors are in Annex C of the World Energy Outlook 2025.
+数据来源包括：IEA能源数据中心（Energy Data Centre）最新月度上报数据；全球电力系统运营商实时数据；各国官方统计发布；以及IEA近期市场报告数据（涵盖煤炭、电力、能效、天然气、石油和可再生能源）。技术部署数据来自国家统计、行业协会和商业数据提供商等多源渠道。地区、燃料和部门定义见《世界能源展望2025》附件C。
 
-The scope of CO2 emissions in this report included emissions from all uses of fossil fuels for energy purposes, including the combustion of non-renewable waste, as well as emissions from industrial processes such as cement, iron and steel, and chemicals production. Estimates of industrial process emissions drew upon the latest production data for iron and steel, clinker for cement, aluminium and chemicals. CO2 emissions from international aviation and marine bunkers were included at the global level only.
+本报告CO2排放核算范围包括：所有能源用途化石燃料排放（含不可再生废弃物燃烧）以及水泥、钢铁、化工等工业过程排放。工业过程排放估算使用了钢铁、水泥熟料、铝和化工等最新产量数据。国际航空与国际航运加注排放仅在全球层面统计。
 
-Economic growth rates underlying this analysis were those published by the International Monetary Fund’s January 2026 World Economic Outlook Update. All monetary quantities are expressed in USD (2025) in purchasing power parity (PPP) terms.
+本分析采用的经济增长率来自国际货币基金组织（IMF）2026年1月发布的《世界经济展望更新》。所有货币量均以购买力平价（PPP）口径的2025年美元（USD 2025）表示。
 
 ![](images/6fe1e08aa7b3847af8a8603a8074cd1c5cc598209f84ff0819188e8888fecdd7.jpg)
 
@@ -549,7 +545,7 @@ Economic growth rates underlying this analysis were those published by the Inter
 
 ![](images/785d2d70a132c3eb43a3fb6fd276269701abecde5a9aa5aefb79f2f52e1a96a6.jpg)
 
-\*Includes industrial process emissions
+\*包含工业过程排放
 
 ![](images/6da5d4b33a0135db66d98d49a2503018cf3f35eb50fb322bd72b60b900d7e6bf.jpg)
 
@@ -557,46 +553,46 @@ Economic growth rates underlying this analysis were those published by the Inter
 
 ![](images/8c59a3987e7067ee0fe8cf6309e2191649fd71e19f38fb314dfb4d0fcaf732e0.jpg)
 
-\*Includes industrial process emissions
+\*包含工业过程排放
 
-# Acknowledgements, contributors and credits
+# 致谢、贡献者与署名
 
-This study was prepared by the Energy Modelling Office in the Directorate of Sustainability, Technology and Outlooks in co-operation with other directorates and offices of the International Energy Agency.
+本研究由IEA可持续性、技术与展望司（Directorate of Sustainability, Technology and Outlooks）能源建模办公室牵头，与IEA其他司局协作完成。
 
-It was designed under the direction of Laura Cozzi, Director of Sustainability, Technology and Outlooks. Alex Martinos and Thomas Spencer were the lead authors. Víctor García Tapia led on data and analysis, and Rebecca Ruff led on weather impacts analysis. Davide D’Ambrosio was also part of the core group.
+研究在可持续性、技术与展望司司长Laura Cozzi指导下开展。Alex Martinos与Thomas Spencer担任主要作者；Víctor García Tapia负责数据与分析统筹，Rebecca Ruff负责天气影响分析，Davide D’Ambrosio为核心团队成员。
 
-The report benefited from analysis, drafting and input from multiple colleagues. Oskaras Alšauskas (electric vehicles), Carlos Fernández Alvarez (coal), Eren Çam (electricity), Ciarán Healy (oil), Laura Marí Martínez (renewables), Gergely Molnár (gas), Axel Nordin (heat pumps), Nikolaos Papastefanakis (nuclear), Max Schönfisch (batteries) and Brent Wanner (electricity) were key contributors. Other valuable inputs came from Heymi Bahar (renewables), Marc Casanovas (electricity data), Carina Gwennap (gas and coal), Martin Küppers (industry), Arthur Roge (emissions), and Anthony Vautrin (buildings).
+本报告得到多位同事在分析、撰写和审阅方面的支持。关键贡献者包括：Oskaras Alšauskas（电动汽车）、Carlos Fernández Alvarez（煤炭）、Eren Çam（电力）、Ciarán Healy（石油）、Laura Marí Martínez（可再生能源）、Gergely Molnár（天然气）、Axel Nordin（热泵）、Nikolaos Papastefanakis（核能）、Max Schönfisch（电池）和Brent Wanner（电力）。此外，Heymi Bahar（可再生能源）、Marc Casanovas（电力数据）、Carina Gwennap（天然气与煤炭）、Martin Küppers（工业）、Arthur Roge（排放）以及Anthony Vautrin（建筑）也提供了重要支持。
 
-Under the guidance of Zuzana Dobrotková and Roberta Quadrelli, Alexandre Bizeul, Seydou Dia, Luca Lorenzoni and Arnau Rísquez Martin from the Energy Data Centre (EDC) were key contributors on creating the historical energy balances and emissions estimations, and on the IEA’s weather data.
+在Zuzana Dobrotková和Roberta Quadrelli指导下，能源数据中心（EDC）的Alexandre Bizeul、Seydou Dia、Luca Lorenzoni和Arnau Rísquez Martin在历史能源平衡表构建、排放估算及IEA天气数据处理方面作出关键贡献。
 
-Julia Horowitz carried editorial responsibility.
+Julia Horowitz负责编辑统筹。
 
-Thanks go to the IEA’s Communications and Digital Office, particularly to Jethro Mullen, and to Maria Ahmad, Curtis Brainard, Astrid Dumond, Lucile Wall, Poeli Bojorquez, Isabelle Nonain-Semelin, Clara Vallois, Grace Gordon, Robert Stone and Sam Tarling.
+感谢IEA传播与数字办公室团队，特别是Jethro Mullen，以及Maria Ahmad、Curtis Brainard、Astrid Dumond、Lucile Wall、Poeli Bojorquez、Isabelle Nonain-Semelin、Clara Vallois、Grace Gordon、Robert Stone和Sam Tarling。
 
-International Energy Agency (IEA)
+国际能源署（IEA）
 
-This work reflects the views of the IEA Secretariat but does not necessarily reflect those of the IEA’s individual Member countries or of any particular funder or collaborator. The work does not constitute professional advice on any specific issue or situation. The IEA makes no representation or warranty, express or implied, in respect of the work’s contents (including its completeness or accuracy) and shall not be responsible for any use of, or reliance on, the work.
+本报告反映IEA秘书处观点，但不必然代表IEA各成员国，或任何特定资助方、合作方立场。报告不构成针对任何具体问题或情境的专业建议。对于报告内容（包括完整性和准确性），IEA不作任何明示或默示保证，亦不对因使用或依赖本报告而产生的后果承担责任。
 
 ![](images/a9616a41710d3dd20bca5723a8bb65a80493ec1b22d02bb71749bbc97b9cac72.jpg)
 
-Subject to the IEA’s Notice for CC-licenced Content, this work is licenced under a Creative Commons Attribution 4.0 International Licence.
+在遵守IEA关于CC许可内容通知的前提下，本作品采用“知识共享署名4.0国际许可（Creative Commons Attribution 4.0 International）”。
 
-This document, as well as any data and map included herein are without prejudice to the status of or sovereignty over any territory, to the delimitation of international frontiers and boundaries and to the name of any territory, city or area.
+本文件及其包含的任何数据和地图，均不影响任何领土地位或主权、国际边界划定，以及任何领土、城市或地区名称。
 
-Unless otherwise indicated, all material presented in figures and tables is derived from IEA data and analysis.
+除非另有说明，图表中的全部材料均源自IEA数据与分析。
 
-IEA Publications
+IEA出版物
 
-International Energy Agency
+国际能源署
 
-Website: www.iea.org
+网站：www.iea.org
 
-Contact information: www.iea.org/contact
+联系方式：www.iea.org/contact
 
-Typeset in France by IEA – April 2026
+排版：IEA（法国），2026年4月
 
-Cover design: IEA
+封面设计：IEA
 
-Photo credits: © Unsplash
+图片来源：© Unsplash
 
 ![](images/7548f7aea9bcc5ed36a99ceb7c9528c114147b01a2a978577b434319fe38b7d3.jpg)

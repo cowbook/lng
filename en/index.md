@@ -23,37 +23,39 @@ hero:
 
 features:
   - icon: 🌊
-    title: 410.12 <b>MT</b>
-    details: <div class="wave"><div class="wave1"></div><div class="wave2"></div><div class="wave3"></div></div><text>24 Global LNG Trade</text>
+    title: 428 <b>MT</b>
+    details: <div class="wave"><div class="wave1"></div><div class="wave2"></div><div class="wave3"></div></div><text>Global LNG imports (35% spot)</text>
 
   - icon: 📈
-    title: 11.9 <b>$/mmBtu</b>
-    details: 2024 JKM Price
+    title: 524 <b>MTPA</b>
+    details: Liquefaction capacity (incl. 16.5 MTPA FLNG)
 
   - icon: ⚓
-    title: 494 <b>MT/year</b>
-    details: Liquefaction Capacity
+    title: 1,247 <b>MTPA</b>
+    details: Regasification capacity (9 new terminals / 9 expansions)
 
   - icon: 💭
-    title: 1,060 <b>MT/year</b>
-    details: Regasification Capacity
+    title: 899 <b>vessels</b>
+    details: LNG fleet (+8% y-o-y)
 
   - icon: ⚗️
-    title: 1,120 <b>MT/year</b>
-    details: Planned Liquefaction
+    title: +22 <b>MT</b>
+    details: Global variation (+28 MT Europe, -11 MT Asia)
 
   - icon: 💭
-    title: 210 <b>MT/year</b>
-    details: Offshore Regasification
+    title: 9 <b>FIDs</b>
+    details: Liquefaction projects (plus 3 new projects and 1 expansion)
 
   - icon: 🛥️
-    title: 742 <b>vessels</b>
-    details: LNG Carriers
+    title: +25 <b>MTPA</b>
+    details: New regasification capacity in Asia (Taiwan 3rd, India 8th terminal)
 
   - icon: 🚤
-    title: 56 <b>vessels</b>
-    details: LNG-fueled Ships
+    title: 4 <b>MT</b>
+    details: LNG bunkering (+38%, +3 LNGBV)
 ---
+
+
 
 ## Research Reports
 
@@ -68,6 +70,18 @@ features:
   <article class="report-card report-china"><img class="report-cover cover-bordered" src="/images/home_2509011642.png" alt="China gas report cover" /><div class="report-content"><a target="_blank" href="./report/China2025">📑 China Natural Gas Development Report 2025 (English)</a><p>In 2024, global natural gas consumption reached 4.13 trillion cubic meters, with the growth rate rising from 0.1% last year to 2.5%, mainly due to lower international gas prices, moderate global economic recovery, and extreme summer heat in the Northern Hemisphere.</p><a target="_blank" href="https://www.nea.gov.cn/20250829/a4e2deb9b6444df1a191b9d60c111ffd/20250829a4e2deb9b6444df1a191b9d60c111ffd_43ab87a785d1b64d49b9210dbc15d3781e.pdf">⬇️ Download PDF (Chinese)</a></div></article>
 
 </div>
+
+## Market
+
+See the live dashboard and curves at [Market](/en/market/).
+
+
+
+<GithubCounter
+  title="GitHub Traffic"
+  label="Views (last 14 days)"
+/>
+
 
 
 <style>
@@ -134,7 +148,5 @@ features:
 }
 </style>
 
-## Market
 
-See the live dashboard and curves at [Market](/en/market/).
 

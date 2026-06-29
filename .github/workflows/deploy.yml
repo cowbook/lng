@@ -49,6 +49,11 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Install dependencies
         run: pnpm install # 或 pnpm install / yarn install / bun install
+      - name: Update GitHub traffic views
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/update-github-traffic.js
       - name: Build with VitePress
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
