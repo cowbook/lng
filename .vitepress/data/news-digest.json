@@ -1,26 +1,74 @@
 {
-  "updatedAt": "2026-04-09T12:52:57.735Z",
+  "updatedAt": "2026-06-30T06:20:24.664Z",
   "news": [
     {
-      "title": "Sanctioned Russian LNG Finds Buyers in Asia at Deep Discounts",
-      "link": "https://oilprice.com/Latest-Energy-News/World-News/Sanctioned-Russian-LNG-Finds-Buyers-in-Asia-at-Deep-Discounts.html",
-      "publishedAt": "2026-04-09",
-      "source": "OilPrice"
+      "title": "Physical Natural Gas Prices Pop as Peak Summer Heat Bakes Lower 48",
+      "link": "https://naturalgasintel.com/news/physical-natural-gas-prices-pop-as-peak-summer-heat-bakes-lower-48/",
+      "publishedAt": "2026-06-29",
+      "source": "Natural Gas Intelligence"
     },
     {
-      "title": "Technip Energies in the clear to work on $12.5B LNG project in Louisiana",
-      "link": "https://www.offshore-energy.biz/technip-energies-in-the-clear-to-work-on-12-5b-lng-project-in-louisiana/",
-      "publishedAt": "2026-04-08",
+      "title": "Plump Supply Trumps Heat as August Natural Gas Futures Contract Debuts Meekly",
+      "link": "https://naturalgasintel.com/news/plump-supply-trumps-heat-as-august-natural-gas-futures-contract-debuts-meekly/",
+      "publishedAt": "2026-06-29",
+      "source": "Natural Gas Intelligence"
+    },
+    {
+      "title": "Argentina LNG Gains Upstream Backing from Eni, XRG Deals",
+      "link": "https://naturalgasintel.com/news/argentina-lng-gains-upstream-backing-from-eni-xrg-deals/",
+      "publishedAt": "2026-06-29",
+      "source": "Natural Gas Intelligence"
+    },
+    {
+      "title": "Colombia Eyes Upstream Licensing Reversal, Fracking to Slow LNG Imports",
+      "link": "https://naturalgasintel.com/news/colombia-eyes-upstream-licensing-reversal-fracking-to-slow-lng-imports/",
+      "publishedAt": "2026-06-29",
+      "source": "Natural Gas Intelligence"
+    },
+    {
+      "title": "Matador’s San Mateo Tops 1 Bcf/d Natural Gas Processing in $752M Cardinal Deal",
+      "link": "https://naturalgasintel.com/news/matadors-san-mateo-tops-1-bcfd-natural-gas-processing-in-752m-cardinal-deal/",
+      "publishedAt": "2026-06-29",
+      "source": "Natural Gas Intelligence"
+    },
+    {
+      "title": "As Heat Wave Arrives, Natural Gas Futures Cool Off",
+      "link": "https://naturalgasintel.com/news/as-heat-wave-arrives-natural-gas-futures-cool-off/",
+      "publishedAt": "2026-06-29",
+      "source": "Natural Gas Intelligence"
+    },
+    {
+      "title": "Natural Gas Technicals Signal Market at Crossroads as August Nears Support",
+      "link": "https://naturalgasintel.com/news/natural-gas-technicals-signal-market-at-crossroads-as-august-nears-support/",
+      "publishedAt": "2026-06-29",
+      "source": "Natural Gas Intelligence"
+    },
+    {
+      "title": "CP2 LNG Feedgas Pipeline Permit Challenged in Louisiana Court",
+      "link": "https://naturalgasintel.com/news/cp2-lng-feedgas-pipeline-permit-challenged-in-louisiana-court/",
+      "publishedAt": "2026-06-29",
+      "source": "Natural Gas Intelligence"
+    },
+    {
+      "title": "Santos seals ten-year gas supply deal",
+      "link": "https://www.offshore-energy.biz/santos-seals-ten-year-gas-supply-deal/",
+      "publishedAt": "2026-06-29",
       "source": "Offshore Energy"
     },
     {
-      "title": "How China Positioned Itself to Win the Global Energy Crisis",
-      "link": "https://oilprice.com/Energy/Energy-General/How-China-Positioned-Itself-to-Win-the-Global-Energy-Crisis.html",
-      "publishedAt": "2026-04-08",
-      "source": "OilPrice"
+      "title": "Eni widens South American footprint with block trio linked to Argentina LNG",
+      "link": "https://www.offshore-energy.biz/eni-widens-south-american-footprint-with-block-trio-linked-to-argentina-lng/",
+      "publishedAt": "2026-06-29",
+      "source": "Offshore Energy"
     }
   ],
   "academic": [
+    {
+      "title": "Enerji Güvenliğinde Sıvılaştırılmış Doğal Gaz (LNG)",
+      "link": "https://doi.org/10.47129/bartiniibf.1782710",
+      "publishedAt": "2026-05-31",
+      "source": "OpenAlex"
+    },
     {
       "title": "Global Transition of Energy Vectors in the Maritime Sector: Role of Liquefied Natural Gas, Green Hydrogen, and Ammonia in Achieving Net Zero by 2050",
       "link": "https://doi.org/10.3390/en19020568",
@@ -49,24 +97,6 @@
       "title": "Are global natural gas markets integrated?",
       "link": "https://doi.org/10.58559/ijes.1719936",
       "publishedAt": "2025-09-25",
-      "source": "OpenAlex"
-    },
-    {
-      "title": "Review of domestic and foreign research on natural gas production, supply, storage and marketing",
-      "link": "https://doi.org/10.63313/ebm.2017",
-      "publishedAt": "2025-06-24",
-      "source": "OpenAlex"
-    },
-    {
-      "title": "The effect of economic policy uncertainty and geopolitics on LNG freight rates across different market conditions",
-      "link": "https://doi.org/10.31217/p.39.1.3",
-      "publishedAt": "2025-05-19",
-      "source": "OpenAlex"
-    },
-    {
-      "title": "Have the Links Between Natural Gas and Coal Prices Changed over Time? Evidence for European and Pacific Markets",
-      "link": "https://doi.org/10.3390/en18092201",
-      "publishedAt": "2025-04-25",
       "source": "OpenAlex"
     }
   ]

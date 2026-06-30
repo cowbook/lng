@@ -3,6 +3,7 @@ const path = require('node:path');
 
 const ROOT = path.resolve(__dirname, '..');
 const OUT_FILE = path.join(ROOT, '.vitepress', 'data', 'github-traffic.json');
+const STRICT = String(process.env.GITHUB_TRAFFIC_STRICT || '').toLowerCase() === 'true';
 
 function resolveRepoSlug() {
   const fromEnv = process.env.GITHUB_REPOSITORY || '';
@@ -79,5 +80,9 @@ main().catch(async (err) => {
   } catch (_) {
     // ignore secondary error
   }
-  process.exit(1);
+
+  // Keep deployment resilient: use fallback data unless strict mode is explicitly enabled.
+  if (STRICT) {
+    process.exit(1);
+  }
 });

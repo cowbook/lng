@@ -50,6 +50,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install # 或 pnpm install / yarn install / bun install
       - name: Update GitHub traffic views
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}

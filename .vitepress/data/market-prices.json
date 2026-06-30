@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-09T12:53:23.805Z",
+  "updatedAt": "2026-06-30T06:20:22.521Z",
   "source": "Barchart futures + FRED/NASDAQ fallback",
   "items": [
     {
@@ -7,37 +7,37 @@
       "displayName": "Brent 原油",
       "seriesId": "DCOILBRENTEU",
       "unit": "USD/Barrel",
-      "note": "Barchart 公共页面抓取的 ICE Brent 活跃近月合约 CBM26",
-      "value": 98.31,
-      "date": "2026-04-09"
+      "note": "Barchart 公共页面抓取的 ICE Brent 活跃近月合约 CBQ26",
+      "value": 72.3,
+      "date": "2026-06-30"
     },
     {
       "symbol": "JKM",
       "displayName": "JKM 东北亚基准价",
       "seriesId": "JKM_NDL",
       "unit": "USD/MMBtu",
-      "note": "Barchart 公共页面抓取的 NYMEX JKM 活跃近月合约 JKMK26",
-      "value": 19.49,
-      "date": "2026-04-08"
+      "note": "Barchart 公共页面抓取的 NYMEX JKM 活跃近月合约 JKMQ26",
+      "value": 15.82,
+      "date": "2026-06-29"
     },
     {
       "symbol": "TTF",
       "displayName": "TTF 欧洲气价基准",
       "seriesId": "TTF_BARCHART",
       "unit": "USD/MMBtu",
-      "note": "Barchart 公共页面抓取的 ENDEX Dutch TTF Gas 活跃近月合约 TGK26; 按 DEXUSEU=1.1523 将 EUR/MWh 换算为 USD/MMBtu",
-      "value": 15.501,
-      "originvalue": 45.9,
-      "date": "2026-04-09"
+      "note": "Barchart 公共页面抓取的 ENDEX Dutch TTF Gas 活跃近月合约 TGQ26; 按 DEXUSEU=1.1403 将 EUR/MWh 换算为 USD/MMBtu",
+      "value": 14.186,
+      "originvalue": 42.45,
+      "date": "2026-06-30"
     },
     {
       "symbol": "Henry Hub",
       "displayName": "Henry Hub",
       "seriesId": "DHHNGSP",
       "unit": "USD/MMBtu",
-      "note": "Barchart 公共页面抓取的 NYMEX Henry Hub Gas 活跃近月合约 NGK26",
-      "value": 2.717,
-      "date": "2026-04-09"
+      "note": "Barchart 公共页面抓取的 NYMEX Henry Hub Gas 活跃近月合约 NGQ26",
+      "value": 3.168,
+      "date": "2026-06-30"
     }
   ]
 }
