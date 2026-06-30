@@ -60,6 +60,16 @@ npm run docs:build:fast
 npm run docs:preview
 ```
 
+## GitHub Pages 部署说明（Traffic API）
+
+如果 Actions 日志出现 `GitHub traffic API failed: 403 Resource not accessible by integration`，说明默认 `GITHUB_TOKEN` 无法访问 Traffic API。
+
+请在仓库 `Settings -> Secrets and variables -> Actions` 新增 secret：
+
+- `GH_TRAFFIC_TOKEN`：建议使用 PAT（classic token 需含 `repo` scope；public 仓库至少需具备对应仓库读取/统计权限）
+
+工作流会优先使用 `GH_TRAFFIC_TOKEN` 拉取访问量；若缺失或失败，会自动写入 fallback 数据，不阻断 Pages 部署。
+
 ## 内容生产流水线
 
 统一模板入口（支持 `essay` 与 `report`）：

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import trafficData from '../../data/github-traffic.json'
+import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -18,6 +19,25 @@ function formatNumber(value: number | undefined): string {
   }
   return new Intl.NumberFormat('en-US').format(value)
 }
+
+const displayNote = computed(() => {
+  const note = String((trafficData as { note?: string }).note || '').trim()
+  if (!note) {
+    return ''
+  }
+
+  const noteLower = note.toLowerCase()
+  const isErrorLike =
+    noteLower.includes('failed to fetch traffic data') ||
+    noteLower.includes('resource not accessible by integration') ||
+    noteLower.includes('github traffic api failed')
+
+  if (isErrorLike) {
+    return 'GitHub traffic data is temporarily unavailable. Displaying fallback value.'
+  }
+
+  return note
+})
 </script>
 
 <template>
@@ -34,7 +54,7 @@ function formatNumber(value: number | undefined): string {
       </div>
     </div>
 
-    <p class="gh-note" v-if="trafficData.note">{{ trafficData.note }}</p>
+    <p class="gh-note" v-if="displayNote">{{ displayNote }}</p>
   </section>
 </template>
 

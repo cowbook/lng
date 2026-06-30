@@ -52,6 +52,7 @@ jobs:
       - name: Update GitHub traffic views
         continue-on-error: true
         env:
+          GH_TRAFFIC_TOKEN: ${{ secrets.GH_TRAFFIC_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/update-github-traffic.js

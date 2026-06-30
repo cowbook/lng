@@ -21,7 +21,10 @@ async function writePayload(payload) {
 
 async function main() {
   const repo = resolveRepoSlug();
-  const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
+  const token = process.env.GH_TRAFFIC_TOKEN || process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
+  const tokenSource = process.env.GH_TRAFFIC_TOKEN
+    ? 'GH_TRAFFIC_TOKEN'
+    : (process.env.GITHUB_TOKEN ? 'GITHUB_TOKEN' : (process.env.GH_TOKEN ? 'GH_TOKEN' : 'none'));
 
   if (!token) {
     await writePayload({
@@ -31,9 +34,9 @@ async function main() {
       count: 0,
       uniques: 0,
       windowDays: 14,
-      note: 'Missing GITHUB_TOKEN, fallback value written.'
+      note: 'Missing traffic token, fallback value written.'
     });
-    console.log('[traffic] No GITHUB_TOKEN, wrote fallback data.');
+    console.log('[traffic] No traffic token found, wrote fallback data.');
     return;
   }
 
@@ -48,6 +51,12 @@ async function main() {
 
   if (!res.ok) {
     const body = await res.text();
+    if (res.status === 403 && tokenSource !== 'GH_TRAFFIC_TOKEN') {
+      throw new Error(
+        'GitHub Traffic API returned 403 with GITHUB_TOKEN/GH_TOKEN. ' +
+        'Use a PAT in GH_TRAFFIC_TOKEN secret (classic token with repo scope, or fine-grained token with repository access and traffic metrics permission).'
+      );
+    }
     throw new Error(`GitHub traffic API failed: ${res.status} ${body}`);
   }
 
@@ -62,7 +71,7 @@ async function main() {
     note: 'Repository traffic views from GitHub API.'
   });
 
-  console.log(`[traffic] Updated views for ${repo}: count=${data.count}, uniques=${data.uniques}`);
+  console.log(`[traffic] Updated views for ${repo}: count=${data.count}, uniques=${data.uniques}, token=${tokenSource}`);
 }
 
 main().catch(async (err) => {
@@ -75,7 +84,7 @@ main().catch(async (err) => {
       count: 0,
       uniques: 0,
       windowDays: 14,
-      note: `Failed to fetch traffic data: ${err.message}`
+      note: 'Traffic data temporarily unavailable; fallback value written.'
     });
   } catch (_) {
     // ignore secondary error
