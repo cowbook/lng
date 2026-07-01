@@ -50,6 +50,16 @@
 }
 
 
+a.report-link{
+    width:90px;
+    border-radius: 4px;
+    background: var(--vp-c-indigo-3);
+    border: 1px solid #eaeaea;
+    padding: 0px 20px;
+    font-size: 14px;
+    color:var(--vp-c-white);
+}
+
 
 .cover{
     width:190px;
@@ -83,6 +93,7 @@
     font-size:12px;
     color:#666;
     line-height: 1.4;
+    flex-grow: 1;
 }
 
 .dark .lng-home .vp-doc.container p{
@@ -234,4 +245,18 @@
 .market-war-home .VPHomeHero {
     padding-top: 28px;
     padding-bottom: 12px;
+}
+
+.report-card {
+  display: flex;
+  align-items: stretch; /* 让左右两列在交叉轴等高 */
+  gap: 14px;
+}
+
+
+
+
+.report-content {
+  display: flex;
+  flex-direction: column;
 }

@@ -1,13 +1,13 @@
 ---
 layout: doc
 aside: left
-description: 使用 MinerU 识别并翻译的 Global Energy Review 2026 中文版。
+description: Global Energy Review 2026 中文版。
 ---
 
 # 全球能源回顾 2026（MinerU 中文翻译）
 
 - 原始 PDF: <https://iea.blob.core.windows.net/assets/ade8ff08-3401-4e0b-9b3b-e8f3988d238e/GlobalEnergyReview2026.pdf>
-- MinerU 识别源: `aiwork/mineru_global_energy_review_2026/GlobalEnergyReview2026/txt/GlobalEnergyReview2026.md`
+
 
 > 说明：本页先由 MinerU 进行 PDF 识别，再进行机器翻译。专业术语建议人工复核。
 
