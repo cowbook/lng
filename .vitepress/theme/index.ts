@@ -4,6 +4,7 @@ import './custom.css'
 import myLayout from './Layout.vue'
 import WechatDigestPanel from './components/WechatDigestPanel.vue'
 import GithubCounter from './components/GithubCounter.vue'
+import LocaleAdSlot from './components/LocaleAdSlot.vue'
 
 //export default DefaultTheme
 
@@ -15,5 +16,6 @@ export default {
         app.component('doc2',myLayout)
         app.component('WechatDigestPanel', WechatDigestPanel)
         app.component('GithubCounter', GithubCounter)
+                app.component('LocaleAdSlot', LocaleAdSlot)
       }
   }

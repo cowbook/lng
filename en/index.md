@@ -70,11 +70,12 @@ features:
 
   <article class="report-card report-ai"><img class="report-cover" src="https://www.datocms-assets.com/146580/1768468979-report-cover-2026.png" alt="The Role of Gas in Powering AI-Driven Energy Demand" /><div class="report-content"><a target="_blank" href="https://www.igu.org/igu-reports/the-role-of-gas-in-powering-ai-driven-energy-demand">📑 The Role of Gas in Powering AI-Driven Energy Demand</a><p>This report highlights that electricity demand growth is accelerating as data centres become the new “industrial load” of the AI economy, with their electricity consumption projected to double to 800-1000 TWh by 2030.</p><a target="_blank" href="https://www.igu.org/igu-reports/the-role-of-gas-in-powering-ai-driven-energy-demand">↓ Download</a></div></article>
 
-  <article class="report-card report-world"><img class="report-cover" src="/images/image_202507301502.png" alt="2025 LNG Report" /><div class="report-content"><a target="_blank" href="https://www.igu.org/igu-reports/2025-world-lng-report/">📑 2025 World LNG Report</a><p>Global LNG trade grew by 2.4% in 2024 to 410.12 million tonnes, connecting 22 export markets and 48 import markets. The Asia-Pacific region remained the largest exporter, with 138.91 million tonnes in 2024, up 4.1 million tonnes from 2023.</p><a target="_blank" href="https://www.datocms-assets.com/146580/1751026179-igu-world-lng-report-2025-hr_dp_c.pdf">↓ Download</a></div></article>
+  <article class="report-card report-world"><img class="report-cover" src="/images/igu2025.jpg" alt="2025 LNG Report" /><div class="report-content"><a target="_blank" href="https://www.igu.org/igu-reports/2025-world-lng-report/">📑 2025 World LNG Report</a><p>Global LNG trade grew by 2.4% in 2024 to 410.12 million tonnes, connecting 22 export markets and 48 import markets. The Asia-Pacific region remained the largest exporter, with 138.91 million tonnes in 2024, up 4.1 million tonnes from 2023.</p><a target="_blank" href="https://www.datocms-assets.com/146580/1751026179-igu-world-lng-report-2025-hr_dp_c.pdf">↓ Download</a></div></article>
 
   <article class="report-card report-china"><img class="report-cover cover-bordered" src="/images/home_2509011642.png" alt="China Natural Gas Development Report 2026" /><div class="report-content"><a target="_blank" href="./report/China2026">📑 China Natural Gas Development Report 2026</a><p>This report reviews global and China gas-market dynamics in 2025: global demand growth slowed to 1.6%, while China demand grew 1.9% and domestic output reached 262.1 bcm.</p><p>It also summarizes 14th Five-Year Plan progress in upstream, pipeline connectivity, storage, and market reform, and provides a 2026 outlook on demand, imports, and price volatility.</p><a target="_blank" href="/file/china_report_2026.pdf">↓ Download</a></div></article>
 
   <article class="report-card report-china"><img class="report-cover cover-bordered" src="/images/home_2509011642.png" alt="China gas report cover" /><div class="report-content"><a target="_blank" href="./report/China2025">📑 China Natural Gas Development Report 2025 (English)</a><p>In 2024, global natural gas consumption reached 4.13 trillion cubic meters, with the growth rate rising from 0.1% last year to 2.5%, mainly due to lower international gas prices, moderate global economic recovery, and extreme summer heat in the Northern Hemisphere.</p><a target="_blank" href="https://www.nea.gov.cn/20250829/a4e2deb9b6444df1a191b9d60c111ffd/20250829a4e2deb9b6444df1a191b9d60c111ffd_43ab87a785d1b64d49b9210dbc15d3781e.pdf">↓ Download</a></div></article>
+
 
 
 
@@ -91,6 +92,11 @@ See the live dashboard and curves at [Market](/en/market/).
 
 
 
+
+<LocaleAdSlot
+  locale="en"
+  title="Sponsored"
+/>
 
 
 

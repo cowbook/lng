@@ -70,6 +70,18 @@ npm run docs:preview
 
 工作流会优先使用 `GH_TRAFFIC_TOKEN` 拉取访问量；若缺失或失败，会自动写入 fallback 数据，不阻断 Pages 部署。
 
+## 双语广告位策略
+
+- 中文首页（`/`）: 使用 `LocaleAdSlot` 的中文模式，默认展示中国区广告位说明与占位提示，适合后续接入百度联盟/腾讯广告/行业赞助脚本。
+- 英文首页（`/en/`）: 使用 `LocaleAdSlot` 的英文模式，默认预留 Google AdSense 位置。
+
+英文广告位启用方式（构建环境变量）：
+
+- `VITE_ADSENSE_CLIENT`（示例：`ca-pub-xxxxxxxxxxxxxxxx`）
+- `VITE_ADSENSE_SLOT_HOME_EN`（示例：`1234567890`）
+
+未设置变量时，英文首页只显示占位说明，不会加载广告请求。
+
 ## 内容生产流水线
 
 统一模板入口（支持 `essay` 与 `report`）：

@@ -77,7 +77,7 @@ features:
 
   <article class="report-card report-ai"><img class="report-cover" src="https://www.datocms-assets.com/146580/1768468979-report-cover-2026.png" alt="The Role of Gas in Powering AI-Driven Energy Demand" /><div class="report-content"><a target="_blank"  class="report-title" href="https://www.igu.org/igu-reports/the-role-of-gas-in-powering-ai-driven-energy-demand">📑 气电助力AI能源需求</a><p>该报告指出，AI 经济驱动下数据中心正在成为新的“工业负荷”，其用电量预计到 2030 年将翻倍至 800-1000 TWh。尽管可再生能源预计可覆盖约一半数据中心用电，但其波动性与数据中心 24/7 平稳负荷并不匹配，系统仍需更多可调度电源能力。</p><p>报告强调长期能源规划应基于事实、透明且符合电力基础设施现实约束，并论证天然气在支撑 AI 驱动电力需求增长中的关键作用。</p><a target="_blank"  class="report-link" href="https://www.igu.org/igu-reports/ the-role-of-gas-in-powering-ai-driven-energy-demand">↓下载</a></div></article>
 
-  <article class="report-card report-world"><img class="report-cover" src="/images/image_202507301502.png" alt="2025 LNG Report" /><div class="report-content report-content-world"><a target="_blank"   class="report-title" href="https://www.igu.org/igu-reports/2025-world-lng-report/">📑 2025 World LNG Report</a><p>全球液化天然气（LNG）贸易在 2024 年增长了 2.4%，达到 4.1124 亿吨，连接了 22 个出口市场和 48 个进口市场。亚太地区仍是最大的出口区域，2024 年出口量为 1.3891 亿吨，比 2023 年增加了 410 万吨。</p><p>欧洲 LNG 进口大幅下降，同比减少 2122 万吨，降至 1.0007 亿吨，主要原因是年初高库存、需求疲软以及管道气供应稳定。然而，亚洲 LNG 需求回升，中国和印度现货 LNG 进口同比大幅增长，受热浪、基础设施扩建和发电对天然气依赖增强等因素推动。</p><a target="_blank"  class="report-link" href="https://www.datocms-assets.com/146580/1751026179-igu-world-lng-report-2025-hr_dp_c.pdf">↓下载</a></div></article>
+  <article class="report-card report-world"><img class="report-cover" src="/images/igu2025.jpg" alt="2025 LNG Report" /><div class="report-content report-content-world"><a target="_blank"   class="report-title" href="https://www.igu.org/igu-reports/2025-world-lng-report/">📑 2025 World LNG Report</a><p>全球液化天然气（LNG）贸易在 2024 年增长了 2.4%，达到 4.1124 亿吨，连接了 22 个出口市场和 48 个进口市场。亚太地区仍是最大的出口区域，2024 年出口量为 1.3891 亿吨，比 2023 年增加了 410 万吨。</p><p>欧洲 LNG 进口大幅下降，同比减少 2122 万吨，降至 1.0007 亿吨，主要原因是年初高库存、需求疲软以及管道气供应稳定。然而，亚洲 LNG 需求回升，中国和印度现货 LNG 进口同比大幅增长，受热浪、基础设施扩建和发电对天然气依赖增强等因素推动。</p><a target="_blank"  class="report-link" href="https://www.datocms-assets.com/146580/1751026179-igu-world-lng-report-2025-hr_dp_c.pdf">↓下载</a></div></article>
 
   
 
@@ -90,6 +90,11 @@ features:
 
 
 
+
+<LocaleAdSlot
+  locale="zh"
+  title="中文站广告位"
+/>
 
 
 <style>
