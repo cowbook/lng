@@ -422,3 +422,11 @@ git push origin main  # 自动触发GitHub Actions部署
   - `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8353954236306225`
 - 脚本属性为 `async` 与 `crossorigin="anonymous"`，确保全站页面 `<head>` 均注入该验证代码。
 - 已完成配置语法检查（无错误），可直接在 AdSense 页面点击 Verify 进行验证。
+
+### 2026-09-09（ads.txt）
+
+按用户确认继续完成 AdSense 基础接入：
+
+- 新增 `public/ads.txt`，内容为：`google.com, pub-8353954236306225, DIRECT, f08c47fec0942fa0`。
+- 该文件会发布为站点根路径 `/ads.txt`，用于通过 AdSense 对授权卖方的检测。
+- 本次仅提交 ads.txt 与 memory 日志，避免混入其它进行中的内容改动。
