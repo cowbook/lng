@@ -413,3 +413,12 @@ git push origin main  # 自动触发GitHub Actions部署
 - `npm run docs:build` 通过，死链问题已消除。
 
 
+
+### 2026-09-09
+
+按用户要求添加 AdSense 站点验证代码：
+
+- 在 `.vitepress/config.mts` 的全局 `head` 中新增 AdSense 脚本：
+  - `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8353954236306225`
+- 脚本属性为 `async` 与 `crossorigin="anonymous"`，确保全站页面 `<head>` 均注入该验证代码。
+- 已完成配置语法检查（无错误），可直接在 AdSense 页面点击 Verify 进行验证。
