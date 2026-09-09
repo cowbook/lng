@@ -430,3 +430,10 @@ git push origin main  # 自动触发GitHub Actions部署
 - 新增 `public/ads.txt`，内容为：`google.com, pub-8353954236306225, DIRECT, f08c47fec0942fa0`。
 - 该文件会发布为站点根路径 `/ads.txt`，用于通过 AdSense 对授权卖方的检测。
 - 本次仅提交 ads.txt 与 memory 日志，避免混入其它进行中的内容改动。
+
+### 2026-09-09（publish current workspace）
+
+按用户要求执行“提交代码并远程推送”，本次以当前工作区状态为准：
+
+- 包含首页广告位策略调整：移除中英文首页 `LocaleAdSlot` 组件渲染，切换为仅保留全站 head AdSense 脚本（Auto ads 路线）。
+- 同步提交当前工作区其余站点内容与数据文件变更，并统一推送到 `origin/main`。

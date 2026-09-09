@@ -64,6 +64,11 @@ features:
 
 <div class="report-grid">
 
+
+
+  <article class="report-card report-world"><img class="report-cover" src="https://www.datocms-assets.com/146580/1783403594-igu-annual-report-2026_front-cover.jpg" alt="2026 World LNG Report" /><div class="report-content report-content-world"><a target="_blank" class="report-title" href="report/1783403747-igu-world-lng-report-2026.pdf-2f81f1a9-0e03-4816-9bc5-9a38dbf24d51/full">📑 2026 世界 LNG 报告</a><p>2026 版 IGU《World LNG Report》显示，2025 年全球 LNG 贸易创下 4.37 亿吨纪录，同比增长 6.3%，为 2022 年以来最快增速；新 LNG 供应投资也升至六年来最高水平。</p><p>贸易增长主要由美国、卡塔尔及其他生产国的供应扩张推动，加拿大和毛里塔尼亚/塞内加尔则首次加入 LNG 出口国行列。</p><p>这份报告呈现出一个更成熟、更具韧性的 LNG 产业阶段，并说明其在全球能源安全、经济发展与减排中的作用仍在扩大。</p><a target="_blank" class="report-link" href="https://www.datocms-assets.com/146580/1783403747-igu-world-lng-report-2026.pdf">↓下载</a></div></article>
+  
+
  
   <article class="report-card report-china"><img class="report-cover cover-bordered" src="/images/home_2509011642.png" alt="中国天然气发展报告 2026" /><div class="report-content"><a target="_blank" class="report-title" href="./report/China2026">📑 中国天然气发展报告 2026</a><p>报告围绕 2025 年全球与中国天然气市场变化展开：全球消费增速放缓至 1.6%，中国消费同比增长 1.9%，国内产量达到 2621 亿立方米，展现出较强保供韧性。</p><p>同时系统回顾“十四五”阶段在增储上产、管网互联、储气能力和市场化改革方面的进展，并对 2026 年消费、进口结构与国际价格波动进行展望。</p><a target="_blank" class="report-link" href="/file/china_report_2026.pdf">↓下载</a></div></article>
 
@@ -73,6 +78,7 @@ features:
 
 
   <article class="report-card"><img class="report-cover cover-bordered" src="/images/report-covers/cover-iea-global-energy-review-2026.png" alt="Global Energy Review 2026" /><div class="report-content"><a target="_blank" class="report-title" href="./report/GlobalEnergyReview2026">📑 全球能源回顾 2026</a><p>IEA 的《Global Energy Review 2026》回顾了 2025 年全球能源体系的主要变化，覆盖各主要燃料、关键技术以及不同地区的能源趋势。</p><p>这份报告适合放在研究报告区首位，作为观察全球电力、油气、煤炭与低碳能源整体演进的年度总览，也能为 LNG 与天然气研究提供更高层级的宏观背景。</p><a target="_blank"  class="report-link" href="https://iea.blob.core.windows.net/assets/ade8ff08-3401-4e0b-9b3b-e8f3988d238e/GlobalEnergyReview2026.pdf">↓下载</a></div></article>
+
 
 
   <article class="report-card report-ai"><img class="report-cover" src="https://www.datocms-assets.com/146580/1768468979-report-cover-2026.png" alt="The Role of Gas in Powering AI-Driven Energy Demand" /><div class="report-content"><a target="_blank"  class="report-title" href="https://www.igu.org/igu-reports/the-role-of-gas-in-powering-ai-driven-energy-demand">📑 气电助力AI能源需求</a><p>该报告指出，AI 经济驱动下数据中心正在成为新的“工业负荷”，其用电量预计到 2030 年将翻倍至 800-1000 TWh。尽管可再生能源预计可覆盖约一半数据中心用电，但其波动性与数据中心 24/7 平稳负荷并不匹配，系统仍需更多可调度电源能力。</p><p>报告强调长期能源规划应基于事实、透明且符合电力基础设施现实约束，并论证天然气在支撑 AI 驱动电力需求增长中的关键作用。</p><a target="_blank"  class="report-link" href="https://www.igu.org/igu-reports/ the-role-of-gas-in-powering-ai-driven-energy-demand">↓下载</a></div></article>
@@ -89,12 +95,6 @@ features:
 
 
 
-
-
-<LocaleAdSlot
-  locale="zh"
-  title="中文站广告位"
-/>
 
 
 <style>

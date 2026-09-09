@@ -1,72 +1,84 @@
 {
-  "updatedAt": "2026-06-30T06:20:24.664Z",
+  "updatedAt": "2026-08-19T14:18:29.619Z",
   "news": [
     {
-      "title": "Physical Natural Gas Prices Pop as Peak Summer Heat Bakes Lower 48",
-      "link": "https://naturalgasintel.com/news/physical-natural-gas-prices-pop-as-peak-summer-heat-bakes-lower-48/",
-      "publishedAt": "2026-06-29",
+      "title": "EIA Lowers Henry Hub Gas Price Forecasts - Rigzone",
+      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQUmJVMnJ5UUxXU3E0Ykl3aTFUNm1hcTFvaWFSdXdnZG1FS3hNR01UdnNKZ1VCV08zUFRyMFQ2M1M1MVdaYmV3SzZoRmt1bl9VVWxYRXM5REhxNVBUVC1vdWpaanJNRV9WWUJpREozY0FxUzFhYTlUa2dvQWFaLWJ1c1pjS3RqY25jTnQ2Qk5jampqUndaM3hKS2FQYmYyQQ?oc=5",
+      "publishedAt": "2026-08-19",
+      "source": "Google News"
+    },
+    {
+      "title": "US Natgas Prices at Waha Hub in Texas in Negative Territory for Record 12th Day - EnergyNow.com",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOX0RsRnNuMV8teERHSlMxWFFzRncwS0RqaFA1cVRsQkluaWptUTA2VnpwNlBuV0YzaVpEWTZmaW5WMjBNZHRoSHFBNWMzalhERGNZcUx3NEN0S21VSWljVGdOa1hHU1VUbWhIMEl5WFhvRkJkcXhuVlVBcktQVm1YQUdrRGtUelNTQmxNSWdPUmxxWndJMUlPRXAzbklRNXVZOTUxYWh4VlRFZzEwTmRN?oc=5",
+      "publishedAt": "2026-08-19",
+      "source": "Google News"
+    },
+    {
+      "title": "US LNG Exports to Europe Decline as Asia Prices Surge - EnergyNow.com",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOLTEwa0duaFFia2doY00zNmg4MTdQOVdObHlvWEx0dnBiMjRDZkgxU0IyOFBqVmRKcmFVZ0p5cTBKSV9TWEwtbU1zckNlMHBmQnJGSURmU01vWjFwc1ZKcVFPOExfd3FLQWV5MFZOTE9DYmp4VXJJZlJDd3pHTExxSHAyZ0Z0YXZzTGMwNA?oc=5",
+      "publishedAt": "2026-08-19",
+      "source": "Google News"
+    },
+    {
+      "title": "PaxOcean completes repair and delivery of two LNG carriers within one week at its Batam yard - Energies Media",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBndVpOMVp5U1BKamN1Q3FjblpiZ3RFMzZlZnRsaDc1QU5rb2txZ2ViRFdLb0ZmdEluaUlSVDBKWV9nWGFMamRBSGl5X3lMYW81R2QxT1N6eFhUQUFIcVY5WFlmb1ZtcUwxZFhiLWdiOTR6UUpydFE?oc=5",
+      "publishedAt": "2026-08-19",
+      "source": "Google News"
+    },
+    {
+      "title": "LNG stocks in tankers off Europe’s coast are dwindling as heating season starts - oEnergetice.cz",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNX2lZR1Bic0ptTmlTTTM1cFZwY1lmNDBjUUt1d2lzV1hXOXA0WWplLUpmeE85bVd5d29QeEg5Vkc4bldKVEFXNmE1T0toa3hycUczTEYwX0ExbkxLRllPNlR0N2xpRzdGTUFYa2duOWVTLXk0TjBoakEyY25vVVBZRXdPYUdURFBnX1JGbWFYOWd0aHptUExVTzBPZVNkZ0pGZ0NlV3B3WmdLa2p1MmljMDhaYV9sX2c?oc=5",
+      "publishedAt": "2026-08-19",
+      "source": "Google News"
+    },
+    {
+      "title": "Feedgas Climbs at Corpus Christi Expansion as Final Train Nears First LNG",
+      "link": "https://naturalgasintel.com/news/feedgas-climbs-at-corpus-christi-expansion-as-final-train-nears-first-lng/",
+      "publishedAt": "2026-08-19",
       "source": "Natural Gas Intelligence"
     },
     {
-      "title": "Plump Supply Trumps Heat as August Natural Gas Futures Contract Debuts Meekly",
-      "link": "https://naturalgasintel.com/news/plump-supply-trumps-heat-as-august-natural-gas-futures-contract-debuts-meekly/",
-      "publishedAt": "2026-06-29",
+      "title": "Hotter Forecasts Help Natural Gas Futures Crack $2.80",
+      "link": "https://naturalgasintel.com/news/hotter-forecasts-help-natural-gas-futures-crack-280/",
+      "publishedAt": "2026-08-19",
       "source": "Natural Gas Intelligence"
     },
     {
-      "title": "Argentina LNG Gains Upstream Backing from Eni, XRG Deals",
-      "link": "https://naturalgasintel.com/news/argentina-lng-gains-upstream-backing-from-eni-xrg-deals/",
-      "publishedAt": "2026-06-29",
-      "source": "Natural Gas Intelligence"
-    },
-    {
-      "title": "Colombia Eyes Upstream Licensing Reversal, Fracking to Slow LNG Imports",
-      "link": "https://naturalgasintel.com/news/colombia-eyes-upstream-licensing-reversal-fracking-to-slow-lng-imports/",
-      "publishedAt": "2026-06-29",
-      "source": "Natural Gas Intelligence"
-    },
-    {
-      "title": "Matador’s San Mateo Tops 1 Bcf/d Natural Gas Processing in $752M Cardinal Deal",
-      "link": "https://naturalgasintel.com/news/matadors-san-mateo-tops-1-bcfd-natural-gas-processing-in-752m-cardinal-deal/",
-      "publishedAt": "2026-06-29",
-      "source": "Natural Gas Intelligence"
-    },
-    {
-      "title": "As Heat Wave Arrives, Natural Gas Futures Cool Off",
-      "link": "https://naturalgasintel.com/news/as-heat-wave-arrives-natural-gas-futures-cool-off/",
-      "publishedAt": "2026-06-29",
-      "source": "Natural Gas Intelligence"
-    },
-    {
-      "title": "Natural Gas Technicals Signal Market at Crossroads as August Nears Support",
-      "link": "https://naturalgasintel.com/news/natural-gas-technicals-signal-market-at-crossroads-as-august-nears-support/",
-      "publishedAt": "2026-06-29",
-      "source": "Natural Gas Intelligence"
-    },
-    {
-      "title": "CP2 LNG Feedgas Pipeline Permit Challenged in Louisiana Court",
-      "link": "https://naturalgasintel.com/news/cp2-lng-feedgas-pipeline-permit-challenged-in-louisiana-court/",
-      "publishedAt": "2026-06-29",
-      "source": "Natural Gas Intelligence"
-    },
-    {
-      "title": "Santos seals ten-year gas supply deal",
-      "link": "https://www.offshore-energy.biz/santos-seals-ten-year-gas-supply-deal/",
-      "publishedAt": "2026-06-29",
+      "title": "CoreMarine frees Argentina-bound FLNG for next job after eight-year Cameroon stint",
+      "link": "https://www.offshore-energy.biz/coremarine-frees-argentina-bound-flng-for-next-job-after-eight-year-cameroon-stint/",
+      "publishedAt": "2026-08-19",
       "source": "Offshore Energy"
     },
     {
-      "title": "Eni widens South American footprint with block trio linked to Argentina LNG",
-      "link": "https://www.offshore-energy.biz/eni-widens-south-american-footprint-with-block-trio-linked-to-argentina-lng/",
-      "publishedAt": "2026-06-29",
+      "title": "Lloyd’s Register assists with LNG carrier-to-FSU conversion for African gas project",
+      "link": "https://www.offshore-energy.biz/lloyds-register-assists-with-lng-carrier-to-fsu-conversion-for-african-gas-project/",
+      "publishedAt": "2026-08-19",
       "source": "Offshore Energy"
+    },
+    {
+      "title": "Physical Natural Gas Prices Pop as Far-Reaching Heat Dome Galvanizes Buyers - Natural Gas Intelligence",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQSFlESTBkeFRwX2xCZWhIb3ZLOVZBem5pN01uQmFwMlhhWGJlelF4aUlmN0trRU9UZmdPM0UxQndCTDJ0TGN5TDUtZ0xUTVFvYzBpU3FxeHlPMjFWZjNXVDRHeHN4aG84Nk4wYUF0ZW9CWUNkS1BBaFFObGljcjdfeHNnUUxrd2UxWDQzdlZoOG5VM3lNMzhQRnNJZFlxaUhYTngxeGxOSWNqazJZbnc?oc=5",
+      "publishedAt": "2026-08-18",
+      "source": "Google News"
     }
   ],
   "academic": [
     {
+      "title": "EU GAS MARKET UNDER A SANCTIONS BAN ON RUSSIAN LNG AND REGULATORY RISKS TO SUPPLIES FROM THE UNITED STATES AND QATAR",
+      "link": "https://doi.org/10.48137/26870703_2026_34_2_44",
+      "publishedAt": "2026-06-29",
+      "source": "OpenAlex"
+    },
+    {
       "title": "Enerji Güvenliğinde Sıvılaştırılmış Doğal Gaz (LNG)",
       "link": "https://doi.org/10.47129/bartiniibf.1782710",
       "publishedAt": "2026-05-31",
+      "source": "OpenAlex"
+    },
+    {
+      "title": "Evolución de los mercados europeo y español de gas natural en 2025 y primeros meses de 2026",
+      "link": "https://doi.org/10.32796/ice.2026.943.7982",
+      "publishedAt": "2026-05-20",
       "source": "OpenAlex"
     },
     {

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T06:20:24.666Z",
+  "updatedAt": "2026-08-19T14:18:55.651Z",
   "status": "ok",
   "options": {
     "only": [
@@ -25,7 +25,7 @@
     },
     "news": {
       "newsCount": 10,
-      "academicCount": 6,
+      "academicCount": 8,
       "usedNewsCache": false,
       "usedAcademicCache": false,
       "warnings": []

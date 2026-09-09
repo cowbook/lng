@@ -61,12 +61,18 @@ features:
 
 <div class="report-grid">
 
+
+  <article class="report-card report-world"><img class="report-cover" src="https://www.datocms-assets.com/146580/1783403594-igu-annual-report-2026_front-cover.jpg" alt="2026 World LNG Report" /><div class="report-content report-content-world"><a target="_blank" href="./report/WorldLNG2026">📑 2026 World LNG Report</a><p>The 2026 edition of the International Gas Union’s (IGU) World LNG Report shows record trade, near-record investment and a strong long-term growth outlook despite unprecedented market disruption.</p><p>The global liquefied natural gas (LNG) trade reached a record of 437 million tonnes in 2025, with a 6.3% increase – the strongest growth since 2022, while investment in new LNG supply surged to its highest level in six years.</p><a target="_blank" href="https://www.datocms-assets.com/146580/1783403747-igu-world-lng-report-2026.pdf">↓ Download</a></div></article>
+  
+
   <article class="report-card report-china"><img class="report-cover cover-bordered" src="/images/statistical_260701.png" alt="Statistical Review of World Energy 2025" /><div class="report-content"><a target="_blank" href="https://www.energyinst.org/statistical-review">📑 2026 Statistical Review of World Energy</a><p>Total energy supply (TES) exceeded 600 EJ in 2025, rising by 1.7% year on year. For the first time outside a recession, renewables became the largest source of TES growth, with solar contributing 71% of that increase. Fossil fuels still expanded in absolute terms and remained dominant at 86% of TES.</p><a target="_blank" href="/file/reports/Statistical-Review-of-World-Energy-PDF-Report.pdf">↓ Download</a></div></article>
 
 
 
 
   <article class="report-card"><img class="report-cover cover-bordered" src="/images/report-covers/cover-iea-global-energy-review-2026.png" alt="Global Energy Review 2026" /><div class="report-content"><a target="_blank" href="./report/GlobalEnergyReview2026">📑 Global Energy Review 2026</a><p>The IEA's Global Energy Review 2026 assesses the trends that took place in 2025 across the energy sector worldwide, covering major fuels, technologies, and regions.</p><a target="_blank" href="https://iea.blob.core.windows.net/assets/ade8ff08-3401-4e0b-9b3b-e8f3988d238e/GlobalEnergyReview2026.pdf">↓ Download</a></div></article>
+
+
 
   <article class="report-card report-ai"><img class="report-cover" src="https://www.datocms-assets.com/146580/1768468979-report-cover-2026.png" alt="The Role of Gas in Powering AI-Driven Energy Demand" /><div class="report-content"><a target="_blank" href="https://www.igu.org/igu-reports/the-role-of-gas-in-powering-ai-driven-energy-demand">📑 The Role of Gas in Powering AI-Driven Energy Demand</a><p>This report highlights that electricity demand growth is accelerating as data centres become the new “industrial load” of the AI economy, with their electricity consumption projected to double to 800-1000 TWh by 2030.</p><a target="_blank" href="https://www.igu.org/igu-reports/the-role-of-gas-in-powering-ai-driven-energy-demand">↓ Download</a></div></article>
 
@@ -93,10 +99,7 @@ See the live dashboard and curves at [Market](/en/market/).
 
 
 
-<LocaleAdSlot
-  locale="en"
-  title="Sponsored"
-/>
+
 
 
 
