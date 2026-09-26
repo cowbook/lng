@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -16,6 +16,11 @@ const props = withDefaults(
 )
 
 const isReady = ref(false)
+const isDisabled = ref(false)
+const disableReason = ref('')
+const adBodyRef = ref<HTMLElement | null>(null)
+const hasStartedLoad = ref(false)
+let viewportObserver: IntersectionObserver | null = null
 
 const isEnglish = computed(() => props.locale === 'en')
 const blockTitle = computed(() => {
@@ -27,17 +32,96 @@ const enClient = computed(() => props.adsenseClient || import.meta.env.VITE_ADSE
 const enSlot = computed(() => props.adsenseSlot || import.meta.env.VITE_ADSENSE_SLOT_HOME_EN || '')
 const canRenderAdsense = computed(() => Boolean(enClient.value && enSlot.value))
 
-function ensureAdsenseScript(client: string) {
-  if (typeof window === 'undefined') return
-  const marker = `adsense-${client}`
-  if (document.querySelector(`script[data-ad-marker="${marker}"]`)) return
+function isLikelyMainlandUser() {
+  if (typeof window === 'undefined') return false
 
-  const script = document.createElement('script')
-  script.async = true
-  script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${client}`
-  script.crossOrigin = 'anonymous'
-  script.setAttribute('data-ad-marker', marker)
-  document.head.appendChild(script)
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''
+  const inChinaTimezone = /^(Asia\/(Shanghai|Chongqing|Harbin|Urumqi))$/.test(tz)
+
+  const langs = [navigator.language, ...(navigator.languages || [])]
+    .filter(Boolean)
+    .map((item) => item.toLowerCase())
+  const hasMainlandZh = langs.some((lang) => lang === 'zh-cn' || lang === 'zh-hans-cn')
+
+  return inChinaTimezone && hasMainlandZh
+}
+
+async function canReachAdsense(timeoutMs = 1200) {
+  if (typeof window === 'undefined') return false
+  if (!('fetch' in window) || !('AbortController' in window)) return true
+
+  const controller = new AbortController()
+  const timeoutId = window.setTimeout(() => controller.abort(), timeoutMs)
+
+  try {
+    // Fast connectivity probe: if this fails quickly, skip AdSense script loading.
+    await fetch('https://pagead2.googlesyndication.com/favicon.ico', {
+      method: 'GET',
+      mode: 'no-cors',
+      cache: 'no-store',
+      signal: controller.signal
+    })
+    return true
+  } catch (_) {
+    return false
+  } finally {
+    window.clearTimeout(timeoutId)
+  }
+}
+
+function ensureAdsenseScript(client: string, timeoutMs = 1500) {
+  if (typeof window === 'undefined') return Promise.resolve(false)
+  const marker = `adsense-${client}`
+  const existing = document.querySelector(`script[data-ad-marker="${marker}"]`) as HTMLScriptElement | null
+  if (existing) {
+    const loaded = existing.getAttribute('data-loaded') === 'true'
+    return Promise.resolve(loaded || Boolean((window as any).adsbygoogle))
+  }
+
+  return new Promise<boolean>((resolve) => {
+    const script = document.createElement('script')
+    script.async = true
+    script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${client}`
+    script.crossOrigin = 'anonymous'
+    script.setAttribute('data-ad-marker', marker)
+
+    let done = false
+    const finish = (ok: boolean) => {
+      if (done) return
+      done = true
+      if (ok) {
+        script.setAttribute('data-loaded', 'true')
+      }
+      resolve(ok)
+    }
+
+    const timer = window.setTimeout(() => finish(false), timeoutMs)
+    script.onload = () => {
+      window.clearTimeout(timer)
+      finish(true)
+    }
+    script.onerror = () => {
+      window.clearTimeout(timer)
+      finish(false)
+    }
+
+    document.head.appendChild(script)
+  })
+}
+
+function scheduleAdLoad(task: () => Promise<void>) {
+  if (typeof window === 'undefined') return
+
+  if ('requestIdleCallback' in window) {
+    ;(window as any).requestIdleCallback(() => {
+      void task()
+    }, { timeout: 1200 })
+    return
+  }
+
+  window.setTimeout(() => {
+    void task()
+  }, 120)
 }
 
 onMounted(() => {
@@ -45,15 +129,62 @@ onMounted(() => {
     return
   }
 
-  ensureAdsenseScript(enClient.value)
+  const startLoad = () => {
+    if (hasStartedLoad.value) return
+    hasStartedLoad.value = true
 
-  try {
-    ;(window as any).adsbygoogle = (window as any).adsbygoogle || []
-    ;(window as any).adsbygoogle.push({})
-    isReady.value = true
-  } catch (_) {
-    isReady.value = false
+    scheduleAdLoad(async () => {
+    if (isLikelyMainlandUser()) {
+      const canReach = await canReachAdsense()
+      if (!canReach) {
+        isDisabled.value = true
+        disableReason.value = 'unreachable'
+        return
+      }
+    }
+
+    const loaded = await ensureAdsenseScript(enClient.value)
+    if (!loaded) {
+      isDisabled.value = true
+      disableReason.value = 'unreachable'
+      return
+    }
+
+    try {
+      ;(window as any).adsbygoogle = (window as any).adsbygoogle || []
+      ;(window as any).adsbygoogle.push({})
+      isReady.value = true
+    } catch (_) {
+      isReady.value = false
+      isDisabled.value = true
+      disableReason.value = 'unreachable'
+    }
+    })
   }
+
+  if (!('IntersectionObserver' in window) || !adBodyRef.value) {
+    startLoad()
+    return
+  }
+
+  viewportObserver = new IntersectionObserver((entries) => {
+    if (entries.some((entry) => entry.isIntersecting)) {
+      viewportObserver?.disconnect()
+      viewportObserver = null
+      startLoad()
+    }
+  }, {
+    root: null,
+    rootMargin: '240px 0px',
+    threshold: 0
+  })
+
+  viewportObserver.observe(adBodyRef.value)
+})
+
+onBeforeUnmount(() => {
+  viewportObserver?.disconnect()
+  viewportObserver = null
 })
 </script>
 
@@ -65,7 +196,7 @@ onMounted(() => {
       <span v-else>面向中国区读者</span>
     </div>
 
-    <div v-if="isEnglish" class="locale-ad-body">
+    <div v-if="isEnglish" ref="adBodyRef" class="locale-ad-body">
       <ins
         v-if="canRenderAdsense"
         class="adsbygoogle locale-adsense"
@@ -78,8 +209,11 @@ onMounted(() => {
       <p v-else class="locale-ad-note">
         AdSense slot reserved. Set <code>VITE_ADSENSE_CLIENT</code> and <code>VITE_ADSENSE_SLOT_HOME_EN</code> to enable.
       </p>
-      <p v-if="canRenderAdsense && !isReady" class="locale-ad-note">
+      <p v-if="canRenderAdsense && !isReady && !isDisabled" class="locale-ad-note">
         Ad is loading and may take a few seconds to render.
+      </p>
+      <p v-if="isDisabled && disableReason === 'unreachable'" class="locale-ad-note">
+        AdSense endpoint is unreachable in your network, so this ad slot is disabled for faster page loading.
       </p>
     </div>
 

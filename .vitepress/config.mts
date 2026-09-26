@@ -154,7 +154,7 @@ export default defineConfig({
       { text: '文章资讯', link: '/article/' },*/
       { text:'论文集',link:'/essay/'},
       { text: 'LNG贸易形势', link: '/trade/' },
-      { text: '基础手册', link: '/basis/lng' },
+      { text: '基础手册', link: '/basis/' },
       { text: 'LNG接收站', link: '/terminal' }
     ],
     //aside:"left",
@@ -270,42 +270,59 @@ export default defineConfig({
 
       "/basis/":[
         {
-          text:"基础手册",
-
-          items:[
-            { text: '1 LNG', link: '/basis/lng' ,
-                items:[
-                  {text:'1.1 质量标准', link:'/basis/lng-2'},
-                  {text:'1.2 单位换算' ,link:'/basis/lng-1'}
-                ]
-
-             },
-
-            { text: '2 国际贸易', link: '/basis/trade',items:[
-
-              { text: '2.1 发展趋势', link: '/basis/trade2024' },
-              { text: '2.2 发展历史', link: '/basis/history' },
-              { text: '2.3 贸易类型' , link:'/basis/types'}
-            ] },
-
-            { text: '3 LNG产业链', link: '/basis/lng-industry' ,items:[
-              { text: '3.1 上游', link: '/basis/upstream' },
-              { text: '3.2 中游', link: '/basis/midstream' },
-              { text: '3.3 下游' , link:'/basis/downstream'}
-            ]},
-         
-            { text: '4 主要玩家', items:[
-              { text: '卡塔尔', link: '/basis/player/qatar' },
-              { text: 'ADNOC', link: '/basis/player/adnoc' },
-              { text: '美国', link: '/basis/player/us' }
-
-
-            ]}
-
-        
-
+          text: '国际 LNG 交易员基础手册',
+          link: '/basis/',
+          items: [
+            { text: '学习路线与能力目标', link: '/basis/' },
+            {
+              text: '1 货物、计量与产业链',
+              collapsed: false,
+              items: [
+                { text: '1.1 LNG 物性与基础概念', link: '/basis/lng' },
+                { text: '1.2 气质与质量标准', link: '/basis/lng-2' },
+                { text: '1.3 单位与热值换算', link: '/basis/lng-1' },
+                { text: '1.4 产业链与交易约束', link: '/basis/lng-industry' }
+              ]
+            },
+            {
+              text: '2 全球市场与参与者',
+              link: '/basis/market-analysis',
+              collapsed: true,
+              items: [
+                { text: '2.1 供需与中国交易视角', link: '/basis/market-analysis' },
+                { text: '2.2 长协、现货与贸易类型', link: '/basis/types' },
+                { text: '2.3 卡塔尔', link: '/basis/player/qatar' },
+                { text: '2.4 ADNOC', link: '/basis/player/adnoc' },
+                { text: '2.5 美国', link: '/basis/player/us' }
+              ]
+            },
+            { text: '3 定价与中国进口成本', link: '/basis/pricing' },
+            {
+              text: '4 合同与商业条款',
+              link: '/basis/contracts',
+              collapsed: true,
+              items: [
+                { text: '4.1 SPA、交付与信用条款', link: '/basis/contracts' },
+                { text: '4.2 长期合同背景阅读', link: '/basis/LongTerm' }
+              ]
+            },
+            { text: '5 船货执行与能量交接', link: '/basis/cargo-operations' },
+            { text: '6 中国进口与国内交付', link: '/basis/china-market' },
+            { text: '7 风险管理与套期保值', link: '/basis/risk-management' },
+            { text: '8 模拟交易与实战训练', link: '/basis/trading-practice' }
           ]
-
+        },
+        {
+          text: '资料与延伸阅读',
+          collapsed: true,
+          items: [
+            { text: '权威资料与英文术语', link: '/basis/sources' },
+            { text: '贸易统计（2023 年口径）', link: '/basis/trade' },
+            { text: '贸易形势（历史专题）', link: '/basis/trade2024' },
+            { text: 'LNG 发展历史', link: '/basis/history' },
+            { text: '中国 LNG 接收站资料', link: '/terminal/' },
+            { text: '市场信息与行情', link: '/market/' }
+          ]
         }
       ]
 
