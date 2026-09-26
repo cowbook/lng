@@ -121,7 +121,7 @@ export default defineConfig({
   },
   head: [
       ['link', { rel: 'icon', href: '/lng.ico'}],
-      ['script', { async: '', src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8353954236306225', crossorigin: 'anonymous' }],
+      ['meta', { name: 'google-adsense-account', content: 'ca-pub-8353954236306225' }],
   ], // 加上 /vite-press-demo 前缀
   themeConfig: {
       outline: [2, 4], // 新增这一行，表示显示 h2~h6 级标题
